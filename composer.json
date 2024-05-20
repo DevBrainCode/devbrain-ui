@@ -18,7 +18,7 @@
 		}
 	],
     "require": {
-        "symfony/twig-bundle": "^7.0",
+        "symfony/twig-bundle": "6.4.*",
         "symfony/webpack-encore-bundle": "^2.1"
     }
 }

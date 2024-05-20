@@ -2,6 +2,8 @@
     "name": "devbraincode/devbrain-ui",
     "description": "UI Bundle for Symfony",
     "type": "symfony-bundle",
+    "homepage": "https://devbrain.fr",
+    "license": "MIT",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
     "autoload": {

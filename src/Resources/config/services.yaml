@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Devbrain\UI\:
+        resource: '../../'
+        exclude:
+            - '../../DependencyInjection/'
+            - '../../Resources/'

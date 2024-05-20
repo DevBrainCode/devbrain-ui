@@ -1,0 +1,22 @@
+{
+    "name": "devbraincode/devbrain-ui",
+    "description": "UI Bundle for Symfony",
+    "type": "symfony-bundle",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Devbrain\\UI\\": "src/"
+        }
+    },
+	"authors": [
+		{
+			"name": "Project Contributors",
+			"homepage": "https://github.com/devbraincode/devbrain-ui/graphs/contributors"
+		}
+	],
+    "require": {
+        "symfony/twig-bundle": "^7.0",
+        "symfony/webpack-encore-bundle": "^2.1"
+    }
+}

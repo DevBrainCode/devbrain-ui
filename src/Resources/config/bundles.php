@@ -1,5 +1,5 @@
 <?php
 
 return [
-    Devbrain\UI\DevbrainUiBundle::class => ['all' => true],
+    Devbrain\Ui\DevbrainUiBundle::class => ['all' => true],
 ];

@@ -1,9 +1,9 @@
 <?php 
-namespace Devbrain\UI;
+namespace Devbrain\Ui;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Devbrain\UI\DependencyInjection\Configuration;
+use Devbrain\Ui\DependencyInjection\Configuration;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class DevbrainUiBundle extends Bundle 

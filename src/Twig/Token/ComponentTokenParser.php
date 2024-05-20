@@ -1,8 +1,8 @@
 <?php 
-namespace Devbrain\UI\Twig\Token;
+namespace Devbrain\Ui\Twig\Token;
 
 use Twig\Token;
-use Devbrain\UI\Twig\Node\ComponentNode;
+use Devbrain\Ui\Twig\Node\ComponentNode;
 use Twig\TokenParser\AbstractTokenParser;
 
 class ComponentTokenParser extends AbstractTokenParser

@@ -1,5 +1,5 @@
 <?php
-namespace Devbrain\UI\Twig\Runtime;
+namespace Devbrain\Ui\Twig\Runtime;
 
 use Twig\Environment;
 use Twig\Extension\RuntimeExtensionInterface;

@@ -1,5 +1,5 @@
 <?php 
-namespace Devbrain\UI\Twig\Node;
+namespace Devbrain\Ui\Twig\Node;
 
 use Twig\Compiler;
 use Twig\Node\Node;

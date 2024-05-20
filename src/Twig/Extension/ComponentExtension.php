@@ -1,10 +1,10 @@
 <?php
-namespace Devbrain\UI\Twig\Extension;
+namespace Devbrain\Ui\Twig\Extension;
 
 use Twig\TwigFunction;
 use Twig\Extension\AbstractExtension;
-use Devbrain\UI\Twig\Runtime\ComponentRuntime;
-use Devbrain\UI\Twig\Token\ComponentTokenParser;
+use Devbrain\Ui\Twig\Runtime\ComponentRuntime;
+use Devbrain\Ui\Twig\Token\ComponentTokenParser;
 
 class ComponentExtension extends AbstractExtension
 {

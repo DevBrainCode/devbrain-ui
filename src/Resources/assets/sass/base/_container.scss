@@ -1,0 +1,41 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Define the wrapper.
+// *
+// ************************************************************************** //
+// *
+// *    <div class="container">...</div>
+// *    <div class="container-fluid">...</div>
+// *    <div class="container-sm">...</div>
+// *    <div class="container-md">...</div>
+// *    <div class="container-lg">...</div>
+// *    <div class="container-xl">...</div>
+// *    <div class="container-xxl">...</div>
+// *    <div class="container-xxxl">...</div>
+// *
+// ************************************************************************** //
+
+// @use './../abstracts/variables/utilities';
+
+.container,
+.container-fluid {
+    width: 100%;
+    padding-right: map-get($spacers, 3);
+    padding-left: map-get($spacers, 3);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@each $key, $breakpoint in $breakpoints {
+    .container-#{$key} {
+        width: map-get($containers, $key);
+    }
+}
+
+@each $key, $breakpoint in $breakpoints {
+    @media (min-width: #{$breakpoint}) {
+        .container {
+            max-width: map-get($containers, $key);
+        }
+    }
+}

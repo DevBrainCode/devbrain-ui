@@ -1,0 +1,21 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Components: Button
+// *
+// ************************************************************************** //
+
+@use 'variables' as var;
+@use './../../abstracts/mixins/corner';
+
+.button {
+    @include corner.rounded(6px);
+}
+
+
+[rel=js-button] {
+    transition: background-color map-get($delays, 'normal');
+
+    &.active {
+        background-color: chocolate;
+    }
+}

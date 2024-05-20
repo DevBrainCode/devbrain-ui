@@ -1,0 +1,27 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Components: Announcement Themes
+// *
+// ************************************************************************** //
+
+@use '/assets/sass/themes/dark/pallet' as dark-pallet;
+@use '/assets/sass/themes/light/pallet' as light-pallet;
+@use '/assets/sass/abstracts/variables/colors' as colors;
+
+
+/// Theme: Light
+/// =============================================
+/// 
+$light: (
+    'announcement--text-color': light-pallet.$text-secondary-color,
+    'announcement--background-color': colors.$pumpkin,
+);
+
+
+/// Theme: Dark
+/// =============================================
+/// 
+$dark: (
+    'announcement--text-color': dark-pallet.$text-primary-color,
+    'announcement--background-color': colors.$persian-red,
+);

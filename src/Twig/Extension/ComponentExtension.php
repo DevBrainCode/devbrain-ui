@@ -12,8 +12,8 @@ class ComponentExtension extends AbstractExtension
     {
         return [
             new TwigFunction('component', [ComponentRuntime::class, 'render'], ['is_safe' => ['html']]),
-            // new TwigFunction('add_attribute', [ComponentRuntime::class, 'addAttribute']),
-            // new TwigFunction('get_attributes', [ComponentRuntime::class, 'getAttributes'], ['is_safe' => ['html']]),
+            new TwigFunction('add_attribute', [ComponentRuntime::class, 'addAttribute']),
+            new TwigFunction('get_attributes', [ComponentRuntime::class, 'getAttributes'], ['is_safe' => ['html']]),
         ];
     }
 

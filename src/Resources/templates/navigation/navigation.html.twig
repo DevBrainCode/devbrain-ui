@@ -1,0 +1,46 @@
+{# --------------- DevBrain Component : Navigation - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+
+
+{# --------------- DevBrain Component : Navigation - Content ---------------- #}
+{# -------------------------------------------------------------------------- #}
+<nav class="navigation">
+    <div class="container-fluid">
+
+        {# Brand Link #}
+        {% component 'brand' version 'text' %}
+
+        <button class="navigation-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navigation-collapse" id="navbarSupportedContent">
+            <ul class="menu m-auto">
+                <li class="menu-item"><a class="menu-link active" aria-current="page" href="#">Home</a></li>
+                <li class="menu-item"><a class="menu-link" href="#">Link</a></li>
+                <li class="menu-item"><a class="menu-link disabled" aria-disabled="true">Disabled</a></li>
+                {# <li class="menu-item dropdown">
+                    <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li> #}
+            </ul>
+
+            {# Search bar #}
+            {% component 'searchbar' %}
+            
+        </div>
+        
+    </div>
+</nav>

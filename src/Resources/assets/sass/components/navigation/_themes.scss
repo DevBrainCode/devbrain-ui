@@ -1,0 +1,24 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Components: Navigation Themes
+// *
+// ************************************************************************** //
+
+@use '/assets/sass/themes/dark/pallet' as dark-pallet;
+@use '/assets/sass/themes/light/pallet' as light-pallet;
+
+
+/// Theme: Light
+/// =============================================
+/// 
+$light: (
+    'navbar--text-color': light-pallet.$text-primary-color,
+);
+
+
+/// Theme: Dark
+/// =============================================
+/// 
+$dark: (
+    'navbar--text-color': dark-pallet.$text-primary-color,
+);

@@ -1,0 +1,30 @@
+// **************************** Livetunes Studio **************************** //
+// *                                                                        * //
+// * Some functions about "collection" object.                              * //
+// *                                                                        * //
+// * How to import "collection"                                             * //
+// *  @use 'abstracts/functions/collection' as collection                   * //
+// *                                                                        * //
+// ************************************************************************** //
+
+/// Merge list
+/// =============================================
+/// 
+/// @example 
+///   collection.merge($collection1, $collection2); 
+/// 
+/// @param {list} $collections
+///   List of collections you need to merge
+/// @return {list}
+///   The new collection
+/// 
+@function merge($collections...) 
+{
+  $result: ();
+
+  @each $collection in $collections {
+    $result: map-merge($result, $collection);
+  }
+
+  @return $result;
+}

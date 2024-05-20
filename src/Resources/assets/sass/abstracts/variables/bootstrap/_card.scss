@@ -1,0 +1,37 @@
+// ***************************** DevBrain Theme ***************************** //
+// *                                                                        * //
+// * Override Bootstrap Cards variables.                                    * //
+// *                                                                        * //
+// ************************************************************************** //
+
+/// Cards
+/// =============================================
+///
+
+
+
+
+// $border-radius: 10px;
+
+
+
+
+// $card-spacer-y:                     $spacer;
+// $card-spacer-x:                     $spacer;
+// $card-title-spacer-y:               $spacer * .5;
+
+// $card-border-width:                 $border-width;
+// $card-border-color:                 rgba($black, .125);
+$card-border-radius:                   10px;//$border-radius;
+
+// $card-box-shadow:                   null;
+// $card-inner-border-radius:          subtract($card-border-radius, $card-border-width);
+// $card-cap-padding-y:                $card-spacer-y * .5;
+// $card-cap-padding-x:                $card-spacer-x;
+// $card-cap-bg:                       rgba($black, .03);
+// $card-cap-color:                    null;
+// $card-height:                       null;
+// $card-color:                        colors.$white;
+$card-bg:                           transparent;
+// $card-img-overlay-padding:          $spacer;
+// $card-group-margin:                 $grid-gutter-width * .5;

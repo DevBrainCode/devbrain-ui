@@ -1,0 +1,43 @@
+// ***************************** DevBrain Theme ***************************** //
+// *                                                                        * //
+// * Override Bootstrap Typography variables.                               * //
+// *                                                                        * //
+// ************************************************************************** //
+
+/// Typography
+/// =============================================
+///
+$font-size-base  : 1rem;
+$line-height-base: 1.15;
+
+
+
+$small-font-size  : .875em;
+$sub-sup-font-size: .75em;
+
+
+
+/// Lead Text
+/// 
+$lead-font-size:              $font-size-base * 1.25;
+$lead-font-weight:            300;
+
+
+// $blockquote-margin-y:         $spacer;
+// $blockquote-font-size:        $font-size-base * 1.25;
+// $blockquote-footer-color:     $gray-600;
+// $blockquote-footer-font-size: $small-font-size;
+
+// $vr-border-width:             var(--#{$prefix}border-width);
+
+// $legend-margin-bottom:        .5rem;
+// $legend-font-size:            1.5rem;
+// $legend-font-weight:          null;
+
+// $dt-font-weight:              $font-weight-bold;
+
+// $list-inline-padding:         .5rem;
+
+// $mark-padding:                .1875em;
+// $mark-color:                  $body-color;
+// $mark-bg:                     $yellow-100;

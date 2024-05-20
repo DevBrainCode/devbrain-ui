@@ -1,0 +1,16 @@
+// **************************** Livetunes Studio **************************** //
+// *                                                                        * //
+// * Font name: Digital 7                                                   * //
+// * Source: Local                                                          * //
+// *                                                                        * //
+// * How to use                                                             * //
+// *  font-family: $font--digital-7;                                             * //
+// *                                                                        * //
+// ************************************************************************** //
+
+@font-face{
+    font-family:'digital-7';
+    src: url('./../../../../fonts/digital-7.ttf');
+}
+
+$font--digital-7: 'digital-7';

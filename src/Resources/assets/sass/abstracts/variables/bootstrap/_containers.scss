@@ -1,0 +1,10 @@
+// ***************************** DevBrain Theme ***************************** //
+// *                                                                        * //
+// * Containers sizes variables.                                            * //
+// *                                                                        * //
+// ************************************************************************** //
+
+@use '/assets/sass/abstracts/variables/utilities' as utilities;
+
+
+$container-max-widths: utilities.$containers;

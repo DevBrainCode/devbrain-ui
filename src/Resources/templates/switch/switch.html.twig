@@ -1,0 +1,36 @@
+{# ----------------- DevBrain Component : Switch - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _label = label|default(false) %}
+{% set _checked = checked|default(false) %}
+{% set _eventHandler = eventHandler|default(false) %}
+
+
+
+{# ------------------- DevBrain Component : Switch - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Button class #}
+{% if _attr.class is not defined %}
+{% set _attr = _attr|merge({class: ''}) %}{% endif %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' switch') %}
+
+{# Has event handler #}
+{% set _attr = _eventHandler ? add_attribute(_attr, 'rel', "js-switch") : _attr %}
+
+{# Is checked #}
+{% set input_attr = {} %}
+{% set input_attr = _checked ? add_attribute(input_attr, 'checked', "checked") : input_attr %}
+{% set input_attr = add_attribute(input_attr, 'aria-checked', _checked ? 'true' : 'false') %}
+
+
+
+{# ----------------- DevBrain Component : Switch - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<label {{ get_attributes(_attr) }}>
+    <input class="switch-input" type="checkbox" role="switch" {{ get_attributes(input_attr) }}>
+    <div class="switch-slider"></div>
+    {% if _label %}<span class="switch-label">{{ _label }}</span>{% endif %}
+</label>

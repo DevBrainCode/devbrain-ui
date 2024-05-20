@@ -1,0 +1,37 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Components: Switch Themes
+// *
+// ************************************************************************** //
+
+@use '/assets/sass/themes/dark/pallet' as dark-pallet;
+@use '/assets/sass/themes/light/pallet' as light-pallet;
+@use '/assets/sass/abstracts/variables/colors';
+
+
+/// Theme: Light
+/// =============================================
+/// 
+$light: (
+    'switch-slider-off--border-color'    : colors.$gray-400,
+    'switch-slider-off--indicator-color' : colors.$gray-400,
+    'switch-slider-off--background-color': colors.$white,
+
+    'switch-slider-on--border-color'     : colors.$robin-egg-blue,
+    'switch-slider-on--indicator-color'  : colors.$white,
+    'switch-slider-on--background-color' : colors.$robin-egg-blue,
+);
+
+
+/// Theme: Dark
+/// =============================================
+/// 
+$dark: (
+    'switch-slider-off--border-color'    : colors.$gray-400,
+    'switch-slider-off--indicator-color' : colors.$gray-400,
+    'switch-slider-off--background-color': colors.$black,
+    
+    'switch-slider-on--border-color'     : colors.$green,
+    'switch-slider-on--indicator-color'  : colors.$black,
+    'switch-slider-on--background-color' : colors.$green,
+);

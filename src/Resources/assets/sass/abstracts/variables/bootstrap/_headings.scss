@@ -1,0 +1,27 @@
+// ***************************** DevBrain Theme ***************************** //
+// *                                                                        * //
+// * Override Bootstrap Headings variables.                                 * //
+// *                                                                        * //
+// ************************************************************************** //
+
+@use '/assets/sass/abstracts/variables/utilities';
+
+
+/// Headings
+/// =============================================
+///
+$headings-margin-bottom:      map-get(utilities.$spacers, 2);
+$headings-font-family:        Poppins; //null;
+$headings-font-style:         null;
+$headings-font-weight:        700; //500;
+$headings-line-height:        1.33; //1.2;
+$headings-color:              inherit;
+
+
+// $hr-margin-y:                 $spacer;
+// $hr-color:                    inherit;
+
+
+// $hr-border-color:             null; // Allows for inherited colors
+// $hr-border-width:             var(--#{$prefix}border-width);
+// $hr-opacity:                  .25;

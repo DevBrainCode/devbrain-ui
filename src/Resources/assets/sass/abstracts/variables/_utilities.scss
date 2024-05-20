@@ -1,0 +1,91 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Utilities variables.
+// *
+// ************************************************************************** //
+
+
+/// Breakpoints
+/// =============================================
+///
+
+$breakpoints: (
+    xs  : 0,
+    sm  : 576px,    // Small devices (landscape phones, 576px and up)
+    md  : 768px,    // Medium devices (tablets, 768px and up)
+    lg  : 992px,    // Large devices (desktops, 992px and up)
+    xl  : 1200px,   // X-Large devices (large desktops, 1200px and up)
+    xxl : 1400px,   // XX-Large devices (larger desktops, 1400px and up)
+    xxxl: 1600px,   // XXX-Large devices (larger desktops, 1600px and up)
+) !default;
+
+
+/// Containers
+/// =============================================
+///
+
+$containers: (
+    sm  : 540px,
+    md  : 720px,
+    lg  : 960px,
+    xl  : 1140px,
+    xxl : 1440px,
+    xxxl: 1520px,
+);
+
+
+/// Delays
+/// =============================================
+/// 
+
+$delay: 1s !default;
+$delays: (
+    default: $delay,
+    slow   : $delay * 0.8,
+    normal : $delay * 0.3,
+    fast   : $delay * 0.1,
+    none   : 0,
+);
+
+
+/// Grid
+/// =============================================
+///
+$grid-columns: 12 !default;
+
+
+/// Typography
+/// =============================================
+///
+$heading-font-size-base: 2.5rem;
+$font-size-base        : 1rem;
+$line-height-base      : 1.15;
+
+
+/// Sides
+/// =============================================
+///
+
+$sides: (
+    t: top,
+    r: right,
+    b: bottom,
+    l: left,
+);
+
+
+/// Spacers
+/// =============================================
+///
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  auto: auto,
+);

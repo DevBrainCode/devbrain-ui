@@ -1,0 +1,29 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Components: Search bar Themes
+// *
+// ************************************************************************** //
+
+@use '/assets/sass/themes/dark/pallet' as dark-pallet;
+@use '/assets/sass/themes/light/pallet' as light-pallet;
+@use '/assets/sass/abstracts/variables/colors';
+
+
+/// Theme: Light
+/// =============================================
+/// 
+$light: (
+    'searchbar--color'            : colors.$black,
+    'searchbar--placeholder-color': colors.$gray-700,
+    'searchbar--background-color' : colors.$gray-300,
+);
+
+
+    /// Theme: Dark
+    /// =============================================
+    /// 
+$dark: (
+    'searchbar--color'            : colors.$white,
+    'searchbar--placeholder-color': colors.$gray-300,
+    'searchbar--background-color' : colors.$gray-700,
+);

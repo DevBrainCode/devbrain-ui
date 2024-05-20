@@ -1,0 +1,26 @@
+// ***************************** DevBrain Theme ***************************** //
+// *
+// *    Components: Brand Themes
+// *
+// ************************************************************************** //
+
+@use '/assets/sass/themes/dark/pallet' as dark-pallet;
+@use '/assets/sass/themes/light/pallet' as light-pallet;
+
+
+/// Theme: Light
+/// =============================================
+/// 
+$light: (
+    'brand--text-color': light-pallet.$text-primary-color,
+    'brand--text-hover-color': light-pallet.$text-secondary-color,
+);
+
+
+/// Theme: Dark
+/// =============================================
+/// 
+$dark: (
+    'brand--text-color': dark-pallet.$text-primary-color,
+    'brand--text-hover-color': dark-pallet.$text-secondary-color,
+);

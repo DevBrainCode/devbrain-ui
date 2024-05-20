@@ -1,0 +1,32 @@
+{# ---------------- DevBrain Component : Searchbar - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _label = label|default('Search') %}
+{% set _placeholder = placeholder|default('Search') %}
+{% set _query = query|default('q') %}
+{# {% set _eventHandler = eventHandler|default(false) %} #}
+
+
+
+{# ------------------- DevBrain Component : Button - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Button class #}
+{% if _attr.class is not defined %}
+{% set _attr = _attr|merge({class: ''}) %}{% endif %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' searchbar') %}
+{% set _attr = add_attribute(_attr, 'role', 'search') %}
+
+
+
+{# ---------------- DevBrain Component : Searchbar - Content ---------------- #}
+{# -------------------------------------------------------------------------- #}
+<form  {{ get_attributes(_attr) }}>
+    <input class="searchbar-control" type="search" name="{{ _query }}" placeholder="{{ _placeholder }}" aria-label="{{ _label }}">
+    <button class="searchbar-submit" type="submit">
+        <i class='bx bx-search'></i>
+        <span class="sr-only">{{ _label }}</span>
+    </button>
+</form>

@@ -1,3 +1,32 @@
-<div>
-    Devbrain UI Button component
-</div>
+{# ----------------- DevBrain Component : Button - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _label = label|default('') %}
+{% set _type = type|default('button') %}
+{% set _eventHandler = eventHandler|default(false) %}
+
+
+
+{# ------------------- DevBrain Component : Button - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Button class #}
+{% if _attr.class is not defined %}
+{% set _attr = _attr|merge({class: ''}) %}{% endif %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' button') %}
+
+
+{# Button type #}
+{% set _attr = add_attribute(_attr, 'type', _type) %}
+
+
+{# Has event handler #}
+{% set _attr = _eventHandler ? add_attribute(_attr, 'rel', "js-button") : _attr %}
+
+
+
+{# ----------------- DevBrain Component : Button - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<button {{ get_attributes(_attr) }}>{{ _label }}</button>

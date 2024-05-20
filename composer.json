@@ -20,5 +20,9 @@
     "require": {
         "symfony/twig-bundle": "6.4.*",
         "symfony/webpack-encore-bundle": "^2.1"
+    },
+    "replace": {
+        "devbraincode/devbrain-ui": "self.version"
+
     }
 }

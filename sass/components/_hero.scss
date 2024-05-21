@@ -1,0 +1,26 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Components: Hero
+// *
+// ************************************************************************** //
+
+
+/// Hero variables
+/// =============================================
+///
+
+$default--hero--text-color          : $black;
+$default--hero--background-color    : $gray-200;
+
+
+/// Hero component
+/// =============================================
+///
+
+.hero {
+    padding: 5rem;
+
+    // Theme
+    color           : var(--hero--text-color, $default--hero--text-color);
+    background-color: var(--hero--background-color, $default--hero--background-color);
+}

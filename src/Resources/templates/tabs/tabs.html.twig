@@ -1,11 +1,24 @@
 {# ------------------ DevBrain Component : Tabs - Settings ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
 
 
 
-{# ------------------ DevBrain Component : Tabs - Content ------------------- #}
+{# -------------------- DevBrain Component : Tabs - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
-<div class="tabs">
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' tabs') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------------- DevBrain Component : Tabs - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<div {{ get_attributes(_attr) }}>
     Tabs
 </div>

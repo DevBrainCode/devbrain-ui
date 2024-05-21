@@ -1,0 +1,24 @@
+{# ------------------ DevBrain Component : Tags - Settings ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+
+
+
+{# -------------------- DevBrain Component : Tags - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' tags') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------------ DevBrain Component : Tags - Content ------------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ get_attributes(_attr) }}>
+    tags
+</div>

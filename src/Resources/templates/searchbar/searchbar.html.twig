@@ -1,6 +1,8 @@
 {# ---------------- DevBrain Component : Searchbar - Settings --------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
+
 {% set _label = label|default('Search') %}
 {% set _placeholder = placeholder|default('Search') %}
 {% set _query = query|default('q') %}
@@ -23,7 +25,7 @@
 
 {# ---------------- DevBrain Component : Searchbar - Content ---------------- #}
 {# -------------------------------------------------------------------------- #}
-<form  {{ get_attributes(_attr) }}>
+<form {{ get_attributes(_attr) }}>
     <input class="searchbar-control" type="search" name="{{ _query }}" placeholder="{{ _placeholder }}" aria-label="{{ _label }}">
     <button class="searchbar-submit" type="submit">
         <i class='bx bx-search'></i>

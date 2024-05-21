@@ -1,9 +1,13 @@
 {# ----------------- DevBrain Component : Switch - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
+
 {% set _label = label|default(false) %}
 {% set _checked = checked|default(false) %}
-{% set _eventHandler = eventHandler|default(false) %}
+{% set _active = _checked ? true : false %}
+{% set _disabled = disabled|default(false) %}
+{% set _eventHandler = eventHandler|default(true) %}
 
 
 
@@ -12,10 +16,13 @@
 
 {% set _attr = attr|default({}) %}
 
-{# Button class #}
+{# Class Attribute #}
 {% if _attr.class is not defined %}
 {% set _attr = _attr|merge({class: ''}) %}{% endif %}
 {% set _attr = add_attribute(_attr, 'class', _attr.class ~' switch') %}
+
+{# Add "active" class #}
+{% set _attr = _active ? add_attribute(_attr, 'class', _attr.class ~' active') : _attr %}
 
 {# Has event handler #}
 {% set _attr = _eventHandler ? add_attribute(_attr, 'rel', "js-switch") : _attr %}
@@ -24,6 +31,9 @@
 {% set input_attr = {} %}
 {% set input_attr = _checked ? add_attribute(input_attr, 'checked', "checked") : input_attr %}
 {% set input_attr = add_attribute(input_attr, 'aria-checked', _checked ? 'true' : 'false') %}
+
+{# Is disabled #}
+{% set input_attr = _disabled ? add_attribute(input_attr, 'disabled', "disabled") : input_attr %}
 
 
 

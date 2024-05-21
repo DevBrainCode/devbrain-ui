@@ -1,6 +1,7 @@
 {# ----------------- DevBrain Component : Button - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
 {% set _label = label|default('') %}
 {% set _type = type|default('button') %}
 {% set _eventHandler = eventHandler|default(false) %}
@@ -13,9 +14,9 @@
 {% set _attr = attr|default({}) %}
 
 {# Button class #}
-{% if _attr.class is not defined %}
-{% set _attr = _attr|merge({class: ''}) %}{% endif %}
+{% set _attr = _attr|merge({class: ''}) %}
 {% set _attr = add_attribute(_attr, 'class', _attr.class ~' button') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 {# Button type #}

@@ -1,11 +1,24 @@
-{# ----------------- DevBrain Component : Segment - Settings ---------------- #}
+{# ---------------- DevBrain Component : Segment - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
+
+
+
+{# ------------------ DevBrain Component : Segment - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' segment') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 
 {# ----------------- DevBrain Component : Segment - Content ----------------- #}
 {# -------------------------------------------------------------------------- #}
-<div class="segment">
+<div {{ get_attributes(_attr) }}>
     Segment
 </div>

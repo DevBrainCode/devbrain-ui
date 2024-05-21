@@ -1,11 +1,24 @@
-{# ---------------- DevBrain Component : Offcanvas - Settings --------------- #}
+{# --------------- DevBrain Component : Offcanvas - Settings ---------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
+
+
+
+{# ----------------- DevBrain Component : Offcanvas - Attr ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' offcanvas') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 
 {# ---------------- DevBrain Component : Offcanvas - Content ---------------- #}
 {# -------------------------------------------------------------------------- #}
-<div class="offcanvas">
+<div {{ get_attributes(_attr) }}>
     Offcanvas
 </div>

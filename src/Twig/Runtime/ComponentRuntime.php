@@ -71,4 +71,16 @@ class ComponentRuntime implements RuntimeExtensionInterface
 
         return $str;
     }
+
+    public function to_array(string|array $input): array
+    {
+        $output = $input;
+
+        if (is_string($output))
+        {
+            $output = [$output];
+        }
+
+        return $output;
+    }
 }

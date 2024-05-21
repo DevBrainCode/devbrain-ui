@@ -1,11 +1,24 @@
-{# ------------- DevBrain Component : Cookie-Consent - Settings ------------- #}
+{# ------------- DevBrain Component : Cookie-consent - Settings ------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
 
 
 
-{# ------------- DevBrain Component : Cookie-Consent - Content -------------- #}
+{# --------------- DevBrain Component : Cookie-consent - Attr --------------- #}
 {# -------------------------------------------------------------------------- #}
-<div class="cookie-consent">
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' cookie-consent') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------- DevBrain Component : Cookie-consent - Content -------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ get_attributes(_attr) }}>
     Cookie-consent
 </div>

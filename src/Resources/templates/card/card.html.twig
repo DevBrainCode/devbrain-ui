@@ -1,11 +1,24 @@
 {# ------------------ DevBrain Component : Card - Settings ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
+
+
+
+{# -------------------- DevBrain Component : Card - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' card') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 
 {# ------------------ DevBrain Component : Card - Content ------------------- #}
 {# -------------------------------------------------------------------------- #}
-<div class="card">
+<div {{ get_attributes(_attr) }}>
     Card
 </div>

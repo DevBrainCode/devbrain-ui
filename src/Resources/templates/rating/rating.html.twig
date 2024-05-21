@@ -1,11 +1,24 @@
 {# ----------------- DevBrain Component : Rating - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _class = class|default('') %}
+
+
+
+{# ------------------- DevBrain Component : Rating - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' rating') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 
 {# ----------------- DevBrain Component : Rating - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<div class="rating">
+<div {{ get_attributes(_attr) }}>
     Rating
 </div>

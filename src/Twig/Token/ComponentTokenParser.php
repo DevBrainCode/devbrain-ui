@@ -20,10 +20,10 @@ class ComponentTokenParser extends AbstractTokenParser
         // Get component name
         $component = $stream->expect(Token::STRING_TYPE)->getValue();
         
-        // Get version
-        $version = '';
-        if ($stream->nextIf(Token::NAME_TYPE, 'version')) {
-            $version = $stream->expect(Token::STRING_TYPE)->getValue();
+        // Get part
+        $part = '';
+        if ($stream->nextIf(Token::NAME_TYPE, 'part')) {
+            $part = $stream->expect(Token::STRING_TYPE)->getValue();
         }
 
         // Get options
@@ -33,6 +33,6 @@ class ComponentTokenParser extends AbstractTokenParser
         }
 
         $stream->expect(Token::BLOCK_END_TYPE);
-        return new ComponentNode($component, $version, $options, $lineno, $this->getTag());
+        return new ComponentNode($component, $part, $options, $lineno, $this->getTag());
     }
 }

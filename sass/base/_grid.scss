@@ -71,9 +71,9 @@
     max-width: 100%;
 }
 
-[class^="column"] {
-    padding: map-get($spacers, 5);
-}
+// [class^="column"] {
+//     padding: map-get($spacers, 5);
+// }
 .column {
     flex: 1 0 0%;
 }

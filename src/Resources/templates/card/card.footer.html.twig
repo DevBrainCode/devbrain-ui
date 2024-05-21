@@ -1,28 +1,23 @@
-{# ------------------ DevBrain Component : Hero - Settings ------------------ #}
+{# --------------- DevBrain Component : Card Footer - Settings -------------- #}
 {# -------------------------------------------------------------------------- #}
 
 {% set _class = class|default('') %}
+{% set _content = content|default('') %}
 
 
-
-{# -------------------- DevBrain Component : Hero - Attr -------------------- #}
+{# ----------------- DevBrain Component : Card Footer - Attr ---------------- #}
 {# -------------------------------------------------------------------------- #}
 
 {% set _attr = attr|default({}) %}
 
 {# Class Attribute #}
 {% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = add_attribute(_attr, 'class', _attr.class ~' hero') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' card-footer') %}
 {% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
-
-{# ------------------- DevBrain Component : Hero - Content ------------------ #}
+{# --------------- DevBrain Component : Card Footer - Content --------------- #}
 {# -------------------------------------------------------------------------- #}
-<section {{ get_attributes(_attr) }}>
-    <div class="hero-content">
-        
-        Hero 
-
-    </div>
-</section>
+<footer {{ get_attributes(_attr) }}>
+    {{ _content|raw }}
+</footer>

@@ -6,13 +6,13 @@ use Twig\Node\Node;
 
 class ComponentNode extends Node
 {
-    public function __construct($component, $version, $options, $lineno, $tag = null)
+    public function __construct($component, $part, $options, $lineno, $tag = null)
     {
         parent::__construct([
             'options' => $options
         ], [
             'component' => $component,
-            'version'   => $version,
+            'part'   => $part,
         ], $lineno, $tag);
     }
 
@@ -23,7 +23,7 @@ class ComponentNode extends Node
             ->write('echo $this->env->getRuntime(\'Devbrain\\Ui\\Twig\\Runtime\\ComponentRuntime\')->render(')
             ->string($this->getAttribute('component'))
             ->raw(', ')
-            ->string($this->getAttribute('version'))
+            ->string($this->getAttribute('part'))
             ->raw(', ')
             ->subcompile($this->getNode('options'))
             ->raw(");\n")

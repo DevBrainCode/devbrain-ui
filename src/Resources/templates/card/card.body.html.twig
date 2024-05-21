@@ -2,12 +2,7 @@
 {# -------------------------------------------------------------------------- #}
 
 {% set _class = class|default('') %}
-{% set _title = title|default('') %}
-{% set _title_tag = title_tag|default('') %}
-{% set _subtitle = subtitle|default('') %}
 {% set _content = content|default('') %}
-{% set _footer = footer|default('') %}
-
 
 
 {# -------------------- DevBrain Component : Card - Attr -------------------- #}
@@ -17,29 +12,12 @@
 
 {# Class Attribute #}
 {% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = add_attribute(_attr, 'class', _attr.class ~' card') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' card-body') %}
 {% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
-
 
 
 {# ------------------ DevBrain Component : Card - Content ------------------- #}
 {# -------------------------------------------------------------------------- #}
 <div {{ get_attributes(_attr) }}>
-{% if _title is not empty %}
-    {% component "card" part 'header' with {
-        title: _title,
-        title_tag: _title_tag,
-        subtitle: _subtitle,
-    } %}
-{% endif %}
-{% if _content is not empty %}
-    {% component "card" part 'body' with {
-        content: _content
-    } %}
-{% endif %}
-{% if _footer is not empty %}
-    {% component "card" part 'footer' with {
-        content: _footer
-    } %}
-{% endif %}
+    {{ _content|raw }}
 </div>

@@ -17,12 +17,8 @@
 /// =============================================
 ///
 
-$switch-width: 30;
-$switch-height: 14;
-
-$switch-width-px: #{$switch-width}px;
-$switch-height-px: #{$switch-height}px;
-
+// Default Theme
+// --------------------------
 
 $default--switch-off--border-color         : $gray-700;
 $default--switch-off--background-color     : $gray-200;
@@ -35,6 +31,15 @@ $default--switch-on--indicator-color       : $white;
 $default--switch-disabled--border-color    : $gray-500;
 $default--switch-disabled--background-color: $gray-200;
 $default--switch-disabled--indicator-color : $gray-500;
+
+// Sizes & positions
+// --------------------------
+
+$switch-width: 30;
+$switch-height: 14;
+
+$switch-width-px: #{$switch-width}px;
+$switch-height-px: #{$switch-height}px;
 
 
 /// Switch component

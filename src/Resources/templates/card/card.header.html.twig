@@ -3,11 +3,19 @@
 
 {% set _class = class|default('') %}
 {% set _title = title|default('') %}
-{% set _title_tag = title_tag|default('') %}
+{% set _title_tag = title_tag|default('div') %}
 {% set _subtitle = subtitle|default('') %}
-{% set _content = content|default('') %}
-{% set _footer = footer|default('') %}
+{% set _subtitle_tag = subtitle_tag|default('div') %}
 
+{# Title Tag #}
+{% if _title_tag is not empty %}
+{% set _title = '<'~ _title_tag ~' class="card-title">'~ _title ~'</'~ _title_tag ~'>' %}
+{% endif %}
+
+{# Sub title Tag #}
+{% if _subtitle is not empty %}
+{% set _subtitle = '<'~ _subtitle_tag ~' class="card-subtitle">'~ _subtitle ~'</'~ _subtitle_tag ~'>' %}
+{% endif %}
 
 
 {# -------------------- DevBrain Component : Card - Attr -------------------- #}
@@ -17,29 +25,13 @@
 
 {# Class Attribute #}
 {% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = add_attribute(_attr, 'class', _attr.class ~' card') %}
+{% set _attr = add_attribute(_attr, 'class', _attr.class ~' card-header') %}
 {% set _attr = add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
-
 
 
 {# ------------------ DevBrain Component : Card - Content ------------------- #}
 {# -------------------------------------------------------------------------- #}
-<div {{ get_attributes(_attr) }}>
-{% if _title is not empty %}
-    {% component "card" part 'header' with {
-        title: _title,
-        title_tag: _title_tag,
-        subtitle: _subtitle,
-    } %}
-{% endif %}
-{% if _content is not empty %}
-    {% component "card" part 'body' with {
-        content: _content
-    } %}
-{% endif %}
-{% if _footer is not empty %}
-    {% component "card" part 'footer' with {
-        content: _footer
-    } %}
-{% endif %}
-</div>
+<header {{ get_attributes(_attr) }}>
+    {{ _title|raw }}
+    {{ _subtitle|raw }}
+</header>

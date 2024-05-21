@@ -1,0 +1,80 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Components: Switch
+// *
+// ************************************************************************** //
+
+@use "sass:math";
+
+@use './../abstracts/mixins/flex';
+@use './../abstracts/mixins/sizes';
+@use './../abstracts/mixins/spaces';
+@use './../abstracts/mixins/position';
+
+
+/// Switch variables
+/// =============================================
+///
+
+$switch-width: 30;
+$switch-height: 14;
+
+$switch-width-px: #{$switch-width}px;
+$switch-height-px: #{$switch-height}px;
+
+
+/// Switch component
+/// =============================================
+///
+
+
+.switch {
+    @include flex.middle;
+    @include position.relative;
+
+    padding-left: math.div($switch-width, 16) + map-get($spacers, 3 );
+
+    &-input {
+        display: none;
+    }
+
+    &-slider {
+        @include position.absolute(null, null, null, 0);
+        @include sizes.set($switch-width-px, $switch-height-px);
+    
+        cursor: pointer;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: $switch-height-px;
+        transition: background-color map-get($delays , normal);
+        
+        // Theme
+        // @include theme.property(border-color, switch-slider-off--border-color);
+        // @include theme.property(background-color, switch-slider-off--background-color);
+
+        &:before {
+            @include position.absolute(null, null, 1px, 2px);
+            @include sizes.set(calc($switch-height-px - 4px), calc($switch-height-px - 4px));
+            // @include theme.property(background-color, switch-slider-off--indicator-color);
+            
+            content: "";
+            border-radius: 50%;
+            transition: map-get($delays , normal);
+        }
+    }
+
+    &-label {
+        // border: 1px solid red;
+    }
+}
+
+
+.switch-input:checked + .switch-slider {
+    // @include theme.property(border-color, switch-slider-on--border-color);
+    // @include theme.property(background-color, switch-slider-on--background-color);
+
+    &:before {
+        // @include theme.property(background-color, switch-slider-on--indicator-color);
+        left: calc($switch-width-px - $switch-height-px + 1px);
+    }
+}

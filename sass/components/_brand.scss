@@ -1,0 +1,35 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Components: Brand
+// *
+// ************************************************************************** //
+
+@use './../abstracts/mixins/flex';
+
+
+/// Brand variables
+/// =============================================
+///
+
+
+/// Brand component
+/// =============================================
+///
+
+
+.brand {
+    @include flex.centered;
+    // @include theme.property('color', 'brand--text-color');
+
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color map-get($delays, normal);
+
+    &:hover {
+        // @include theme.property('color', 'brand--text-hover-color');
+    }
+}

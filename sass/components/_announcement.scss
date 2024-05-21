@@ -1,0 +1,31 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Components: Announcement
+// *
+// ************************************************************************** //
+
+@use './../abstracts/mixins/flex';
+@use './../abstracts/mixins/sizes';
+@use './../abstracts/mixins/transition';
+
+
+/// Announcement variables
+/// =============================================
+///
+
+$announcement--height: 40px !default;
+
+
+/// Announcement component
+/// =============================================
+///
+
+.announcement {
+    @include flex.middle;
+    @include sizes.set(null, $announcement--height);
+    @include transition.set((color, background-color), map-get($delays, normal));
+
+    // Theme
+    color           : var(--announcement--text-color);
+    background-color: var(--announcement--background-color);
+}

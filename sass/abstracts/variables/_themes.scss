@@ -1,0 +1,26 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Themes variables.
+// *
+// ************************************************************************** //
+
+
+
+// @use '/assets/sass/themes/dark/properties' as dark;
+// @use '/assets/sass/themes/light/properties' as light;
+
+
+/// Build themes registry
+/// =============================================
+/// 
+// $themes: (
+//     'light': light.$theme,
+//     'dark': dark.$theme,
+// );
+
+
+/// Default theme
+/// =============================================
+/// 
+// $default: light;
+// $default-map: map-get($themes, $default);

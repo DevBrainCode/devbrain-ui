@@ -1,9 +1,0 @@
-// ***************************** DevBrain Theme ***************************** //
-// *                                                                        * //
-// * Override Bootstrap Body variables.                                     * //
-// *                                                                        * //
-// ************************************************************************** //
-
-@use '/assets/sass/abstracts/variables/colors' as colors;
-
-$body-bg: colors.$white;

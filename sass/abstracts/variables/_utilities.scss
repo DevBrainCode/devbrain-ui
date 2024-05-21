@@ -1,0 +1,119 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Utilities variables.
+// *
+// ************************************************************************** //
+
+
+/// Breakpoints
+/// =============================================
+///
+
+$breakpoint-sm  : 576px !default;    // Small devices (landscape phones, 576px and up)
+$breakpoint-md  : 768px !default;    // Medium devices (tablets, 768px and up)
+$breakpoint-lg  : 992px !default;    // Large devices (desktops, 992px and up)
+$breakpoint-xl  : 1200px !default;   // X-Large devices (large desktops, 1200px and up)
+$breakpoint-xxl : 1400px !default;   // XX-Large devices (larger desktops, 1400px and up)
+$breakpoint-xxxl: 1600px !default;   // XXX-Large devices (larger desktops, 1600px and up)
+
+$breakpoints: (
+    xs  : 0,
+    sm  : $breakpoint-sm,
+    md  : $breakpoint-md,
+    lg  : $breakpoint-lg,
+    xl  : $breakpoint-xl,
+    xxl : $breakpoint-xxl,
+    xxxl: $breakpoint-xxxl,
+);
+
+
+/// Containers
+/// =============================================
+///
+
+$container-sm  : 540px !default;
+$container-md  : 720px !default;
+$container-lg  : 960px !default;
+$container-xl  : 1140px !default;
+$container-xxl : 1440px !default;
+$container-xxxl: 1520px !default;
+
+$containers: (
+    sm  : $container-sm,
+    md  : $container-md,
+    lg  : $container-lg,
+    xl  : $container-xl,
+    xxl : $container-xxl,
+    xxxl: $container-xxxl,
+);
+
+
+/// Delays
+/// =============================================
+/// 
+
+$delay       : 1s !default;
+$delay-slow  : $delay * 0.8 !default;
+$delay-normal: $delay * 0.3 !default;
+$delay-fast  : $delay * 0.1 !default;
+
+$delays: (
+    default: $delay,
+    slow   : $delay-slow,
+    normal : $delay-normal,
+    fast   : $delay-fast,
+    none   : 0,
+);
+
+
+/// Grid
+/// =============================================
+///
+
+$grid-columns: 12 !default;
+
+
+/// Typography
+/// =============================================
+///
+$heading-font-size-base: 2.5rem;
+$font-size-base        : 1rem;
+$line-height-base      : 1.15;
+
+
+/// Sides
+/// =============================================
+///
+
+$sides: (
+    t: top,
+    r: right,
+    b: bottom,
+    l: left,
+);
+
+
+/// Spacers
+/// =============================================
+///
+
+$spacer: 1rem !default;
+
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  auto: auto,
+);
+
+
+/// Themes
+/// =============================================
+///
+
+$theme-default: 'light' !default;
+$themes: ();

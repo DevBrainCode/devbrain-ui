@@ -1,0 +1,22 @@
+// **************************** Livetunes Studio **************************** //
+// *                                                                        * //
+// * Mixins about Sizes management.                                         * //
+// *                                                                        * //
+// * How to import                                                          * //
+// *  @use 'abstracts/mixins/sizes' as sizes;                               * //
+// *                                                                        * //
+// ************************************************************************** //
+
+/// Set sizes
+/// =============================================
+/// 
+/// @example  @include sizes.set(10px, 10px);
+/// 
+/// @param {string} $width The value of width
+/// @param {string} $height The value of height
+/// 
+@mixin set($width: null, $height: null) 
+{
+  @if ($width not null) {width : $width;}
+  @if ($height not null) {height : $height;}
+}

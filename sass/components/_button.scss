@@ -1,0 +1,29 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Components: Button
+// *
+// ************************************************************************** //
+
+@use './../abstracts/mixins/corner';
+
+/// Button variables
+/// =============================================
+///
+
+
+/// Button component
+/// =============================================
+///
+
+.button {
+    @include corner.rounded(6px);
+}
+
+
+[rel=js-button] {
+    transition: background-color map-get($delays, 'normal');
+
+    &.active {
+        background-color: chocolate;
+    }
+}

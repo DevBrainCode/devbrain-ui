@@ -1,0 +1,117 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Grid layout.
+// *
+// ************************************************************************** //
+
+
+// .grid
+// .grid-start
+// .grid-center
+// .grid-end
+
+// .grid .gap-N
+// .grid .gap-x-N
+// .grid .gap-y-N
+
+// .column
+// .column-N
+// .column-N .offset-N
+
+
+@use "sass:math";
+@use './../abstracts/mixins/flex';
+
+@mixin make-grid()
+{
+    @include flex.row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin make-column($columns) 
+{
+  width: percentage(math.div($columns, $grid-columns));
+}
+@mixin make-offset($columns) 
+{
+  margin-left: percentage(math.div($columns, $grid-columns));
+}
+
+
+
+/// Grid 
+/// =============================================
+///
+.grid {
+    @include make-grid();
+}
+.grid-center {
+    justify-content: center !important;
+}
+.grid-start {
+    justify-content: start !important;
+}
+.grid-end {
+    justify-content: end !important;
+}
+
+
+/// Column
+/// =============================================
+///
+.grid > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+[class^="column"] {
+    padding: map-get($spacers, 5);
+}
+.column {
+    flex: 1 0 0%;
+}
+
+@for $i from 1 through $grid-columns {
+    .column-#{$i} {
+        flex: 0 0 auto;
+        @include make-column($i);
+    }
+}
+
+
+/// Gaps
+/// =============================================
+///
+.gap-0 [class^="column"]{
+    padding: map-get($spacers, 0);
+}
+
+@each $i, $spacer in $spacers 
+{
+    .gap-#{$i} [class^="column"]{
+        padding: $spacer;
+    }
+    .gap-x-#{$i} [class^="column"]{
+        padding: map-get($spacers, 0) $spacer;
+    }
+    .gap-y-#{$i} [class^="column"]{
+        padding: $spacer map-get($spacers, 0);
+    }
+}
+
+
+/// Offset
+/// =============================================
+///
+@for $i from 1 through $grid-columns {
+    .offset-#{$i} {
+        @include make-offset($i);
+    }
+}

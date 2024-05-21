@@ -1,0 +1,32 @@
+// ******************************* DevBrain UI ****************************** //
+// *                                                                        * //
+// * Menu components.                                                       * //
+// *                                                                        * //
+// ************************************************************************** //
+
+
+/// Menu variables
+/// =============================================
+///
+
+
+/// Menu component
+/// =============================================
+///
+@use './../abstracts/mixins/flex';
+
+.menu {
+    @include flex.column;
+
+    padding-left: map-get($spacers, 0);
+    margin-bottom: map-get($spacers, 0);
+    list-style: none;
+
+    &-item {
+        // border: 3px solid pink;
+    }
+
+    &-link {
+        padding: map-get($spacers, 3);
+    }
+}

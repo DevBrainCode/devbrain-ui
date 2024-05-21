@@ -1,1 +1,72 @@
-@import './../src/Resources/assets/sass/devbrain-ui.scss';
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    SASS "root" for the DevBrain UI.
+// *
+// ************************************************************************** //
+@charset 'utf-8';
+
+// // Abstracts Variables
+// @import 'abstracts/variables/utilities';
+// @import 'abstracts/variables/colors';
+
+// // Abstracts Functions
+// @import 'abstracts/functions/collection';
+// @import 'abstracts/functions/color';
+
+// // Abstracts Mixins
+// // @import 'abstracts/mixins/background';
+// // @import 'abstracts/mixins/corner';
+// // @import 'abstracts/mixins/flex';
+// // @import 'abstracts/mixins/grid';
+// // @import 'abstracts/mixins/position';
+// // @import 'abstracts/mixins/prefix';
+// // @import 'abstracts/mixins/sizes';
+// // @import 'abstracts/mixins/spaces';
+// // // @import 'abstracts/mixins/theme';
+
+// // Reboot & Basis utilities
+// @import 'base/reboot';
+// @import 'base/container';
+// @import 'base/grid';
+
+// // Utilities
+// @import 'utilities/position';
+// @import 'utilities/spacing';
+// @import 'utilities/sr-only';
+// @import 'utilities/themes';
+
+// // Components
+// @import 'components/accordion/';
+// @import 'components/alert/';
+// @import 'components/announcement/';
+// @import 'components/avatar/';
+// @import 'components/badge/';
+// @import 'components/brand/';
+// @import 'components/breadcrumb/';
+// @import 'components/button/';
+// @import 'components/calendar/';
+// @import 'components/card/';
+// @import 'components/carousel/';
+// @import 'components/chip/';
+// @import 'components/cookie-consent/';
+// @import 'components/cover/';
+// @import 'components/date-picker/';
+// @import 'components/dialog/';
+// @import 'components/dropdown/';
+// @import 'components/figure/';
+// @import 'components/gallery/';
+// @import 'components/loading/';
+// @import 'components/menu/';
+// @import 'components/navigation/';
+// @import 'components/offcanvas/';
+// @import 'components/pagination/';
+// @import 'components/popover/';
+// @import 'components/quiz/';
+// @import 'components/rating/';
+// @import 'components/searchbar/';
+// @import 'components/segment/';
+// @import 'components/stepper/';
+// @import 'components/switch/';
+// @import 'components/tabs/';
+// @import 'components/thumbnail/';
+// @import 'components/toast/';

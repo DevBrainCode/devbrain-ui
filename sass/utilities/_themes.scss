@@ -1,0 +1,28 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Utilities : themes
+// *
+// ************************************************************************** //
+// *
+// *    :root {}
+// *    :root[data-theme=xxx] {}
+// *
+// ************************************************************************** //
+
+
+:root {
+    @each $property, $value in map-get($themes , $theme-default ) {
+        --#{$property}: #{$value};
+    }
+}
+
+@each $theme, $properties in $themes {
+    @if ($theme != $theme-default)
+    {
+        :root[data-theme=#{$theme}] {
+            @each $property, $value in $properties {
+                --#{$property}: #{$value};
+            }
+        }
+    }
+}

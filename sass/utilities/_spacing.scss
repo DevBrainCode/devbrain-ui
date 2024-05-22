@@ -9,6 +9,7 @@ $properties: (
     p: padding,
 );
 
+// top, right, bottom , left
 @each $property_key, $property in $properties {
     @each $side_key, $side in $sides {
         @each $spacer_key, $spacer in $spacers {
@@ -18,6 +19,33 @@ $properties: (
                 {
                     #{$property}-#{$side}: $spacer !important;
                 }
+            }
+        }
+    }
+}
+
+
+// left and right both 
+@each $property_key, $property in $properties {
+    @each $spacer_key, $spacer in $spacers {
+        @if not ($spacer == auto)
+        {
+            .#{$property_key}x-#{$spacer_key} {
+                #{$property}-left: $spacer !important;
+                #{$property}-right: $spacer !important;
+            }
+        }
+    }
+}
+
+// top and bottom both
+@each $property_key, $property in $properties {
+    @each $spacer_key, $spacer in $spacers {
+        @if not ($spacer == auto)
+        {
+            .#{$property_key}x-#{$spacer_key} {
+                #{$property}-top: $spacer !important;
+                #{$property}-bottom: $spacer !important;
             }
         }
     }

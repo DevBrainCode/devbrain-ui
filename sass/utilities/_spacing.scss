@@ -43,7 +43,7 @@ $properties: (
     @each $spacer_key, $spacer in $spacers {
         @if not ($spacer == auto)
         {
-            .#{$property_key}x-#{$spacer_key} {
+            .#{$property_key}y-#{$spacer_key} {
                 #{$property}-top: $spacer !important;
                 #{$property}-bottom: $spacer !important;
             }

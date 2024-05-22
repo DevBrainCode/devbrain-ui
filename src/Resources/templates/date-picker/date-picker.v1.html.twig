@@ -1,0 +1,24 @@
+{# -------------- DevBrain Component : Date-picker - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+
+
+
+{# ---------------- DevBrain Component : Date-picker - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' date-picker') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# --------------- DevBrain Component : Date-picker - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    Date-picker
+</div>

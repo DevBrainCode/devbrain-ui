@@ -1,0 +1,24 @@
+{# --------------- DevBrain Component : Collection - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+
+
+
+{# ----------------- DevBrain Component : Collection - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' collection') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# --------------- DevBrain Component : Collection - Content ---------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    Collection
+</div>

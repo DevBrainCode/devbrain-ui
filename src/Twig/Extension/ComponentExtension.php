@@ -11,9 +11,10 @@ class ComponentExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('component', [ComponentRuntime::class, 'render'], ['is_safe' => ['html']]),
-            new TwigFunction('add_attribute', [ComponentRuntime::class, 'addAttribute']),
-            new TwigFunction('get_attributes', [ComponentRuntime::class, 'getAttributes'], ['is_safe' => ['html']]),
+            new TwigFunction('component', [ComponentRuntime::class, 'getComponent'], ['is_safe' => ['html']]),
+            
+            new TwigFunction('_add_attribute', [ComponentRuntime::class, 'addAttribute']),
+            new TwigFunction('_get_attributes', [ComponentRuntime::class, 'getAttributes'], ['is_safe' => ['html']]),
             new TwigFunction('_to_array', [ComponentRuntime::class, 'to_array']),
         ];
     }

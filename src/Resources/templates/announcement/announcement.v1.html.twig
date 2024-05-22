@@ -1,0 +1,43 @@
+{# -------------- DevBrain Component : Announcement - Settings -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class    = class|default('') %}
+{% set _isActive = active|default(false) %}
+{% set _isFluid  = fluid|default(false) %}
+{% set _content  = _to_array(content)|default([]) %}
+
+
+
+{# ---------------- DevBrain Component : Announcement - Attr ---------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' announcement') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+{# Container Attribute #}
+{% set _container_attr = {} %}
+{% set _container_attr = _add_attribute(_container_attr, 'class', _isFluid ? 'container-fluid' : 'container') %}
+
+
+
+{# -------------- DevBrain Component : Announcement - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+{% if _isActive %}
+<div {{ _get_attributes(_attr) }}>
+    <div  {{ _get_attributes(_container_attr) }}>
+        
+        <div class="announcement-content">
+        {% for _text in _content %}
+        <span class="announcement-text">{{ _text }}</span>
+        {% endfor %}
+        </div>
+            
+    </div>
+</div>
+{% endif %}
+

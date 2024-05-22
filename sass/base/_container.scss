@@ -25,16 +25,57 @@
     margin-left: auto;
 }
 
-@each $key, $breakpoint in $breakpoints {
-    .container-#{$key} {
-        width: map-get($containers, $key);
-    }
-}
+// @each $key, $breakpoint in $breakpoints {
+//     .container-#{$key} {
+//         width: map-get($containers, $key);
+//     }
+// }
 
-@each $key, $breakpoint in $breakpoints {
-    @media (min-width: #{$breakpoint}) {
-        .container {
-            max-width: map-get($containers, $key);
+// @each $key, $breakpoint in $breakpoints {
+//     @media (min-width: #{$breakpoint}) {
+//         .container {
+//             max-width: map-get($containers, $key);
+//         }
+//     }
+// }
+
+
+@function reverse($list, $recursive: false) {
+    $result: ();
+ 
+    @for $i from length($list)*-1 through -1 {
+       @if type-of(nth($list, abs($i))) == list and $recursive {
+         $result: append($result, reverse(nth($list, abs($i)), $recursive));      
+       }
+ 
+       @else {
+         $result: append($result, nth($list, abs($i)));
+       }
+    }
+ 
+    @return $result;
+ }
+
+
+@each $size, $breakpoint in $breakpoints {
+    @if $breakpoint > 0 {
+        $container-list : (container);
+        @media (min-width: $breakpoint) {
+
+            @each $key, $container in $containers {
+                @if $container < $breakpoint {
+                    $container-list: append($container-list, container-#{$key});
+                }
+            }
+
+            $selectors: '';
+            $container-list: reverse($container-list);
+            @each $container in $container-list {
+                $selectors: $selectors + '.#{$container}, ';
+            }
+            $selectors: unquote(str-slice($selectors, 1, -3));
+
+            #{$selectors} { max-width: map-get($containers, $size) }
         }
     }
 }

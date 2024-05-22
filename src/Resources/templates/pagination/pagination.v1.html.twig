@@ -1,0 +1,24 @@
+{# --------------- DevBrain Component : Pagination - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+
+
+
+{# ----------------- DevBrain Component : Pagination - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' pagination') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ---------------- DevBrain Component : Pagination - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    Pagination
+</div>

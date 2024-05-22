@@ -20,7 +20,7 @@ class ComponentNode extends Node
     {
         $compiler
             ->addDebugInfo($this)
-            ->write('echo $this->env->getRuntime(\'Devbrain\\Ui\\Twig\\Runtime\\ComponentRuntime\')->render(')
+            ->write('echo $this->env->getRuntime(\'Devbrain\\Ui\\Twig\\Runtime\\ComponentRuntime\')->getComponent(')
             ->string($this->getAttribute('component'))
             ->raw(', ')
             ->string($this->getAttribute('part'))

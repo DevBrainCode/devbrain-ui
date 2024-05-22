@@ -1,0 +1,24 @@
+{# ---------------- DevBrain Component : Stepper - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+
+
+
+{# ------------------ DevBrain Component : Stepper - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' stepper') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ----------------- DevBrain Component : Stepper - Content ----------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    Stepper
+</div>

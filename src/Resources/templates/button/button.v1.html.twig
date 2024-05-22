@@ -1,0 +1,33 @@
+{# ----------------- DevBrain Component : Button - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+{% set _label = label|default('') %}
+{% set _type = type|default('button') %}
+{% set _eventHandler = eventHandler|default(false) %}
+
+
+
+{# ------------------- DevBrain Component : Button - Attr ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Button class #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' button') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+{# Button type #}
+{% set _attr = _add_attribute(_attr, 'type', _type) %}
+
+
+{# Has event handler #}
+{% set _attr = _eventHandler ? _add_attribute(_attr, 'rel', "js-button") : _attr %}
+
+
+
+{# ----------------- DevBrain Component : Button - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<button {{ _get_attributes(_attr) }}>{{ _label }}</button>

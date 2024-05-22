@@ -14,18 +14,84 @@ class ComponentRuntime implements RuntimeExtensionInterface
      * Render a component template
      *
      * @param string $component
-     * @param string $version
+     * @param string $part
      * @param array|null $options
      * @return void
      */
-    public function render(string $component, string $version='', ?array $options=[]): string
+    public function getComponent(string $component, string $part='', ?array $options=[]): string
     {
-        $file = empty($version) ? $component : "{$component}.{$version}";
+        $base      = '@DevbrainUi';
+        $directory = '';
+        $file      = '';
+        $version   = '';
+        $partial   = '';
+        $extension = '.html.twig';
+        $component = explode(".", $component);
 
-        return $this->environment->render(
-            "@DevbrainUi/{$component}/{$file}.html.twig",
-            $options
-        );
+
+        // Base
+        // --
+
+        if (!preg_match("/\/$/", $base))
+        {
+            $base.= "/";
+        }
+
+
+        // Directory
+        // --
+
+        $directory = $component[0];
+
+        if (!preg_match("/\/$/", $directory))
+        {
+            $directory.= "/";
+        }
+
+
+        // Version 
+        // --
+
+        $version   = $component[1] ?? 'v1';
+
+
+        // File 
+        // --
+
+        $file = $component[0];
+
+        if (!empty($version))
+        {
+            $file.= ".{$version}";
+        }
+
+        
+        // Part
+        // --
+
+        if (!empty($part))
+        {
+            $partial = "partials/{$part}";
+        }
+
+        
+        // Template
+        // --
+
+        if (empty($partial))
+        {
+            $template = "{$base}{$directory}{$file}{$extension}";
+        }
+        else 
+        {
+            $template = "{$base}{$directory}{$partial}{$extension}";
+        }
+
+        
+        // Rendering
+        // --
+
+        return $this->environment->render($template, $options);
     }
 
 

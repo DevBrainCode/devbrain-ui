@@ -50,16 +50,36 @@
 ///
 .grid {
     @include make-grid();
+    @each $pos in (center, start, end)
+    {
+        &-#{$pos} {
+            justify-content: #{$pos} !important;
+        }
+    }
 }
-.grid-center {
-    justify-content: center !important;
+
+
+
+/// Gaps
+/// =============================================
+///
+.gap-0 [class^="column"]{
+    padding: map-get($spacers, 0);
 }
-.grid-start {
-    justify-content: start !important;
+
+@each $i, $spacer in $spacers 
+{
+    .gap-#{$i} [class^="column"]{
+        padding: $spacer;
+    }
+    .gap-x-#{$i} [class^="column"]{
+        padding: map-get($spacers, 0) $spacer;
+    }
+    .gap-y-#{$i} [class^="column"]{
+        padding: $spacer map-get($spacers, 0);
+    }
 }
-.grid-end {
-    justify-content: end !important;
-}
+
 
 
 /// Column
@@ -85,24 +105,20 @@
     }
 }
 
-
-/// Gaps
-/// =============================================
-///
-.gap-0 [class^="column"]{
-    padding: map-get($spacers, 0);
-}
-
-@each $i, $spacer in $spacers 
+@each $size, $breakpoint in $breakpoints 
 {
-    .gap-#{$i} [class^="column"]{
-        padding: $spacer;
-    }
-    .gap-x-#{$i} [class^="column"]{
-        padding: map-get($spacers, 0) $spacer;
-    }
-    .gap-y-#{$i} [class^="column"]{
-        padding: $spacer map-get($spacers, 0);
+    @if $breakpoint > 0 
+    {
+        @media (min-width: map-get($breakpoints, $size))
+        {
+            @for $i from 1 through $grid-columns 
+            {
+                .column-#{$size}-#{$i} {
+                    flex: 0 0 auto;
+                    @include make-column($i);
+                }
+            }
+        }
     }
 }
 
@@ -113,5 +129,20 @@
 @for $i from 1 through $grid-columns {
     .offset-#{$i} {
         @include make-offset($i);
+    }
+}
+@each $size, $breakpoint in $breakpoints 
+{
+    @if $breakpoint > 0 
+    {
+        @media (min-width: map-get($breakpoints, $size))
+        {
+            @for $i from 1 through $grid-columns 
+            {
+                .offset-#{$size}-#{$i} {
+                    @include make-offset($i);
+                }
+            }
+        }
     }
 }

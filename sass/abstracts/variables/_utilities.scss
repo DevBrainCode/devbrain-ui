@@ -5,48 +5,63 @@
 // ************************************************************************** //
 
 
+/// Breakpoints and Containers names
+/// =============================================
+
+$breakpoint-name-phone  : 'phone' !default;
+$breakpoint-name-tablet : 'tablet' !default;
+$breakpoint-name-laptop : 'laptop' !default;
+$breakpoint-name-desktop: 'desktop' !default;
+$breakpoint-name-wide   : 'wide' !default;
+$breakpoint-name-ultra  : 'ultra' !default;
+
+
 /// Breakpoints
 /// =============================================
 ///
+/// sm      | phone         | < 576px               
+/// md      | tablet        | >= 768px & < 992px
+/// lg      | laptop        | >= 992px & < 1200px
+/// xl      | desktop       | >= 1200px & 1400px
+/// xxl     | wide          | >= 1400px & < 1600px
+/// xxxl    | ultra-wide    | >= 1600px
 
-$breakpoint-sm  : 576px !default;    // Small devices (landscape phones, 576px and up)
-$breakpoint-md  : 768px !default;    // Medium devices (tablets, 768px and up)
-$breakpoint-lg  : 992px !default;    // Large devices (desktops, 992px and up)
-$breakpoint-xl  : 1200px !default;   // X-Large devices (large desktops, 1200px and up)
-$breakpoint-xxl : 1400px !default;   // XX-Large devices (larger desktops, 1400px and up)
-$breakpoint-xxxl: 1600px !default;   // XXX-Large devices (larger desktops, 1600px and up)
+$breakpoint-phone  : 576px !default;   // Small devices (landscape phones, 576px and up)
+$breakpoint-tablet : 768px !default;   // Medium devices (tablets, 768px and up)
+$breakpoint-laptop : 992px !default;   // Large devices (desktops, 992px and up)
+$breakpoint-desktop: 1200px !default;  // X-Large devices (large desktops, 1200px and up)
+$breakpoint-wide   : 1400px !default;  // XX-Large devices (larger desktops, 1400px and up)
+$breakpoint-ultra  : 1600px !default;  // XXX-Large devices (larger desktops, 1600px and up)
 
 $breakpoints: (
-    xs  : 0,
-    sm  : $breakpoint-sm,
-    md  : $breakpoint-md,
-    lg  : $breakpoint-lg,
-    xl  : $breakpoint-xl,
-    xxl : $breakpoint-xxl,
-    xxxl: $breakpoint-xxxl,
+    xs     : 0,
+    $breakpoint-name-phone  : $breakpoint-phone,
+    $breakpoint-name-tablet : $breakpoint-tablet,
+    $breakpoint-name-laptop : $breakpoint-laptop,
+    $breakpoint-name-desktop: $breakpoint-desktop,
+    $breakpoint-name-wide   : $breakpoint-wide,
+    $breakpoint-name-ultra  : $breakpoint-ultra,
 );
-
 
 /// Containers
 /// =============================================
 ///
 
-$container-sm  : 540px !default;
-$container-md  : 720px !default;
-$container-lg  : 960px !default;
-$container-xl  : 1140px !default;
-$container-xxl : 1440px !default;
-$container-xxxl: 1520px !default;
+$container-phone  : 540px !default;
+$container-tablet : 720px !default;
+$container-laptop : 960px !default;
+$container-desktop: 1140px !default;
+$container-wide   : 1440px !default;
+$container-ultra  : 1520px !default;
 
 $containers: (
-    sm  : $container-sm,
-    md  : $container-md,
-    lg  : $container-lg,
-    xl  : $container-xl,
-    xxl : $container-xxl,
-    xxxl: $container-xxxl,
+    $breakpoint-name-phone  : $container-phone,
+    $breakpoint-name-tablet : $container-tablet,
+    $breakpoint-name-laptop : $container-laptop,
+    $breakpoint-name-desktop: $container-desktop,
+    $breakpoint-name-wide   : $container-wide,
+    $breakpoint-name-ultra  : $container-ultra,
 );
-
 
 /// Delays
 /// =============================================

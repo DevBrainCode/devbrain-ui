@@ -1,0 +1,24 @@
+{# ------------------ DevBrain Component : Brand - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _class = class|default('') %}
+
+
+
+{# ------------------- DevBrain Component : Brand - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------------ DevBrain Component : Brand - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<a href="#" {{ _get_attributes(_attr) }}>
+    Company
+</a>

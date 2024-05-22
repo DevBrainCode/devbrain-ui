@@ -23,11 +23,13 @@ $properties: (
 
         // Responsive spacing 
         @each $size, $breakpoint in $breakpoints {
-            @each $spacer_key, $spacer in $spacers {
-                .#{$property_key}#{$side_key}-#{$size}-#{$spacer_key} {
-                    @if not ($property == padding and $spacer == auto)
-                    {
-                        #{$property}-#{$side}: $spacer !important;
+            @media (min-width: $breakpoint) {
+                @each $spacer_key, $spacer in $spacers {
+                    .#{$property_key}#{$side_key}-#{$size}-#{$spacer_key} {
+                        @if not ($property == padding and $spacer == auto)
+                        {
+                            #{$property}-#{$side}: $spacer !important;
+                        }
                     }
                 }
             }

@@ -14,16 +14,26 @@ $properties: (
     @each $side_key, $side in $sides {
         @each $spacer_key, $spacer in $spacers {
             .#{$property_key}#{$side_key}-#{$spacer_key} {
-
                 @if not ($property == padding and $spacer == auto)
                 {
                     #{$property}-#{$side}: $spacer !important;
                 }
             }
         }
+
+        // Responsive spacing 
+        @each $size, $breakpoint in $breakpoints {
+            @each $spacer_key, $spacer in $spacers {
+                .#{$property_key}#{$side_key}-#{$size}-#{$spacer_key} {
+                    @if not ($property == padding and $spacer == auto)
+                    {
+                        #{$property}-#{$side}: $spacer !important;
+                    }
+                }
+            }
+        }
     }
 }
-
 
 // left and right both 
 @each $property_key, $property in $properties {

@@ -1,0 +1,27 @@
+{# --------------- DevBrain Component : Brand Inner - Settings -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _label = name|default('') %}
+{% set _logo = logo|default('') %}
+{% set _icon = icon|default('') %}
+{% set _tagline = tagline|default('') %}
+
+
+
+{# --------------- DevBrain Component : Brand Inner - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+{% if _logo is not empty %}
+{% component 'brand' part 'logo' with {
+    alt: _label,
+    file: _logo,
+} %}
+{% else %}
+<span class="brand-text">{{ _label }}</span>
+{% endif %}
+
+{# Brand Tagline #}
+{% if _tagline is not empty %}
+{% component 'brand' part 'tagline' with {
+    tagline: _tagline,
+} %}
+{% endif %}

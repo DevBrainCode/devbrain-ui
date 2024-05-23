@@ -1,12 +1,32 @@
-{# ------------------ DevBrain Component : Brand - Settings ----------------- #}
+{# --------------- DevBrain Component : Brand Logo - Settings --------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{% set _alt = alt|default('') %}
+{% set _file = file|default('') %}
 
 
 
-{# ------------------ DevBrain Component : Brand - Content ------------------ #}
+{# ----------------- DevBrain Component : Brand Logo - Attr ----------------- #}
 {# -------------------------------------------------------------------------- #}
-<a class="brand" href="#">
-    C
-    <span class="sr-only">Company</span>
-</a>
+
+{% set _attr = attr|default({}) %}
+
+{# Image src #}
+{% set _attr = _add_attribute(_attr, 'src', _file) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand-logo') %}
+
+{# Image Alt #}
+{% if _alt is not empty %}
+{% set _attr = _add_attribute(_attr, 'alt', _alt) %}
+{% endif %}
+
+
+
+{# ---------------- DevBrain Component : Brand Logo - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+{% if _file is not empty %}
+<img {{ _get_attributes(_attr) }}>
+{% endif %}

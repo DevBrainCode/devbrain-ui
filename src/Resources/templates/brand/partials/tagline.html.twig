@@ -1,0 +1,20 @@
+{# -------------- DevBrain Component : Brand Tagline - Settings ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _label = name|default('') %}
+{% set _tagline = tagline|default('') %}
+
+
+{# ---------------- DevBrain Component : Brand Tagline - Attr --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+
+{# Class Attribute #}
+{% set _attr = _attr|merge({class: ''}) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand-tagline') %}
+
+
+{# -------------- DevBrain Component : Brand Tagline - Content -------------- #}
+{# -------------------------------------------------------------------------- #}
+<p {{ _get_attributes(_attr) }}>{{ _tagline|raw }}</p>

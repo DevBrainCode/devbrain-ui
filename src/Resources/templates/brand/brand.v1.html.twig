@@ -3,6 +3,14 @@
 
 {% set _class = class|default('') %}
 
+{% set _label = name|default('') %}             {# Brand Text name #}
+{% set _url = url|default('') %}                {# Brand URL #}
+{% set _logo = logo|default('') %}              {# Logo image #}
+{% set _logo_set = logo_set|default('') %}      {# Logo images set #}
+{% set _icon = icon|default('') %}              {# Logo icon, for responsive #}
+{% set _icon_set = icon_set|default('') %}      {# Logo icons set, for responsive #}
+{% set _tagline = tagline|default('') %}        
+{% set _size = size|default('medium') %}
 
 
 {# ------------------- DevBrain Component : Brand - Attr -------------------- #}
@@ -13,12 +21,28 @@
 {# Class Attribute #}
 {% set _attr = _attr|merge({class: ''}) %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand-' ~ _size) %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 
 {# ------------------ DevBrain Component : Brand - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<a href="#" {{ _get_attributes(_attr) }}>
-    Company
-</a>
+<div {{ _get_attributes(_attr) }}>
+{% if _url is not empty %}
+    {% component 'brand' part 'link' with {
+        name: _label,
+        url: _url,
+        logo: _logo,
+        icon: _icon,
+        tagline: _tagline,
+    } %}
+{% else %}
+    {% component 'brand' part 'inner' with {
+        name: _label,
+        logo: _logo,
+        icon: _icon,
+        tagline: _tagline,
+    } %}
+{% endif %}
+</div>

@@ -37,7 +37,7 @@ html {
 }
 
 body {
-    // @include flex.column;
+    @include flex.column;
     margin: map-get($spacers , 0);
     padding: map-get($spacers , 0);
 

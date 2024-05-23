@@ -18,6 +18,7 @@
 
 .container,
 .container-fluid {
+    display: block;
     width: 100%;
     padding-right: map-get($spacers, 3);
     padding-left: map-get($spacers, 3);

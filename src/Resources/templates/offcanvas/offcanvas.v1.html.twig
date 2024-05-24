@@ -2,6 +2,9 @@
 {# -------------------------------------------------------------------------- #}
 
 {% set _class = class|default('') %}
+{% set _id = id|default('') %}
+{% set _show = show|default(false) %}
+{% set _position = position|default('left') %}
 
 
 
@@ -10,9 +13,23 @@
 
 {% set _attr = attr|default({}) %}
 
+
+{# Offcanvas ID #}
+{% if _id is not empty %}
+{% set _attr = _add_attribute(_attr, 'id', _id) %}
+{% endif %}
+
 {# Class Attribute #}
 {% set _attr = _attr|merge({class: ''}) %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' offcanvas') %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' offcanvas-'~_position) %}
+
+{# Is showed #}
+{% if _show %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' show') %}
+{% endif %}
+
+{# Custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
@@ -20,5 +37,11 @@
 {# ---------------- DevBrain Component : Offcanvas - Content ---------------- #}
 {# -------------------------------------------------------------------------- #}
 <div {{ _get_attributes(_attr) }}>
+
     Offcanvas
+
+    <div>Is show : {{ _show }}</div>
+
+    <button type="button" role="close">close</button>
 </div>
+<div class="offcanvas-backdrop"></div>

@@ -25,13 +25,23 @@ $height: 80px;
     flex-wrap: nowrap;
     height: $height;
 
-    & .container,
-    & .container-fluid
-    {
+    // & .container,
+    // & .container-fluid
+    // {
+    //     @include flex.row;
+    //     flex-wrap: inherit;
+    //     align-items: center;
+    //     justify-content: space-between;
+    // }
+
+    & [class^=container] {
+        border: 3px solid red;
         @include flex.row;
         flex-wrap: inherit;
         align-items: center;
         justify-content: space-between;
+
+        // flex-direction: row-reverse;
     }
 
     & .brand {
@@ -50,6 +60,7 @@ $height: 80px;
     // }
     & .menu 
     {
+        margin: 0;
         flex-direction: column;
     }
 

@@ -20,11 +20,15 @@
 @mixin set($position, $top: null, $right: null, $bottom: null, $left: null) 
 {
   position: $position;
-  @if ($top not null) {top : $top;}
+  @include top($top);
   @if ($right not null) {right : $right;}
   @if ($bottom not null) {bottom : $bottom;}
   @if ($left not null) {left : $left;}
 }
+@mixin top($position: null){@if ($position not null) {top : $position;}}
+@mixin right($position: null){@if ($position not null) {right : $position;}}
+@mixin bottom($position: null){@if ($position not null) {bottom : $position;}}
+@mixin left($position: null){@if ($position not null) {left : $position;}}
 
 
 /// Shorthand mixin for static positioning
@@ -36,7 +40,7 @@
 /// @param {String} $bottom Position from bottom
 /// @param {String} $left Position from left
 /// 
-@mixin static($top: auto, $args...) 
+@mixin static($args...) 
 {
   @include set(relative, $args...);
 }
@@ -51,7 +55,7 @@
 /// @param {String} $bottom Position from bottom
 /// @param {String} $left Position from left
 /// 
-@mixin relative($top: auto, $args...) 
+@mixin relative($args...) 
 {
   @include set(relative, $args...);
 }
@@ -81,7 +85,7 @@
 /// @param {String} $bottom  Position from bottom
 /// @param {String} $left  Position from left
 /// 
-@mixin fixed($top: auto, $args...) 
+@mixin fixed($args...) 
 {  
   @include set(fixed, $args...);
 }
@@ -96,7 +100,7 @@
 /// @param {String} $bottom Position from bottom
 /// @param {String} $left Position from left
 /// 
-@mixin sticky($top: auto, $args...) 
+@mixin sticky($args...) 
 {
   @include set(relative, $args...);
 }

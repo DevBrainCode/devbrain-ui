@@ -17,6 +17,7 @@
 
 .button {
     @include corner.rounded(6px);
+    cursor: pointer;
 }
 
 

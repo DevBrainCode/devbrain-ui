@@ -4,10 +4,16 @@
 // *
 // ************************************************************************** //
 
+@use './../abstracts/mixins/position';
+@use './../abstracts/mixins/transition';
+
 
 /// Offcanvas variables
 /// =============================================
 ///
+
+$offcanvas--width: 280px !default;
+$offcanvas--z: 1000 !default;
 
 
 /// Offcanvas component
@@ -15,4 +21,37 @@
 ///
 
 .offcanvas {
+    @include position.fixed(0, null, 0, null);
+    @include transition.set((left, right), map-get($delays, normal));
+
+    max-width: 100%;
+    width: $offcanvas--width;
+    z-index: $offcanvas--z;
+
+    background-color: rgb(44, 133, 165);
+
+    &-left {
+        @include position.left( -$offcanvas--width );
+
+        &.show {
+            @include position.left( 0 );
+        }
+    }
+
+    &-right {
+        @include position.right( -$offcanvas--width );
+
+        &.show {
+            @include position.right( 0 );
+        }
+    }
+
+    // &-backdrop {
+    //     @include position.fixed(0, 0, 0, 0);
+        
+    //     background-color: rgb(0 0 0 / 70%);
+    //     backdrop-filter: blur(5px);
+
+    //     z-index: ($offcanvas--z - 1);
+    // }
 }

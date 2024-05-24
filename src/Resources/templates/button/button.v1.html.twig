@@ -4,7 +4,9 @@
 {% set _class = class|default('') %}
 {% set _label = label|default('') %}
 {% set _type = type|default('button') %}
+{% set _disabled = disabled|default(false) %}
 {% set _eventHandler = eventHandler|default(false) %}
+{% set _dataset = dataset|default({}) %}
 
 
 
@@ -18,14 +20,21 @@
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' button') %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
-
 {# Button type #}
 {% set _attr = _add_attribute(_attr, 'type', _type) %}
 
-
 {# Has event handler #}
-{% set _attr = _eventHandler ? _add_attribute(_attr, 'rel', "js-button") : _attr %}
+{% if _eventHandler %}
+{% set _attr = _eventHandler is same as true ? _add_attribute(_attr, 'rel', "js-button") : _add_attribute(_attr, 'rel', "js-"~ _eventHandler) %}
+{% endif %}
 
+{# Is disabled #}
+{% set _attr = _disabled ? _add_attribute(_attr, 'disabled', "disabled") : _attr %}
+
+{# DataSet #}
+{% for _property, _value in _dataset %}
+{% set _attr = _add_attribute(_attr, 'data-'~ _property, _value) %}
+{% endfor %}
 
 
 {# ----------------- DevBrain Component : Button - Content ------------------ #}

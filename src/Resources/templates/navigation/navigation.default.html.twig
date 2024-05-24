@@ -2,6 +2,18 @@
 {# -------------------------------------------------------------------------- #}
 
 {% set _class = class|default('') %}
+{% set _container = container|default('') %}
+{% set _type = type|default('') %}
+{% set _expandAt = expandAt|default('') %}
+{% set _schema = schema|default({}) %}
+
+
+
+
+
+
+
+{# {% set _brand = brand|default({}) %} #}
 
 
 
@@ -15,15 +27,31 @@
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' navigation') %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
+{# Container #}
+{% set _container = _container is empty ? 'container' : 'container-' ~ _container %}
+
+
+
+
 
 
 {# ---------------- DevBrain Component : Navigation - Content --------------- #}
 {# -------------------------------------------------------------------------- #}
 <nav {{ _get_attributes(_attr) }}>
-    <div class="container-fluid">
+    <div class="{{ _container }}">
+    {% for _node in _schema %}
+        
+        {{ dump(_node) }}
 
-        {# Brand Link #}
-        {# {% component 'brand' part 'text' %} #}
+    {% endfor %}
+
+
+
+
+        {# Brand Component #}
+        {# {% if _brand is not empty %}
+        {% component 'brand' with _brand %}
+        {% endif %} #}
 
         <button class="navigation-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

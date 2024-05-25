@@ -4,6 +4,7 @@
 {% set _class = class|default('') %}
 {% set _label = label|default('') %}
 {% set _type = type|default('button') %}
+{% set _role = role|default('button') %}
 {% set _disabled = disabled|default(false) %}
 {% set _eventHandler = eventHandler|default(false) %}
 {% set _dataset = dataset|default({}) %}
@@ -23,6 +24,9 @@
 {# Button type #}
 {% set _attr = _add_attribute(_attr, 'type', _type) %}
 
+{# Button role #}
+{% set _attr = _add_attribute(_attr, 'role', _role) %}
+
 {# Has event handler #}
 {% if _eventHandler %}
 {% set _attr = _eventHandler is same as true ? _add_attribute(_attr, 'rel', "js-button") : _add_attribute(_attr, 'rel', "js-"~ _eventHandler) %}
@@ -39,4 +43,4 @@
 
 {# ----------------- DevBrain Component : Button - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<button {{ _get_attributes(_attr) }}>{{ _label }}</button>
+<button {{ _get_attributes(_attr) }}>{{ _label|raw }}</button>

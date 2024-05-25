@@ -4,15 +4,22 @@
 {% set _class = class|default('') %}
 {% set _id = id|default('') %}
 {% set _show = show|default(false) %}
+{% set _backdrop = backdrop|default(false) %}
 {% set _position = position|default('left') %}
 
+{# OffCanvas content #}
+{% set _header = header|default('') %}
+{% set _header_template = header_template|default('') %}
+{% set _body = body|default('') %}
+{% set _body_template = body_template|default('') %}
+{% set _footer = footer|default('') %}
+{% set _footer_template = footer_template|default('') %}
 
 
 {# ----------------- DevBrain Component : Offcanvas - Attr ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
 {% set _attr = attr|default({}) %}
-
 
 {# Offcanvas ID #}
 {% if _id is not empty %}
@@ -38,10 +45,50 @@
 {# -------------------------------------------------------------------------- #}
 <div {{ _get_attributes(_attr) }}>
 
-    Offcanvas
+    {% component 'button' with {
+        label       : "&times;",
+        eventHandler: "hide-offcanvas",
+        role        : 'close',
+        dataset     : {
+            target: _id,
+        }
+    } %}
 
-    <div>Is show : {{ _show }}</div>
+    {% if _header is not empty or _header_template is not empty %}
+    <header class="offcanvas-header">
+        <div class="offcanvas-inner">
+            {% if _header_template is not empty %}
+            {% include _header_template %}
+            {% else %}
+            {{ _header|raw }}
+            {% endif %}
+        </div>
+    </header>
+    {% endif %}
 
-    <button type="button" role="close">close</button>
+    <div class="offcanvas-body">
+        <div class="offcanvas-inner">
+            {% if _body_template is not empty %}
+            {% include _body_template %}
+            {% else %}
+            {{ _body|raw }}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if _footer is not empty or _body_template is not empty %}
+    <footer class="offcanvas-footer">
+        <div class="offcanvas-inner">
+            {% if _footer_template is not empty %}
+            {% include _footer_template %}
+            {% else %}
+            {{ _footer|raw }}
+            {% endif %}
+        </div>
+    </footer>
+    {% endif %}
+
 </div>
+{% if _backdrop is same as true %}
 <div class="offcanvas-backdrop"></div>
+{% endif %}

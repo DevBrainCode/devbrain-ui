@@ -24,6 +24,9 @@
 {# Add "active" class #}
 {% set _attr = _active ? _add_attribute(_attr, 'class', _attr.class ~' active') : _attr %}
 
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
 {# Has event handler #}
 {% set _attr = _eventHandler ? _add_attribute(_attr, 'rel', "js-switch") : _attr %}
 

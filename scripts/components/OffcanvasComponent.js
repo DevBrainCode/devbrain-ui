@@ -12,6 +12,7 @@ import AbstractComponent from "./AbstractComponent";
 import ButtonComponent from "./ButtonComponent";
 
 const SELECTOR          = '.offcanvas';
+const ACTIONS_HANDLER   = ['show','hide','toggle'];
 const CLASS_NAME_ACTIVE = 'show';
 
 export default class OffcanvasComponent extends AbstractComponent
@@ -22,27 +23,40 @@ export default class OffcanvasComponent extends AbstractComponent
         this.element = node;
     }
 
-    show() {this.element.classList.add(CLASS_NAME_ACTIVE)}
-    hide() {this.element.classList.remove(CLASS_NAME_ACTIVE)}
-    toggle() {this.element.classList.toggle(CLASS_NAME_ACTIVE)}
+    show() 
+    {
+        this.element.classList.add(CLASS_NAME_ACTIVE)
+    }
+
+    hide() 
+    {
+        this.element.classList.remove(CLASS_NAME_ACTIVE)
+    }
+
+    toggle() 
+    {
+        this.element.classList.toggle(CLASS_NAME_ACTIVE)
+    }
+
     
     _onInit() 
     {
-        // let close_btn = this.node.querySelector('button[role=close]')
-        // this.on([close_btn, 'click'], {
-        //     do: this._hide
-        // })
+        // Retrouve les actions liées au composant
+        document.querySelectorAll('[data-action]').forEach(btn => {
+            const target = btn.dataset.target;
+            const action = btn.dataset.action;
+
+            if (target == this.node.id && ACTIONS_HANDLER.includes(action))
+            {
+                switch (action)
+                {
+                    case 'show': new ButtonComponent(btn).onClick = (event, element) => this.show(); break;
+                    case 'hide': new ButtonComponent(btn).onClick = (event, element) => this.hide(); break;
+                    case 'toggle': new ButtonComponent(btn).onClick = (event, element) => this.toggle(); break;
+                }
+            }
+        });
     }
 }
 
 document.querySelectorAll(SELECTOR).forEach(node => new OffcanvasComponent(node));
-
-
-// OffCanvas Toggler button
-// --
-// 
-// <button rel="js-show-offcanvas" data-target="offcanvas-right">Show Offcanvas Right</button>
-//
-document.querySelectorAll('[rel=js-show-offcanvas]').forEach(btn => new ButtonComponent(btn).onClick = (event, element) => new OffcanvasComponent(document.getElementById(element.dataset.target)).show());
-document.querySelectorAll('[rel=js-hide-offcanvas]').forEach(btn => new ButtonComponent(btn).onClick = (event, element) => new OffcanvasComponent(document.getElementById(element.dataset.target)).hide());
-document.querySelectorAll('[rel=js-toggle-offcanvas]').forEach(btn => new ButtonComponent(btn).onClick = (event, element) => new OffcanvasComponent(document.getElementById(element.dataset.target)).toggle());

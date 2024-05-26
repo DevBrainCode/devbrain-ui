@@ -1,18 +1,20 @@
 {# ---------------- DevBrain Component : Accordion - Settings --------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
+{# Private properties #}
+{% set _attr    = attr|default({}) %}
+{% set _attr    = _attr|merge({class: ''}) %}
+{% set _attr    = _add_attribute(_attr, 'class', _attr.class ~' accordion') %}
+
+{# Public properties #}
+{% set _class   = class|default('') %}
 
 
 
 {# ----------------- DevBrain Component : Accordion - Attr ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
-
-{# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' accordion') %}
+{# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 

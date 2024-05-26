@@ -19,7 +19,10 @@
 {# Button class #}
 {% set _attr = _attr|merge({class: ''}) %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' button') %}
+
+{# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
 
 {# Button type #}
 {% set _attr = _add_attribute(_attr, 'type', _type) %}

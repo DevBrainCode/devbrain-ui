@@ -47,9 +47,9 @@
 
     {% component 'button' with {
         label       : "&times;",
-        eventHandler: "hide-offcanvas",
         role        : 'close',
         dataset     : {
+            action: 'hide',
             target: _id,
         }
     } %}

@@ -1,0 +1,55 @@
+{# --------------- DevBrain Component : Menu Item - Settings ---------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr     = attr|default({}) %}
+{% set _attr     = _attr|merge({class: ''}) %}
+{% set _attr     = _add_attribute(_attr, 'class', _attr.class ~' menu-item') %}
+
+{# Public properties #}
+{% set _class    = class|default('') %}
+{% set _label    = label|default('') %}
+{% set _url      = url|default('') %}
+{% set _target   = target|default('') %}
+{% set _active   = active|default(false) %}
+{% set _disabled = disabled|default(false) %}
+{% set _children = children|default([]) %}
+
+{% set _action   = action|default('') %}
+
+
+
+{# ------------------ DevBrain Component : Menu Item - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Submenu class #}
+{% if _children is not empty %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' with-submenu') %}
+{% endif %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ---------------- DevBrain Component : Menu Item - Content ---------------- #}
+{# -------------------------------------------------------------------------- #}
+<li {{ _get_attributes(_attr) }}>
+{% if _children is not empty %}
+    <span class="menu-link">{{ _label|raw }}</span>
+    {% component 'menu' with {
+        items: _children
+    } %}
+{% else %}
+    {% component 'link' with {
+        class   : "menu-link",
+        label   : _label,
+        url     : _url,
+        target  : _target,
+        active  : _active,
+        disabled: _disabled,
+
+        action  : _action,
+    } %}
+{% endif %}
+</li>

@@ -13,6 +13,8 @@
 {# Class Attribute #}
 {% set _attr = _attr|merge({class: ''}) %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' thumbnail') %}
+
+{# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 

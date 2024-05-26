@@ -1,8 +1,12 @@
 // ******************************* DevBrain UI ****************************** //
-// *                                                                        * //
-// * Menu components.                                                       * //
-// *                                                                        * //
+// *
+// *    Menu components.
+// *
 // ************************************************************************** //
+
+@use './../abstracts/mixins/flex';
+@use './../abstracts/mixins/spaces';
+@use './../abstracts/mixins/transition';
 
 
 /// Menu variables
@@ -10,23 +14,87 @@
 ///
 
 
+// Default Theme
+// --------------------------
+
+$default--menu-link--text-color               : $black;
+$default--menu-link--background-color         : transparent;
+
+$default--menu-link--hover-text-color         : $white;
+$default--menu-link--hover-background-color   : $gray-500;
+
+$default--menu-link--active-text-color        : $black;
+$default--menu-link--active-background-color  : $gray-500;
+
+$default--menu-link--disabled-text-color      : $gray-500;
+$default--menu-link--disabled-background-color: transparent;
+
+
 /// Menu component
 /// =============================================
 ///
-@use './../abstracts/mixins/flex';
 
 .menu {
-    @include flex.column;
 
-    padding-left: map-get($spacers, 0);
-    margin-bottom: map-get($spacers, 0);
-    list-style: none;
+    border:3px solid red;
+
+
+    // Items
+    // --
+
+    &-items {
+        border:3px solid green;
+        @include flex.row;
+        @include spaces.margin(0,0,0,0);
+        flex-wrap: wrap;
+    }
+
+    &-vertical &-items {
+        @include flex.column;
+    }
+
+    
+    // Item
+    // --
 
     &-item {
-        // border: 3px solid pink;
+        // border: 10px solid pink;
     }
 
+    
+    // Link
+    // --
+
     &-link {
-        padding: map-get($spacers, 3);
+        @include transition.set((color, background-color), map-get($delays, normal));
+        padding: map-get($spacers, 2) map-get($spacers, 3);
+        display: block;
+        cursor: pointer;
+
+        background-color: var(--menu-link--background-color, $default--menu-link--background-color);
+        color: var(--menu-link--text-color, $default--menu-link--text-color);
+
+        &.active,
+        &.active:hover {
+            background-color: var(--menu-link--active-background-color, $default--menu-link--active-background-color);
+            color: var(--menu-link--active-text-color, $default--menu-link--active-text-color);
+        }
+        &:hover {
+            background-color: var(--menu-link--hover-background-color, $default--menu-link--hover-background-color);
+            color: var(--menu-link--hover-text-color, $default--menu-link--hover-text-color);
+        }
+
+        &[disabled],
+        &[disabled]:hover {
+            background-color: var(--menu-link--disabled-background-color, $default--menu-link--disabled-background-color);
+            color: var(--menu-link--disabled-text-color, $default--menu-link--disabled-text-color);
+            cursor: default !important;
+        }
     }
+}
+
+
+// Sub Menu
+.with-submenu > .menu {
+    display: none;
 }

@@ -67,23 +67,16 @@ export default class AbstractComponent
         const [el, ev] = this._normalize(handler);
 
         // Stop event
-        if (!nativeEvents.has(ev) || !Object.keys(delegatedFunctions).length) return;
+        if (!el || !nativeEvents.has(ev) || !Object.keys(delegatedFunctions).length) return;
 
         el.addEventListener(ev, event => {
             
             event.preventDefault();
             event.stopImmediatePropagation();
 
-            // -- can mistake on multi event
-            // this.event = event;
-            // this.element = event.target;
-            // this.name = this.element.nodeName;
-            // -- 
-
             if (typeof delegatedFunctions.before === 'function') (delegatedFunctions.before)( this, event, event.target );
             if (typeof delegatedFunctions.do     === 'function') (delegatedFunctions.do)( this, event, event.target );
             if (typeof delegatedFunctions.after  === 'function') (delegatedFunctions.after)( this, event, event.target );
-        
         });
     }
 

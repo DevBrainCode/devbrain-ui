@@ -22,6 +22,8 @@
 {% set _attr = _attr|merge({class: ''}) %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand') %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' brand-' ~ _size) %}
+
+{# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 

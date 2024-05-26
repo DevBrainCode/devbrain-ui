@@ -94,7 +94,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do click");
     }
-
     _beforeClick(handler, event, element)
     {
         // Always Before Click script
@@ -116,7 +115,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do before click");
     }
-
     _afterClick(handler, event, element)
     {
         // Always After Click script
@@ -161,7 +159,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do dbclick");
     }
-
     _beforeDbclick(handler, event, element)
     {
         // Always Before Dbclick script
@@ -183,7 +180,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do before dbclick");
     }
-
     _afterDbclick(handler, event, element)
     {
         // Always After Dbclick script
@@ -206,7 +202,6 @@ export default class ButtonComponent extends AbstractComponent
         // console.log("Default do after dbclick");
     }
 
-    
     _mousedown(handler, event, element)
     {
         // Always Mousedown script
@@ -228,7 +223,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do mousedown");
     }
-
     _beforeMousedown(handler, event, element)
     {
         // Always Before Mousedown script
@@ -252,7 +246,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do before mousedown");
     }
-
     _afterMousedown(handler, event, element)
     {
         // Always After Mousedown script
@@ -275,7 +268,6 @@ export default class ButtonComponent extends AbstractComponent
         // console.log("Default do after mousedown");
     }
 
-
     _mouseup(handler, event, element)
     {
         // Always Mouseup script
@@ -295,9 +287,8 @@ export default class ButtonComponent extends AbstractComponent
         //  Default Mouseup script
         // --
         
-        console.log("Default do mouseup");
+        // console.log("Default do mouseup");
     }
-
     _beforeMouseup(handler, event, element)
     {
         // Always Before Mouseup script
@@ -319,7 +310,6 @@ export default class ButtonComponent extends AbstractComponent
         
         // console.log("Default do before mouseup");
     }
-
     _afterMouseup(handler, event, element)
     {
         // Always After Mouseup script

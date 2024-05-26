@@ -1,6 +1,12 @@
 {# --------------- DevBrain Component : Navigation - Settings --------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{# Private properties #}
+{% set _attr        = attr|default({}) %}
+{% set _attr        = _attr|merge({class: ''}) %}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' navigation') %}
+
+{# Public properties #}
 {% set _class = class|default('') %}
 {% set _container = container|default('') %}
 {% set _type = type|default('') %}
@@ -9,31 +15,14 @@
 
 
 
-
-
-
-
-{# {% set _brand = brand|default({}) %} #}
-
-
-
 {# ----------------- DevBrain Component : Navigation - Attr ----------------- #}
 {# -------------------------------------------------------------------------- #}
-
-{% set _attr = attr|default({}) %}
-
-{# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' navigation') %}
-
-{# Add custom class #}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 {# Container #}
 {% set _container = _container is empty ? 'container' : 'container-' ~ _container %}
 
-
-
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 
@@ -42,48 +31,66 @@
 <nav {{ _get_attributes(_attr) }}>
     <div class="{{ _container }}">
     {% for _node in _schema %}
-        
-        {{ dump(_node) }}
-
+    {% if _node.type == 'brand' %}
+        {% component 'brand' with _node.options %}
+    {% elseif _node.type == 'menu' %}
+        {% component 'menu' with {
+            _class: '',
+            _label: 'Secondary',
+            _orientation: 'vertical',
+            items: _node.options
+        }
+         %}
+    {% elseif _node.type == 'searchbar' %}
+        {% component 'searchbar' with _node.options %}
+    {% endif %}
     {% endfor %}
-
-
-
-
-        {# Brand Component #}
-        {# {% if _brand is not empty %}
-        {% component 'brand' with _brand %}
-        {% endif %} #}
-
-        <button class="navigation-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navigation-collapse" id="navbarSupportedContent">
-            <ul class="menu m-auto">
-                <li class="menu-item"><a class="menu-link active" aria-current="page" href="#">Home</a></li>
-                <li class="menu-item"><a class="menu-link" href="#">Link</a></li>
-                <li class="menu-item"><a class="menu-link disabled" aria-disabled="true">Disabled</a></li>
-                {# <li class="menu-item dropdown">
-                    <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li> #}
-            </ul>
-
-            {# Search bar #}
-            {% component 'searchbar' %}
-            
-        </div>
-        
     </div>
 </nav>
+
+
+
+
+
+
+
+
+
+<template>
+    
+            {# Brand Component #}
+            {# {% if _brand is not empty %}
+            {% component 'brand' with _brand %}
+            {% endif %} #}
+    
+            <button class="navigation-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navigation-collapse" id="navbarSupportedContent">
+                <ul class="menu m-auto">
+                    <li class="menu-item"><a class="menu-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">Link</a></li>
+                    <li class="menu-item"><a class="menu-link disabled" aria-disabled="true">Disabled</a></li>
+                    {# <li class="menu-item dropdown">
+                        <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li> #}
+                </ul>
+    
+                {# Search bar #}
+                {% component 'searchbar' %}
+                
+            </div>
+
+</template>

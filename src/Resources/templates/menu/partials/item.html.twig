@@ -16,6 +16,7 @@
 {% set _children = children|default([]) %}
 
 {% set _action   = action|default('') %}
+{% set _level   = level|default(1) %}
 
 
 
@@ -37,8 +38,9 @@
 <li {{ _get_attributes(_attr) }}>
 {% if _children is not empty %}
     <span class="menu-link">{{ _label|raw }}</span>
-    {% component 'menu' with {
-        items: _children
+    {% component 'menu' part 'items' with {
+        items: _children,
+        level: _level
     } %}
 {% else %}
     {% component 'link' with {

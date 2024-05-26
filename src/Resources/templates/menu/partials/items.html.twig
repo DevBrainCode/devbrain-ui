@@ -1,0 +1,41 @@
+{# ------------------ DevBrain Component : Menu - Settings ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr        = attr|default({}) %}
+{% set _attr        = _attr|merge({class: ''}) %}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' menu-items') %}
+
+{# Public properties #}
+{% set _class       = class|default('') %}
+{% set _items       = items|default([]) %}
+{% set _level       = level|default(1) %}
+
+
+
+{# -------------------- DevBrain Component : Menu - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr        = _add_attribute(_attr, 'data-level', _level) %}
+
+{# Add custom class #}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------------- DevBrain Component : Menu - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<ul {{ _get_attributes(_attr) }}>
+    {% for item in _items %}
+    {% component 'menu' part 'item' with {
+        class   : item.class|default(''),
+        label   : item.label|default(''),
+        url     : item.url|default(''),
+        target  : item.target|default(''),
+        active  : item.active|default(false),
+        disabled: item.disabled|default(false),
+        children: item.children|default([]),
+        level   : _level + 1,
+    } %}
+    {% endfor %}
+</ul>

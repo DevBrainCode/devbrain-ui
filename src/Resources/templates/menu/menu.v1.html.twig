@@ -9,6 +9,7 @@
 {# Public properties #}
 {% set _class       = class|default('') %}
 {% set _label       = label|default('') %}
+{% set _justify     = justify|default('left') %}
 {% set _orientation = orientation|default('horizontal') %}
 {% set _items       = items|default([]) %}
 
@@ -20,6 +21,11 @@
 {# Menu Orientation #}
 {% if _orientation == 'vertical' %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' menu-vertical') %}
+{% endif %}
+
+{# Menu Alignment #}
+{% if _justify == 'start' or _justify == 'end' or _justify == 'center' or _justify == 'fill' %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' menu-'~ _justify) %}
 {% endif %}
 
 {# Aria label #}
@@ -35,9 +41,7 @@
 {# ------------------- DevBrain Component : Menu - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
 <nav {{ _get_attributes(_attr) }}>
-    <ul class="menu-items">
-    {% for item in _items %}
-    {% component 'menu' part 'item' with item %}
-    {% endfor %}
-    </ul>
+{% component 'menu' part 'items' with {
+    items: _items
+} %}
 </nav>

@@ -58,6 +58,27 @@ $default--navigation--background-color   : $white;
         // border: 10px solid purple;
     }
 
+
+    &-toggler,
+    &-close {
+        background: none;
+        border: none;
+    }
+    &-toggler {
+        position: relative;
+        // Text menu color
+        border: 1px solid #333;
+        height: 30px;
+        width: 30px;
+        overflow: hidden;
+        text-indent: -999px;
+        cursor: pointer;
+
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAK1JREFUaEPtlkEKwCAQxPT/j64/kIEwLNL07Ky7iWL3evzbj/e/HGDaoAY0AAl4hCBAHNcARggL/MLAByHR+BVyYsABoAINQIDdeHIHuh3A6g4AAeK4BjBCWCAx4EPWhKwBSDeJ41+JZJOxNckRGmsu2dgBEkrNNRpo0k1qJwZ8iROSlzX4HdDAtAG4fzeeXOJuB7C6A0CAOK4BjBAW0AAEiOMawAhhAQ1AgDh+AJfZDDGRtEaJAAAAAElFTkSuQmCC");
+        background-position: center;
+        background-size: contain;
+    }
+
     &-content {
         @include flex.column;
         @include transition.set((left, right, box-shadow), map-get($delays, normal));
@@ -89,6 +110,9 @@ $default--navigation--background-color   : $white;
                 overflow: hidden;
                 @include transition.set((max-height), map-get($delays, normal));
             }
+        }
+        & .navigation-close {
+            display: none;
         }
     }
     &-collapse.show {
@@ -148,6 +172,8 @@ $default--navigation--background-color   : $white;
                     background-color: transparent;
                     box-shadow: none;
 
+                    max-height: none;
+                    flex-basis: initial;
                     justify-content: space-between;
 
 

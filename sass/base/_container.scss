@@ -66,6 +66,7 @@ $cbs: unquote(str-slice($cbs, 1, -3));
 
 @each $size, $container in $containers {
   .container-#{$size} {
+    // min-width: map-get($containers, 'phone');
     max-width: map-get($containers, $size);
   }
 }
@@ -100,7 +101,10 @@ $cbs: unquote(str-slice($cbs, 1, -3));
       }
       $selectors: unquote(str-slice($selectors, 1, -3));
 
-      #{$selectors} { max-width: map-get($containers, $size) }
+      #{$selectors} { 
+        // min-width: map-get($containers, 'phone');
+        max-width: map-get($containers, $size);
+      }
     }
   }
 }

@@ -7,22 +7,43 @@
 {% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' navigation') %}
 
 {# Public properties #}
-{% set _class = class|default('') %}
-{% set _container = container|default('') %}
-{% set _type = type|default('') %}
-{% set _expandAt = expandAt|default('') %}
-{% set _schema = schema|default({}) %}
+{% set _id          = id|default('') %}
+{% set _class       = class|default('') %}
+{% set _container   = container|default('') %}
+{% set _type        = type|default('left') %}
+{% set _expandAt    = expandAt|default('laptop') %}
+{% set _brand       = brand|default({}) %}
+{% set _schema      = schema|default({}) %}
 
 
 
 {# ----------------- DevBrain Component : Navigation - Attr ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{# Id #}
+{% if _id is empty %}
+{% set rand = [] %}
+{% for i in 1..10 %}
+    {% set chars = random('abcdefghijklmnopqrstuvwxyz0123456789') %}
+    {% set rand = rand|merge([chars]) %}
+{% endfor %}
+{% set _id = rand|join %}
+{% endif %}
+
+{% set _attr = _add_attribute(_attr, 'id', _id) %}
+
+
 {# Container #}
 {% set _container = _container is empty ? 'container' : 'container-' ~ _container %}
 
+{# Responsive display #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' expand-at-'~ _expandAt) %}
+
+{# navigation collapse type #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' navigation-'~ _type) %}
+
 {# Add custom class #}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' '~ _class) %}
 
 
 
@@ -30,67 +51,54 @@
 {# -------------------------------------------------------------------------- #}
 <nav {{ _get_attributes(_attr) }}>
     <div class="{{ _container }}">
-    {% for _node in _schema %}
-    {% if _node.type == 'brand' %}
-        {% component 'brand' with _node.options %}
-    {% elseif _node.type == 'menu' %}
-        {% component 'menu' with {
-            _class: '',
-            _label: 'Secondary',
-            _orientation: 'vertical',
-            items: _node.options
-        }
-         %}
-    {% elseif _node.type == 'searchbar' %}
-        {% component 'searchbar' with _node.options %}
-    {% endif %}
-    {% endfor %}
+
+        {% if _brand is not empty %}
+            {% component 'brand' with _brand %}
+        {% endif %}
+
+        {% component 'button' with {
+            label       : "Expand",
+            class       : 'navigation-toggler',
+            dataset     : {
+                action: 'toggle',
+                target: _id,
+            }
+        } %}
+
+        <div class="navigation-content">
+
+            {% component 'button' with {
+                label       : "Close",
+                class       : 'navigation-close',
+                dataset     : {
+                    action: 'hide',
+                    target: _id,
+                }
+            } %}
+
+            {% for _node in _schema %}
+
+                {% if _node.template is defined and _node.template is not empty %}
+                    
+                    {% include _node.template %}
+
+                {% else %}
+
+                    {% if _node.type == 'menu' %}
+                        {% component 'menu' with {
+                            _class: '',
+                            _label: 'Secondary',
+                            _orientation: 'vertical',
+                            items: _node.options
+                        } %}
+                    {% elseif _node.type == 'searchbar' %}
+                        {% component 'searchbar' with _node.options %}
+                    {% endif %}
+
+                {% endif %}
+
+            {% endfor %}
+        </div>
+
     </div>
 </nav>
-
-
-
-
-
-
-
-
-
-<template>
-    
-            {# Brand Component #}
-            {# {% if _brand is not empty %}
-            {% component 'brand' with _brand %}
-            {% endif %} #}
-    
-            <button class="navigation-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navigation-collapse" id="navbarSupportedContent">
-                <ul class="menu m-auto">
-                    <li class="menu-item"><a class="menu-link active" aria-current="page" href="#">Home</a></li>
-                    <li class="menu-item"><a class="menu-link" href="#">Link</a></li>
-                    <li class="menu-item"><a class="menu-link disabled" aria-disabled="true">Disabled</a></li>
-                    {# <li class="menu-item dropdown">
-                        <a class="menu-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li> #}
-                </ul>
-    
-                {# Search bar #}
-                {% component 'searchbar' %}
-                
-            </div>
-
-</template>

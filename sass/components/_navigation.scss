@@ -29,7 +29,7 @@ $_containers: unquote(str-slice($_str_container, 1, -3));
 /// =============================================
 ///
 
-$height: 200px;
+$navigation--side-panel-width: 280px !default;
 
 
 
@@ -83,7 +83,7 @@ $default--navigation--background-color   : $white;
         @include flex.column;
         @include transition.set((left, right, box-shadow), map-get($delays, normal));
 
-        width: $offcanvas--width;
+        width: $navigation--side-panel-width;
 
         background-color: var(--navigation--background-color, $default--navigation--background-color);
       
@@ -130,7 +130,7 @@ $default--navigation--background-color   : $white;
     &-left &-content {
         @include position.fixed(0, null, 0, null);
         @include position.right(auto);
-        @include position.left(-$offcanvas--width);
+        @include position.left(-$navigation--side-panel-width);
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     &-left.show &-content {
@@ -141,7 +141,7 @@ $default--navigation--background-color   : $white;
     &-right &-content {
         @include position.fixed(0, null, 0, null);
         @include position.left(auto);
-        @include position.right(-$offcanvas--width);
+        @include position.right(-$navigation--side-panel-width);
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     &-right.show &-content {

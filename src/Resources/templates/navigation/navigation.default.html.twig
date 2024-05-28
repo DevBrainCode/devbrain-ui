@@ -79,7 +79,7 @@
 
                 {% if _node.template is defined and _node.template is not empty %}
                     
-                    {% include _node.template %}
+                    {% include _node.template with _node.options|default({}) %}
 
                 {% else %}
 

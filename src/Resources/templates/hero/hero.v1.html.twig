@@ -1,30 +1,85 @@
 {# ------------------ DevBrain Component : Hero - Settings ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
+{# Private properties #}
+{% set _attr            = attr|default({}) %}
+{% set _attr            = _attr|merge({class: ''}) %}
+{% set _attr            = _add_attribute(_attr, 'class', _attr.class ~' hero') %}
+
+{# Public properties #}
+{% set _class               = class|default('') %}
+{% set _type                = type|default('') %}  {# empty, small, medium, large, halfscreen, fullscreen #}
+
+{% set _header              = header|default('') %} {# Header content #}
+{% set _header_template     = header_template|default('') %}{# Header template #}
+{% set _header_options      = header_options|default({}) %}{# Header template option #}
+
+{% set _footer              = footer|default('') %} {# Footer content #}
+{% set _footer_template     = footer_template|default('') %}{# Footer template #}
+{% set _footer_options      = footer_options|default({}) %}{# Footer template option #}
+
+{% set _content             = content|default('') %} {# Main content #}
+{% set _content_template    = content_template|default('') %}{# Main template #}
+{% set _content_options     = content_options|default({}) %}{# Main template option #}
 
 
 
 {# -------------------- DevBrain Component : Hero - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
-
-{# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' hero') %}
+{# Hero Type #}
+{% if _type == 'small' or _type == 'medium' or _type == 'large' or _type == 'halfscreen' or _type == 'fullscreen' %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' hero-' ~ _type) %}
+{% endif %}
 
 {# Add custom class #}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' ' ~ _class) %}
 
 
 
 {# ------------------- DevBrain Component : Hero - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<section {{ _get_attributes(_attr) }}>
-    <div class="hero-content">
-        
-        Hero 
+<div {{ _get_attributes(_attr) }}>
 
+    {% if _header is not empty or _header_template is not empty %}
+    <div class="hero-header">
+        {% if _header_template is not empty %}
+        {% include _header_template with _header_options %}
+        {% else %}
+        {{ _header|raw }}
+        {% endif %}
     </div>
-</section>
+    {% endif %}
+
+    {% if _content is not empty or _content_template is not empty %}
+    <div class="hero-body">
+        {% if _content_template is not empty %}
+        {% include _content_template with _content_options %}
+        {% else %}
+        {{ _content|raw }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if _footer is not empty or _footer_template is not empty %}
+    <div class="hero-footer">
+        {% if _footer_template is not empty %}
+        {% include _footer_template with _footer_options %}
+        {% else %}
+        {{ _footer|raw }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+
+
+
+    {# {% if _actions is not empty %} 
+    <div class="hero-actions">
+        {% for _action in _actions %}
+        <button>{{ _action.label }}</button>
+        {% endfor %}
+    </div>
+    {% endif %} #}
+
+</div>

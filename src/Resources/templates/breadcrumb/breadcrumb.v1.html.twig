@@ -1,18 +1,20 @@
 {# --------------- DevBrain Component : Breadcrumb - Settings --------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
+{# Private properties #}
+{% set _attr        = attr|default({}) %}
+{% set _attr        = _attr|merge({class: ''}) %}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' breadcrumb') %}
+
+{# Public properties #}
+{% set _class       = class|default('') %}
+{% set _label       = label|default('') %}
+{% set _items       = items|default([]) %}
 
 
 
 {# ----------------- DevBrain Component : Breadcrumb - Attr ----------------- #}
 {# -------------------------------------------------------------------------- #}
-
-{% set _attr = attr|default({}) %}
-
-{# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' breadcrumb') %}
 
 {# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
@@ -21,6 +23,11 @@
 
 {# ---------------- DevBrain Component : Breadcrumb - Content --------------- #}
 {# -------------------------------------------------------------------------- #}
-<div {{ _get_attributes(_attr) }}>
-    Breadcrumb
-</div>
+<ul {{ _get_attributes(_attr) }}>
+{% for _link in _items %}
+{% component 'breadcrumb' part 'item' with {
+    link  : _link,
+    active: loop.last ? true : false
+} %}
+{% endfor %}
+</ul>

@@ -22,18 +22,6 @@
 @use "sass:math";
 @use './../abstracts/mixins/flex';
 
-@mixin make-grid()
-{
-    @include flex.row;
-    flex-wrap: wrap;
-    width: 100%;
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
 @mixin make-column($columns) 
 {
   width: percentage(math.div($columns, $grid-columns));
@@ -49,7 +37,15 @@
 /// =============================================
 ///
 .grid {
-    @include make-grid();
+    @include flex.row;
+    flex-wrap: wrap;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
     @each $pos in (center, start, end)
     {
         &-#{$pos} {
@@ -69,7 +65,14 @@
 
 @each $i, $spacer in $spacers 
 {
-    .gap-#{$i} [class^="column"]{
+    .grid.gap-#{$i}
+    {
+        margin-right: calc(-1 * $spacer);
+        margin-left: calc(-1 * $spacer);
+    }
+
+    .gap-#{$i} [class^="column"]
+    {
         padding: $spacer;
     }
     .gap-x-#{$i} [class^="column"]{
@@ -80,8 +83,6 @@
     }
 }
 
-
-
 /// Column
 /// =============================================
 ///
@@ -91,9 +92,6 @@
     max-width: 100%;
 }
 
-// [class^="column"] {
-//     padding: map-get($spacers, 5);
-// }
 .column {
     flex: 1 0 0%;
 }

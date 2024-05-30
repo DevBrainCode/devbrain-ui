@@ -1,0 +1,39 @@
+{# --------------- DevBrain Component : Menu Item - Settings ---------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr     = attr|default({}) %}
+{% set _attr     = _attr|merge({class: ''}) %}
+{% set _attr     = _add_attribute(_attr, 'class', _attr.class ~' breadcrumb-item') %}
+
+{# Public properties #}
+{% set _class    = class|default('') %}
+
+{# Link properties #}
+{% set _link    = link|default({}) %}
+{% set _active   = active|default(false) %}
+
+
+
+{# ------------------ DevBrain Component : Menu Item - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Active link #}
+{% if _active is not same as false %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' active') %}
+{% endif %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ---------------- DevBrain Component : Menu Item - Content ---------------- #}
+{# -------------------------------------------------------------------------- #}
+<li {{ _get_attributes(_attr) }}>
+{% if _active %}
+    {{ _link.label }}
+{% else %}
+{% component 'breadcrumb' part 'link' with _link %}
+{% endif %}
+</li>

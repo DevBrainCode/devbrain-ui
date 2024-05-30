@@ -4,6 +4,7 @@
 // *
 // ************************************************************************** //
 
+// @use './../abstracts/mixins/spaces';
 
 /// Hero variables
 /// =============================================
@@ -18,9 +19,52 @@ $default--hero--background-color    : $gray-200;
 ///
 
 .hero {
-    padding: 5rem;
+    // border: 3px solid red;
+    display: flex;
+    flex-direction: column;
 
     // Theme
     color           : var(--hero--text-color, $default--hero--text-color);
     background-color: var(--hero--background-color, $default--hero--background-color);
+
+    &-header {
+        // border: 3px solid yellow;
+    }
+    &-footer {
+        // border: 3px solid purple;
+    }
+    &-body {
+        // border: 3px solid green;
+        padding: $spacer * 3;
+    }
+
+    &-small &-body {
+        padding: $spacer * 1.5;
+    }
+    &-medium &-body {
+        padding: $spacer * 9 $spacer * 4.5;
+    }
+    &-large &-body {
+        padding: $spacer * 18 $spacer * 6;
+    }
+
+    &-halfscreen {
+        min-height: 50vh;
+    }
+    &-halfscreen &-body {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        flex-shrink: 0;  
+    }
+
+    &-fullscreen {
+        min-height: 100vh;
+    }
+    &-fullscreen &-body {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        flex-shrink: 0;        
+    }
 }

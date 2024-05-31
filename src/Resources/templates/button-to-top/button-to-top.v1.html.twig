@@ -1,0 +1,41 @@
+{# -------------- DevBrain Component : Button To Top - Settings ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr        = attr|default({}) %}
+{% set _attr        = _attr|merge({class: ''}) %}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' button-to-top') %}
+
+{# Public properties #}
+{% set _class       = class|default('') %}
+{% set _title       = title|default('') %}
+{% set _topAt       = topAt|default(0) %}
+{% set _toggleAt    = toggleAt|default(200) %}
+
+
+
+{# ---------------- DevBrain Component : Button To Top - Attr --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Set title #}
+{% if _title is not empty %}
+{% set _attr = _add_attribute(_attr, 'title', _title) %}
+{% endif %}
+
+{# set top at #}
+{% set _attr = _add_attribute(_attr, 'data-top-at', _topAt) %}
+
+{# set toggle at #}
+{% set _attr = _add_attribute(_attr, 'data-toggle-at', _toggleAt) %}
+
+{# Event handler #}
+{% set _attr = _add_attribute(_attr, 'rel', "js-button-to-top") %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# -------------- DevBrain Component : Button To Top - Content -------------- #}
+{# -------------------------------------------------------------------------- #}
+<button {{ _get_attributes(_attr) }}></button>

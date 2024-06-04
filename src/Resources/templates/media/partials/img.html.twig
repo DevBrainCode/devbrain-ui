@@ -1,0 +1,39 @@
+{# -------------- DevBrain Component : Media <img> - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _referrerpolicies    = ['no-referrer','no-referrer-when-downgrade','origin','origin-when-cross-origin','unsafe-url'] %}
+
+{# Public properties #}
+{% set _src                 = src|default('') %}
+{% set _srcset              = srcset|default('') %}
+{% set _sizes               = sizes|default('') %}
+{% set _alt                 = alt|default('') %}
+{% set _lazy                = lazy|default('yes') %}
+{% set _referrerpolicy      = referrerpolicy|default('') %}
+
+
+
+{# ------------------- DevBrain Component : Media - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Is Loading Lazy ? #}
+{% set _loading = _lazy == 'yes' ? "lazy" : "eager" %}
+
+{# Default referrer policy #}
+{% if _referrerpolicy not in _referrerpolicies %}
+{% set _referrerpolicy = 'no-referrer-when-downgrade' %}
+{% endif %}
+
+{% set _attr = _add_attribute(_attr, 'src', _src) %}
+{% set _attr = _add_attribute(_attr, 'srcset', _srcset) %}
+{% set _attr = _add_attribute(_attr, 'sizes', _sizes) %}
+{% set _attr = _add_attribute(_attr, 'alt', _alt) %}
+{% set _attr = _add_attribute(_attr, 'loading', _loading) %}
+{% set _attr = _add_attribute(_attr, 'referrerpolicy', _referrerpolicy) %}
+
+
+{# ------------------ DevBrain Component : Media - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<img {{ _get_attributes(_attr) }}> 

@@ -1,0 +1,19 @@
+{# -------------- DevBrain Component : Media <img> - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+
+{# Public properties #}
+{% set _legend              = legend|default('') %}
+
+
+{# ------------------- DevBrain Component : Media - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+
+{# ------------------ DevBrain Component : Media - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+<figcaption {{ _get_attributes(_attr) }}>{{ _legend|raw }}</figcaption>

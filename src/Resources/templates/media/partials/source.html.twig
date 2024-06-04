@@ -1,0 +1,23 @@
+{# ------------- DevBrain Component : Media <source> - Settings ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr = attr|default({}) %}
+
+{# Public properties #}
+
+{% set _src  = src|default('') %}
+{% set _type = type|default('') %}
+
+
+{# ------------ DevBrain Component : MeMedia <source>dia - Attr ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = _add_attribute(_attr, 'src', _src) %}
+{% set _attr = _add_attribute(_attr, 'type', _type) %}
+
+
+{# -------------- DevBrain Component : Media <source> - Content ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+<source {{ _get_attributes(_attr) }}>

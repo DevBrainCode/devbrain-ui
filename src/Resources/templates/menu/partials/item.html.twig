@@ -14,6 +14,7 @@
 {% set _active   = active|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _children = children|default([]) %}
+{% set _dataset  = dataset|default([]) %}
 
 {% set _action   = action|default('') %}
 {% set _level   = level|default(1) %}
@@ -50,6 +51,7 @@
         target  : _target,
         active  : _active,
         disabled: _disabled,
+        dataset : _dataset,
 
         action  : _action,
     } %}

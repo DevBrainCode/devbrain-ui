@@ -13,6 +13,7 @@
 {% set _target    = target|default('_self') %}
 {% set _active    = active|default(false) %}
 {% set _disabled  = disabled|default(false) %}
+{% set _dataset   = dataset|default({}) %}
 
 
 {# -------------------- DevBrain Component : Link - Attr -------------------- #}
@@ -32,6 +33,10 @@
 {# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
+{# DataSet #}
+{% for _property, _value in _dataset %}
+{% set _attr = _add_attribute(_attr, 'data-'~ _property, _value) %}
+{% endfor %}
 
 {% if _disabled is same as false %}
 {% set _attr = _add_attribute(_attr, 'href', _url) %}

@@ -35,6 +35,7 @@
         active  : item.active|default(false),
         disabled: item.disabled|default(false),
         children: item.children|default([]),
+        dataset : item.dataset|default([]),
         level   : _level + 1,
     } %}
     {% endfor %}

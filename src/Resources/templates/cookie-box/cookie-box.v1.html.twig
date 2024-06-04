@@ -1,0 +1,157 @@
+{# --------------- DevBrain Component : Cookie-box - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' cookie-box') %}
+{% set _attr                = _add_attribute(_attr, 'rel', 'js-cookie-box') %}
+
+{# Public properties #}
+{% set _class               = class|default('') %}
+{% set _type                = type|default('banner') %}
+{% set _position            = position|default('bottom') %}
+{% set _customize           = customize|default(false) %}
+
+{% set _header              = header|default('') %}{# Header content #}
+{% set _header_template     = header_template|default('') %}{# Header template #}
+{% set _header_options      = header_options|default({}) %}{# Header template option #}
+
+{% set _content             = content|default('We use cookies on our website to give you the most relevant experience by remembering your preferences and repeat visits. By clicking “Accept All”, you consent to the use of ALL the cookies. However, you may visit "Cookie Settings" to provide a controlled consent.') %} {# Main content #}
+{% set _content_template    = content_template|default('') %}{# Main template #}
+{% set _content_options     = content_options|default({}) %}{# Main template option #}
+
+{% set _labels              = labels|default({
+                                accept_selected: "Accept Selected",
+                                accept_all: "Accept All",
+                                reject_all: "Reject All",
+                            }) %}
+
+{% if _type != 'banner' and _type != 'modal' and _type != 'overlay' %}
+{% set _type = 'banner' %}
+{% endif %}
+
+
+{# ----------------- DevBrain Component : Cookie-box - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Passing the name of the cookie #}
+{% set _attr = _add_attribute(_attr, 'data-cookie', _get_cookie_name()) %}
+
+{# Type #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' cookie-box-' ~ _type) %}
+
+{% if _type == 'banner' %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' cookie-box-' ~ _position) %}
+{% endif %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+{% if is_cookie_box_init() is same as false %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' show') %}
+{% endif %}
+
+
+
+{# --------------- DevBrain Component : Cookie-box - Content ---------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    <div class="cookie-box-inner">
+
+        {% if _header is not empty or _header_template is not empty %}
+        <div class="cookie-box-header">
+            {% if _header_template is not empty %}
+            {% include _header_template with _header_options %}
+            {% else %}
+            {{ _header|raw }}
+            {% endif %}
+        </div>
+        {% endif %}
+    
+        <div class="cookie-box-content">
+            {% if _content_template is not empty %}
+            {% include _content_template with _content_options %}
+            {% else %}
+            {{ _content|raw }}
+            {% endif %}
+        </div>
+    
+        {% if _customize is same as true %}
+        <form class="cookie-box-options">
+
+            {# necessary #}
+            {% if _cookie_box__has_property('necessary') %}
+            {% component 'switch' with {
+                label: "Cookies strictement nécessaires",
+                name: "necessary",
+                checked: _cookie_box__is_property_checked('necessary'),
+                disabled:_cookie_box__is_property_disabled('necessary'),
+                eventHandler: false
+            } %}
+            {% endif %}
+            
+            {# performance #}
+            {% if _cookie_box__has_property('performance') %}
+            {% component 'switch' with {
+                label: "Cookies de performance",
+                name: "performance",
+                checked: _cookie_box__is_property_checked('performance'),
+                disabled: _cookie_box__is_property_disabled('performance'),
+                eventHandler: false
+            } %}
+            {% endif %}
+            
+            {# functionality #}
+            {% if _cookie_box__has_property('functionality') %}
+            {% component 'switch' with {
+                label: "Cookies de fonctionnalité",
+                name: "functionality",
+                checked: _cookie_box__is_property_checked('functionality'),
+                disabled: _cookie_box__is_property_disabled('functionality'),
+                eventHandler: false
+            } %}
+            {% endif %}
+            
+            {# advertising #}
+            {% if _cookie_box__has_property('advertising') %}
+            {% component 'switch' with {
+                label: "Cookies de ciblage ou publicitaires",
+                name: "advertising",
+                checked: _cookie_box__is_property_checked('advertising'),
+                disabled: _cookie_box__is_property_disabled('advertising'),
+                eventHandler: false
+            } %}
+            {% endif %}
+
+        </form>
+        {% endif %}
+    
+        <div class="cookie-box-actions">
+    
+            {% component 'button' with {
+                label       : _labels.accept_all,
+                dataset     : {
+                    action: 'accept-all',
+                }
+            } %}
+    
+            {% if _customize is same as true %}
+            {% component 'button' with {
+                label       : _labels.accept_selected,
+                dataset     : {
+                    action: 'accept-selected',
+                }
+            } %}
+            {% endif %}
+    
+            {% component 'button' with {
+                label       : _labels.reject_all,
+                dataset     : {
+                    action: 'reject-all',
+                }
+            } %}
+        </div>
+
+    </div>
+</div>

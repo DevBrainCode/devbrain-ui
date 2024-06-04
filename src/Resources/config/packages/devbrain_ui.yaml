@@ -1,1 +1,35 @@
 devbrain_ui:
+
+    ## Cookie Box, the RGPD Cookie Consent component
+    ## --
+    cookie_box:
+
+        ## The storage strategy
+        ## --
+        ## if cookie, consent is stored in a Cookie
+        ## if storage, consent is stored in the local storage
+        strategy: cookie
+
+        ## Storage name
+        ## --
+        name: cky
+
+        ## Properties
+        ## --
+        properties:
+            necessary: 
+                default      : true
+                customizable : true
+                disabled     : true
+            performance: 
+                default      : true
+                customizable : true
+                disabled     : true
+            functionality: 
+                default      : true
+                customizable : true
+                disabled     : true
+            advertising: 
+                default      : true
+                customizable : true
+                disabled     : true

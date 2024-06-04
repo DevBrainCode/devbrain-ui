@@ -31,11 +31,99 @@ class Configuration implements ConfigurationInterface
 		$builder = new TreeBuilder( self::NAME );
 		$rootNode = $builder->getRootNode();
 
-		// $rootNode->children()
+		$rootNode->children()
 
+		/**
+		 * Cookie Consent Component
+		 * --
+		 * 
+		 * @var array
+		 */
+		->arrayNode('cookie_box')->addDefaultsIfNotSet()->children()
 			
+			/**
+			 * Storage strategy
+			 * --
+			 * 
+			 * @var string
+			 * @default cky
+			 */
+			->enumNode('strategy')->values(["cookie", "storage"])->defaultValue("cookie")->end()
 
-		// ->end();
+				
+			/**
+			 * Cookie Consent Name
+			 * --
+			 * 
+			 * @var string
+			 * @default cky
+			 */
+			->scalarNode('name')->defaultValue('cky')->end()
+
+
+			->arrayNode('properties')
+				->addDefaultsIfNotSet()
+				->children()
+
+					/**
+					 * Show choice for "necessary" cookie
+					 * --
+					 * 
+					 * @var boolean
+					 * @default true
+					 */
+					->arrayNode('necessary')->children()
+						->booleanNode('default')->defaultTrue()->end()
+						->booleanNode('customizable')->defaultTrue()->end()
+						->booleanNode('disabled')->defaultTrue()->end()
+					->end()->end()
+
+					/**
+					 * Show choice for "performance" cookie
+					 * --
+					 * 
+					 * @var boolean
+					 * @default true
+					 */
+					->arrayNode('performance')->children()
+						->booleanNode('default')->defaultTrue()->end()
+						->booleanNode('customizable')->defaultTrue()->end()
+						->booleanNode('disabled')->defaultFalse()->end()
+					->end()->end()
+
+					/**
+					 * Show choice for "functionality" cookie
+					 * --
+					 * 
+					 * @var boolean
+					 * @default true
+					 */
+					->arrayNode('functionality')->children()
+						->booleanNode('default')->defaultTrue()->end()
+						->booleanNode('customizable')->defaultTrue()->end()
+						->booleanNode('disabled')->defaultFalse()->end()
+					->end()->end()
+
+					/**
+					 * Show choice for "advertising" cookie
+					 * --
+					 * 
+					 * @var boolean
+					 * @default true
+					 */
+					->arrayNode('advertising')->children()
+						->booleanNode('default')->defaultTrue()->end()
+						->booleanNode('customizable')->defaultTrue()->end()
+						->booleanNode('disabled')->defaultFalse()->end()
+					->end()->end()
+
+				->end()
+			->end()
+
+
+		->end()->end() // End of cookie_consent
+
+		->end();
 		
 		return $builder;
 	}

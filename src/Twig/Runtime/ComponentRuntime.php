@@ -2,13 +2,35 @@
 namespace Devbrain\Ui\Twig\Runtime;
 
 use Twig\Environment;
+use Symfony\Component\HttpFoundation\Request;
 use Twig\Extension\RuntimeExtensionInterface;
+use Devbrain\Ui\DependencyInjection\Configuration;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ComponentRuntime implements RuntimeExtensionInterface
 {
+    /**
+     * Bundle configuration
+     *
+     * @var array
+     */
+    private array $configuration = [];
+
+    /**
+     * Current Request
+     */
+    private Request $request;
+
     public function __construct(
-        private Environment $environment
-    ){}
+        #[Autowire(service: 'service_container')] private ContainerInterface $container,
+        private Environment $environment,
+        private RequestStack $requestStack,
+    ){
+        $this->configuration = $container->getParameter(Configuration::NAME);
+        $this->request = $requestStack->getCurrentRequest();
+    }
 
     /**
      * Render a component template
@@ -148,5 +170,49 @@ class ComponentRuntime implements RuntimeExtensionInterface
         }
 
         return $output;
+    }
+
+    // COOKIE BOX
+    // --
+
+    public function isCookieBoxInit(): bool
+    {
+        $name = $this->getCookieConsentName();
+        return (bool) $this->request->cookies->get($name);
+    }
+
+    public function getCookieConsentName(): string
+    {
+        return $this->configuration['cookie_box']['name'];
+    }
+
+    public function cookie_box__is_property_customizable(string $property): bool
+    {
+        return $this->configuration['cookie_box']['properties'][$property]['customizable'];
+    }
+    public function cookie_box__is_property_disabled(string $property): bool
+    {
+        return $this->configuration['cookie_box']['properties'][$property]['disabled'];
+    }
+    public function cookie_box__is_property_checked(string $property): bool
+    {
+        $name = $this->getCookieConsentName();
+        $properties = $this->request->cookies->get($name);
+
+        if ($properties === null)
+        {
+            return $this->configuration['cookie_box']['properties'][$property]['default'];
+        }
+        else {
+            if ($this->cookie_box__is_property_disabled($property))
+            {
+                return $this->configuration['cookie_box']['properties'][$property]['default'];
+            }
+            else
+            {
+                $properties = explode(",", $properties);
+                return in_array($property, $properties);
+            }
+        }
     }
 }

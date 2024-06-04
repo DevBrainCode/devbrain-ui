@@ -1,42 +1,52 @@
 {# ----------------- DevBrain Component : Switch - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' switch') %}
 
-{% set _label = label|default(false) %}
-{% set _checked = checked|default(false) %}
-{% set _active = _checked ? true : false %}
-{% set _disabled = disabled|default(false) %}
-{% set _eventHandler = eventHandler|default(true) %}
+
+{% set input_attr = {} %}
+
+{# Public properties #}
+{% set _class               = class|default('') %}
+{% set _label               = label|default(false) %}
+{% set _checked             = checked|default(false) %}
+{% set _active              = _checked ? true : false %}
+{% set _disabled            = disabled|default(false) %}
+{% set _eventHandler        = eventHandler|default(true) %}
+{% set _name                = name|default('') %}
 
 
 
 {# ------------------- DevBrain Component : Switch - Attr ------------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
-
-{# Class Attribute #}
-{% if _attr.class is not defined %}
-{% set _attr = _attr|merge({class: ''}) %}{% endif %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' switch') %}
-
 {# Add "active" class #}
 {% set _attr = _active ? _add_attribute(_attr, 'class', _attr.class ~' active') : _attr %}
-
-{# Add custom class #}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 {# Has event handler #}
 {% set _attr = _eventHandler ? _add_attribute(_attr, 'rel', "js-switch") : _attr %}
 
+{% set input_attr = _add_attribute(input_attr, 'name', _name) %}
+
+
 {# Is checked #}
-{% set input_attr = {} %}
 {% set input_attr = _checked ? _add_attribute(input_attr, 'checked', "checked") : input_attr %}
 {% set input_attr = _add_attribute(input_attr, 'aria-checked', _checked ? 'true' : 'false') %}
 
 {# Is disabled #}
 {% set input_attr = _disabled ? _add_attribute(input_attr, 'disabled', "disabled") : input_attr %}
+
+
+
+
+
+
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 

@@ -26,51 +26,10 @@
 {# ------------------- DevBrain Component : Media - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{# _source - string to object #}
-{% if _source is not iterable %}
-{% set _source = [_source] %}
-{% endif %}
-
-{# _source - default entry #}
-{# {% if _source.default is not defined %}
-{% set _first_key = _source | keys | first %}
-{% set _source = {'default': _source[_first_key]}|merge(_source) %}
-{% endif %} #}
-
-
 {# Inline media #}
 {% if _inline is same as true %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' media-inline') %}
 {% endif %}
-
-{# Controls attribute #}
-{% if _controls is same as true %}
-{% set _attr = _add_attribute(_attr, 'controls', 'controls') %}
-{% endif %}
-
-{# Autoplay attribute #}
-{% if _autoplay is same as true %}
-{% set _attr = _add_attribute(_attr, 'autoplay', 'autoplay') %}
-{% endif %}
-
-{# Loop attribute #}
-{% if _loop is same as true %}
-{% set _attr = _add_attribute(_attr, 'loop', 'loop') %}
-{% endif %}
-
-{# Muted attribute #}
-{% if _muted is same as true %}
-{% set _attr = _add_attribute(_attr, 'muted', 'muted') %}
-{% endif %}
-
-{# Muted preload #}
-{% if _preload not in _preloader %}
-{% set _preload = 'metadata' %}
-{% endif %}
-{% set _attr = _add_attribute(_attr, 'preload', _preload) %}
-
-{# Poster attribute #}
-{% set _attr = _add_attribute(_attr, 'poster', _poster) %}
 
 {# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
@@ -79,9 +38,25 @@
 
 {# ------------------ DevBrain Component : Media - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<video {{ _get_attributes(_attr) }}>    
-    {% for _src in _source %}
-    {% component 'media' part 'source' with {src : _src, type: ''} %}
-    {% endfor %}
-    {{ _placeholder|raw }}
-</video>
+<figure {{ _get_attributes(_attr) }}>
+
+    {% component 'media' part 'video' with {
+        class         : _class,
+        legend        : _legend,
+        source        : _source,
+        inline        : _inline,
+        controls      : _controls,
+        autoplay      : _autoplay,
+        loop          : _loop,
+        muted         : _muted,
+        preload       : _preload,
+        poster        : _poster,
+    } %}
+
+    {% if _legend is not empty %}
+    {% component 'media' part 'caption' with {
+        legend: _legend
+    } %}
+    {% endif %}
+
+</figure>

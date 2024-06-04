@@ -17,9 +17,10 @@ $media--caption--font-size: $spacer * .9 !default;
 ///
 
 .media {
-    // border: 3px solid red;
+    border: 3px solid red;
     display: flex;
     flex-direction: column;
+    margin: 0;
 
     &-inline {
         display: inline-flex;
@@ -32,20 +33,39 @@ $media--caption--font-size: $spacer * .9 !default;
             max-height: 100%;
             max-width: 100%;
         }
-        & figcaption {
-            font-size: $media--caption--font-size;
-            font-style: italic;
-        }
     }
 
     &-audio {
-        border: 3px solid green;
     }
 
     &-video {
-        object-fit: cover;
-        &[poster] {
-            object-fit: cover;
+        & video {
+
+            border: 3px solid blue;
+
+            object-fit: contain;
+            max-height: 100%;
+            max-width: 100%;
+            // display: flex;
+            // flex-direction: column;
+            // max-height: 100%;
+            // max-width: 100%;
+
+
+            // object-fit: cover;
+            // &[poster] {
+            //     object-fit: cover;
+            // }
+        }
+    }
+
+
+    &-image,
+    &-audio,
+    &-video {
+        & figcaption {
+            font-size: $media--caption--font-size;
+            font-style: italic;
         }
     }
 }

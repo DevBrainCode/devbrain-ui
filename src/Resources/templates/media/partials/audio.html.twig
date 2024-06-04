@@ -2,17 +2,14 @@
 {# -------------------------------------------------------------------------- #}
 
 {# Private properties #}
-{% set _preloader   = ['auto', 'metadata', 'none'] %}
 {% set _attr        = attr|default({}) %}
-{% set _attr        = _attr|merge({class: ''}) %}
-{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' media media-audio') %}
+{% set _preloader   = ['auto', 'metadata', 'none'] %}
 
 {# Public properties #}
 {% set _class       = class|default('') %}
 {% set _type        = type|default('image') %}
 {% set _legend      = legend|default('') %}
 {% set _source      = source|default([]) %}
-{% set _inline      = inline|default(false) %}
 {% set _controls    = controls|default(false) %}
 {% set _autoplay    = autoplay|default(false) %}
 {% set _loop        = loop|default(false) %}
@@ -24,36 +21,44 @@
 {# ------------------- DevBrain Component : Media - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{# Inline media #}
-{% if _inline is same as true %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' media-inline') %}
+{# _source - string to object #}
+{% if _source is not iterable %}
+{% set _source = [_source] %}
 {% endif %}
 
-{# Add custom class #}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+{# Controls attribute #}
+{% if _controls is same as true %}
+{% set _attr = _add_attribute(_attr, 'controls', 'controls') %}
+{% endif %}
+
+{# Autoplay attribute #}
+{% if _autoplay is same as true %}
+{% set _attr = _add_attribute(_attr, 'autoplay', 'autoplay') %}
+{% endif %}
+
+{# Loop attribute #}
+{% if _loop is same as true %}
+{% set _attr = _add_attribute(_attr, 'loop', 'loop') %}
+{% endif %}
+
+{# Muted attribute #}
+{% if _muted is same as true %}
+{% set _attr = _add_attribute(_attr, 'muted', 'muted') %}
+{% endif %}
+
+{# Muted preload #}
+{% if _preload not in _preloader %}
+{% set _preload = 'metadata' %}
+{% endif %}
+{% set _attr = _add_attribute(_attr, 'preload', _preload) %}
 
 
 
 {# ------------------ DevBrain Component : Media - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<figure {{ _get_attributes(_attr) }}>
-
-    {% component 'media' part 'audio' with {
-        class         : _class,
-        legend        : _legend,
-        source        : _source,
-        inline        : _inline,
-        controls      : _controls,
-        autoplay      : _autoplay,
-        loop          : _loop,
-        muted         : _muted,
-        preload       : _preload,
-    } %}
-
-    {% if _legend is not empty %}
-    {% component 'media' part 'caption' with {
-        legend: _legend
-    } %}
-    {% endif %}
-
-</figure>
+<audio {{ _get_attributes(_attr) }}>
+    {% for _src in _source %}
+    {% component 'media' part 'source' with {src : _src, type: ''} %}
+    {% endfor %}
+    {{ _placeholder|raw }}
+</audio>

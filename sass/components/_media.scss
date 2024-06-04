@@ -17,7 +17,6 @@ $media--caption--font-size: $spacer * .9 !default;
 ///
 
 .media {
-    border: 3px solid red;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -25,40 +24,32 @@ $media--caption--font-size: $spacer * .9 !default;
     &-inline {
         display: inline-flex;
     }
-
-
-    &-image {
-        & img {
-            object-fit: contain;
-            max-height: 100%;
-            max-width: 100%;
-        }
-    }
-
     &-audio {
-    }
+        flex-direction: row;
+        // justify-content: center;
+        align-items: center;
 
-    &-video {
-        & video {
-
-            border: 3px solid blue;
-
-            object-fit: contain;
-            max-height: 100%;
-            max-width: 100%;
-            // display: flex;
-            // flex-direction: column;
-            // max-height: 100%;
-            // max-width: 100%;
-
-
-            // object-fit: cover;
-            // &[poster] {
-            //     object-fit: cover;
-            // }
+        & audio {
+            margin-right: $spacer;
         }
     }
 
+    & img {
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    & video {
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
+        
+        // object-fit: cover;
+        &[poster] {
+            object-fit: cover;
+        }
+    }
 
     &-image,
     &-audio,

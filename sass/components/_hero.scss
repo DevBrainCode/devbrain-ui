@@ -36,6 +36,11 @@ $default--hero--background-color    : $gray-200;
     &-body {
         // border: 3px solid green;
         padding: $spacer * 3;
+
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        flex-shrink: 0;  
     }
 
     &-small &-body {
@@ -51,12 +56,12 @@ $default--hero--background-color    : $gray-200;
     &-halfscreen {
         min-height: 50vh;
     }
-    &-halfscreen &-body {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-        flex-shrink: 0;  
-    }
+    // &-halfscreen &-body {
+    //     display: flex;
+    //     align-items: center;
+    //     flex-grow: 1;
+    //     flex-shrink: 0;  
+    // }
 
     &-fullscreen {
         min-height: 100vh;

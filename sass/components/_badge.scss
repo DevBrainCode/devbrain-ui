@@ -4,6 +4,10 @@
 // *
 // ************************************************************************** //
 
+@use './../abstracts/mixins/corner';
+@use './../abstracts/mixins/spaces';
+@use './../abstracts/functions/color';
+
 
 /// Badge variables
 /// =============================================
@@ -15,4 +19,16 @@
 ///
 
 .badge {
+    @include corner.rounded(6px);
+    @include spaces.padding( $spacer * .6, $spacer * .6, $spacer * .6, $spacer * .6 );
+    border-width: 1px;
+    border-style: solid;
+    color: $white;
+}
+
+@each $key, $value in $base-pallet {
+    .badge-#{$key} {
+        background-color: color.tint($value, 70%);
+        border-color: $value;
+    }
 }

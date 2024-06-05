@@ -1,49 +1,70 @@
 {# ----------------- DevBrain Component : Button - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
-{% set _label = label|default('') %}
-{% set _type = type|default('button') %}
-{% set _role = role|default('button') %}
-{% set _disabled = disabled|default(false) %}
+{# Private properties #}
+{% set _types       = ['button','submit','reset','link'] %}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _label        = label|default('') %}
+{% set _disabled     = disabled|default('no') %}
 {% set _eventHandler = eventHandler|default(false) %}
-{% set _dataset = dataset|default({}) %}
+{% set _dataset      = dataset|default({}) %}
+
+{# Button properties #}
+{% set _type         = type|default('') %}
+
+{# Link properties #}
+{% set _role         = role|default('button') %}
+{% set _url          = url|default('') %}
+{% set _target       = target|default('_self') %}
 
 
 
 {# ------------------- DevBrain Component : Button - Attr ------------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
-
-{# Button class #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' button') %}
-
-{# Add custom class #}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
-
-
-{# Button type #}
-{% set _attr = _add_attribute(_attr, 'type', _type) %}
-
-{# Button role #}
-{% set _attr = _add_attribute(_attr, 'role', _role) %}
-
-{# Has event handler #}
-{% if _eventHandler %}
-{% set _attr = _eventHandler is same as true ? _add_attribute(_attr, 'rel', "js-button") : _add_attribute(_attr, 'rel', "js-"~ _eventHandler) %}
+{# Default referrer policy #}
+{% if _type not in _types %}
+{% set _type = 'button' %}
 {% endif %}
-
-{# Is disabled #}
-{% set _attr = _disabled ? _add_attribute(_attr, 'disabled', "disabled") : _attr %}
-
-{# DataSet #}
-{% for _property, _value in _dataset %}
-{% set _attr = _add_attribute(_attr, 'data-'~ _property, _value) %}
-{% endfor %}
 
 
 {# ----------------- DevBrain Component : Button - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<button {{ _get_attributes(_attr) }}>{{ _label|raw }}</button>
+{% if _type == 'button' %}
+{% component 'button.button' with {
+    class       : _class,
+    label       : _label,
+    disabled    : _disabled,
+    dataset     : _dataset,
+    eventHandler: _eventHandler,
+} %}
+{% elseif _type == 'submit' %}
+{% component 'button.submit' with {
+    class       : _class,
+    label       : _label,
+    disabled    : _disabled,
+    dataset     : _dataset,
+    eventHandler: _eventHandler,
+} %}
+{% elseif _type == 'reset' %}
+{% component 'button.reset' with {
+    class       : _class,
+    label       : _label,
+    disabled    : _disabled,
+    dataset     : _dataset,
+    eventHandler: _eventHandler,
+} %}
+{% elseif _type == 'link' %}
+{% component 'button.link' with {
+    class       : _class,
+    label       : _label,
+    role        : _role,
+    disabled    : _disabled,
+    dataset     : _dataset,
+    eventHandler: _eventHandler,
+    url         : _url,
+    target      : _target,
+} %}
+{% endif %}

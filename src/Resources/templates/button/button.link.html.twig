@@ -1,0 +1,36 @@
+{# -------------- DevBrain Component : Button Link - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _class_btn    = 'button-link' %}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _label        = label|default('') %}
+{% set _role         = role|default('button') %}
+{% set _disabled     = disabled|default('no') %}
+{% set _eventHandler = eventHandler|default(false) %}
+{% set _dataset      = dataset|default({}) %}
+{% set _url          = url|default('') %}
+{% set _target       = target|default('_self') %}
+
+
+{# ---------------- DevBrain Component : Button Link - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Button Class #}
+{% set _class = _class_btn ~ ' ' ~ _class %}
+
+
+{# --------------- DevBrain Component : Button Link - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+{% component 'button' part 'link' with {
+    class       : _class,
+    label       : _label,
+    role        : _role,
+    disabled    : _disabled,
+    dataset     : _dataset,
+    eventHandler: _eventHandler,
+    url         : _url,
+    target      : _target,
+} %}

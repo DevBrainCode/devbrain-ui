@@ -67,7 +67,7 @@
 
 {# ------------------ DevBrain Component : Media - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-<video {{ _get_attributes(_attr) }}>    
+<video {{ _get_attributes(_attr) }}>
     {% for _src in _source %}
     {% component 'media' part 'source' with {src : _src, type: ''} %}
     {% endfor %}

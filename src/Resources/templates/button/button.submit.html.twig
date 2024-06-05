@@ -1,0 +1,32 @@
+{# ------------- DevBrain Component : Button Submit - Settings -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _type         = 'submit' %}
+{% set _class_btn    = 'button-submit' %}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _label        = label|default('') %}
+{% set _disabled     = disabled|default('no') %}
+{% set _eventHandler = eventHandler|default(false) %}
+{% set _dataset      = dataset|default({}) %}
+
+
+{# --------------- DevBrain Component : Button Submit - Attr ---------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Button Class #}
+{% set _class = _class_btn ~ ' ' ~ _class %}
+
+
+{# -------------- DevBrain Component : Button Submit - Content -------------- #}
+{# -------------------------------------------------------------------------- #}
+{% component 'button' part 'button' with {
+    class       : _class,
+    label       : _label,
+    type        : _type,
+    disabled    : _disabled,
+    dataset     : _dataset,
+    eventHandler: _eventHandler,
+} %}

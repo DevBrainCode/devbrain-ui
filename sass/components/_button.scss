@@ -5,6 +5,10 @@
 // ************************************************************************** //
 
 @use './../abstracts/mixins/corner';
+@use './../abstracts/mixins/spaces';
+@use './../abstracts/mixins/transition';
+@use './../abstracts/functions/color';
+
 
 /// Button variables
 /// =============================================
@@ -15,16 +19,110 @@
 /// =============================================
 ///
 
+// plain
+// outline
+
+// background-color: 
+// background-color: hover
+// background-color: active
+// background-color: disabled
+
+// border-color: 
+// border-color: hover
+// border-color: active
+// border-color: disabled
+
+// text-color: 
+// text-color: hover
+// text-color: active
+// text-color: disabled
+
 .button {
     @include corner.rounded(6px);
+    @include transition.set((background-color, border-color, color), .3s);
     cursor: pointer;
+
+    line-height: 1;
+    border-width: 1px;
+    border-style: solid;
+
+
+    // theme
+    border-color: transparent;
+    background-color: transparent;
+
+    // sizes
+    @include spaces.padding( $spacer * .6, $spacer * 1.4, $spacer * .6, $spacer * 1.4 );
+    font-size: $spacer * 1;
+
+
+    &:hover {
+        background-color: transparent;
+    }
+
+    &-block {
+        display: block;
+        min-width: 100%;
+    }
 }
 
+.button {
+    &-small {
+        @include spaces.padding( $spacer * .4, $spacer * 1, $spacer * .4, $spacer * 1 );
+        font-size: $spacer * .8;
+    }
+    &-large {
+        @include spaces.padding( $spacer * 1, $spacer * 2, $spacer * 1, $spacer * 2 );
+        font-size: $spacer * 1.6;
+    }
+}
 
 [rel=js-button] {
     transition: background-color map-get($delays, 'normal');
 
     &.active {
         background-color: chocolate;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@each $key, $value in $base-pallet {
+    .button-#{$key} {
+        color: $value;
+        background-color: color.tint($value, 70%);
+        border-color: color.tint($value, 70%);
+
+        &:hover {
+            $value: color.shade($value, 30%);
+            color: color.contrastText($value);
+            background-color: $value;
+            border-color: $value;
+        }
+    }
+
+    .button-#{$key}.button-border {
+        border-color: $value;
+        &:hover {
+            border-color: color.shade($value, 30%);
+        }
+    }
+    .button-#{$key}-outline {
+        color: $value;
+        background-color: transparent;
+        border-color: $value;
+
+        &:hover {
+            color: color.shade($value, 30%);
+            border-color: color.shade($value, 30%);
+        }
     }
 }

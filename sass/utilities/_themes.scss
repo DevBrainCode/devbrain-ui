@@ -10,7 +10,19 @@
 // ************************************************************************** //
 
 
+@use './../abstracts/functions/color';
+
 :root {
+    @each $key, $value in $base-pallet {
+        $shade: color.shade($value, 30%);
+        $tint: color.tint($value, 60%);
+        $contrastText: color.contrastText($shade);
+
+        --#{$key}: #{$value};
+        --#{$key}-shade: #{$shade};
+        --#{$key}-tint: #{$tint};
+    }
+
     @each $property, $value in map-get($themes , $theme-default ) {
         --#{$property}: #{$value};
     }

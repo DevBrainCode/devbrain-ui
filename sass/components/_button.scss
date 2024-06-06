@@ -56,9 +56,9 @@
     font-size: $spacer * 1;
 
 
-    &:hover {
-        background-color: transparent;
-    }
+    // &:hover {
+    //     background-color: transparent;
+    // }
 
     &-block {
         display: block;
@@ -102,33 +102,168 @@
 
     .button-#{$key} {
         color: $contrastText;
-        background-color: $value;
-        border-color: $value;
+        background-color: var(--#{$key});
+        border-color: var(--#{$key});
 
-        &:hover {
+        &:not(.button-effect):hover {
             color: $contrastText;
-            background-color: $shade;
-            border-color: $shade;
+            background-color: var(--#{$key}-shade);
+            border-color: var(--#{$key}-shade);
+        }
+
+        // .button-effect
+        &:before {
+            background-color: var(--#{$key}-shade);
         }
     }
 
-    // .button-#{$key}.button-border {
-    //     background-color: $tint;
-    //     border-color: $value;
-    //     &:hover {
-    //         background-color: $value;
-    //         border-color: $shade;
-    //     }
-    // }
     .button-#{$key}-outline {
-        color: $value;
+        color: var(--#{$key});
         background-color: transparent;
-        border-color: $value;
+        border-color: var(--#{$key}) !important;
+        border-width: 1px !important;
+        border-style: solid !important;
 
         &:hover {
             color: $contrastText;
-            background-color: $shade;
-            border-color: $shade;
+            background-color: var(--#{$key}-shade);
+            border-color: var(--#{$key}-shade);
         }
     }
 }
+
+
+
+
+$color: #0cf;
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover, red);
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover, red);
+    }
+}
+
+
+
+.button-effect
+{
+    &-pulse:hover,
+    &-pulse:focus {
+        -webkit-animation: pulse .5s;
+                animation: pulse .5s;
+        box-shadow: 0 0 0 1em transparent;
+    }
+
+
+
+    &-close {
+        transition: all .3s;
+        box-shadow: inset 0 0 0 0 var(--hover, red), inset 0 0 0 0 var(--hover, red);
+    }
+    &-close:hover,
+    &-close:focus {
+        box-shadow: inset -1000px 0 0 0 var(--hover, red), inset 1000px 0 0 0 var(--hover, red);
+    }
+
+    &-fill-in:hover,
+    &-fill-in:focus {
+        box-shadow: inset 0 0 0 2em $color;
+    }
+
+    &-fill {
+        &-in,
+        &-down,
+        &-right,
+        &-up,
+        &-left {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border-color: transparent !important;
+            transition: all .3s;
+    
+            &:before {
+                content: '';
+                position: absolute;
+                // background-color: $color;
+                transition: all .3s;
+                z-index: -1;
+            }
+        }
+    
+        &-down::before,
+        &-up::before {
+            width: 100%;
+            height: 0;
+        }
+        &-down::before {
+            top: 0;
+            left: 0;
+        }
+        &-up::before {
+            bottom: 0;
+            left: 0;
+        }
+        &-down:hover::before,
+        &-up:hover::before {
+            height: 100%;
+        }
+    
+        &-left::before,
+        &-right::before {
+            width: 0;
+            height: 100%;
+        }
+        &-left::before {
+            top: 0;
+            left: 0;
+        }
+        &-right::before {
+            top: 0;
+            right: 0;
+        }
+        &-left:hover::before,
+        &-right:hover::before {
+            width: 100%;
+        }
+    }
+}
+
+
+// .btn-animated {
+//     animation: moveInBottom 5s ease-out;
+//     animation-fill-mode: backwards;
+// }
+
+// @keyframes moveInBottom {
+//     0% {
+//         opacity: 0;
+//         transform: translateY(30px);
+//     }
+
+//     100% {
+//         opacity: 1;
+//         transform: translateY(0px);
+//     }
+// }
+
+
+
+// @each $theme, $properties in $themes {
+
+//     // @if ($theme != $theme-default)
+//     // {
+//     //     :root[data-theme=#{$theme}] {
+//     //         @each $property, $value in $properties {
+//     //             --#{$property}: #{$value};
+//     //         }
+//     //     }
+//     // }
+// }
+
+

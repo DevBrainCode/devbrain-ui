@@ -96,33 +96,39 @@
 
 
 @each $key, $value in $base-pallet {
+    $shade: color.shade($value, 30%);
+    $tint: color.tint($value, 60%);
+    $contrastText: color.contrastText($shade);
+
     .button-#{$key} {
-        color: $value;
-        background-color: color.tint($value, 70%);
-        border-color: color.tint($value, 70%);
-
-        &:hover {
-            $value: color.shade($value, 30%);
-            color: color.contrastText($value);
-            background-color: $value;
-            border-color: $value;
-        }
-    }
-
-    .button-#{$key}.button-border {
+        color: $contrastText;
+        background-color: $value;
         border-color: $value;
+
         &:hover {
-            border-color: color.shade($value, 30%);
+            color: $contrastText;
+            background-color: $shade;
+            border-color: $shade;
         }
     }
+
+    // .button-#{$key}.button-border {
+    //     background-color: $tint;
+    //     border-color: $value;
+    //     &:hover {
+    //         background-color: $value;
+    //         border-color: $shade;
+    //     }
+    // }
     .button-#{$key}-outline {
         color: $value;
         background-color: transparent;
         border-color: $value;
 
         &:hover {
-            color: color.shade($value, 30%);
-            border-color: color.shade($value, 30%);
+            color: $contrastText;
+            background-color: $shade;
+            border-color: $shade;
         }
     }
 }

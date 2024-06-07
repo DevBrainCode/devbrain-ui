@@ -1,0 +1,26 @@
+{# ------------------ DevBrain Component : Map - Settings ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _reference    = reference|default('') %}
+{% set _dataset      = dataset|default({}) %}
+
+
+
+{# -------------------- DevBrain Component : Map - Attr --------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Badge Class #}
+{% set _class = 'map-google ' ~ _class %}
+
+
+{# ------------------- DevBrain Component : Map - Content ------------------- #}
+{# -------------------------------------------------------------------------- #}
+{% component 'map' part 'master' with {
+    class       : _class,
+    reference   : _reference,
+    dataset     : _dataset,
+} %}

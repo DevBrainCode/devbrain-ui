@@ -1,0 +1,32 @@
+{# ------------------ DevBrain Component : Map - Settings ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _providers    = ['google'] %}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _provider     = provider|default('') %}
+{% set _reference    = reference|default('') %}
+{% set _dataset      = dataset|default({}) %}
+
+
+
+{# -------------------- DevBrain Component : Map - Attr --------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Default referrer policy #}
+{% if _provider not in _providers %}
+{% set _provider = 'google' %}
+{% endif %}
+
+
+{# ------------------- DevBrain Component : Map - Content ------------------- #}
+{# -------------------------------------------------------------------------- #}
+{% if _provider == 'google' %}
+{% component 'map.google' with {
+    class       : _class,
+    reference   : _reference,
+    dataset     : _dataset,
+} %}
+{% endif %}

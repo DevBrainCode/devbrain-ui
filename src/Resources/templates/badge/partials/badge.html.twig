@@ -1,6 +1,11 @@
 {# ------------------ DevBrain Component : Badge - Settings ----------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{# Private properties #}
+{% set _attr         = attr|default({}) %}
+{% set _attr         = _attr|merge({class: ''}) %}
+{% set _attr         = _add_attribute(_attr, 'class', _attr.class ~' badge') %}
+
 {# Public properties #}
 {% set _class        = class|default('') %}
 {% set _label        = label|default('') %}
@@ -10,12 +15,11 @@
 {# ------------------- DevBrain Component : Badge - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
 
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
 
 
 {# ------------------ DevBrain Component : Badge - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
-
-{% component 'badge' part 'badge' with {
-    label: _label,
-    class: _class,
-} %}
+<span {{ _get_attributes(_attr) }}>{{ _label|raw }}</span>

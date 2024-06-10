@@ -11,7 +11,7 @@
 {% set _class               = class|default('') %}
 {% set _type                = type|default('banner') %}
 {% set _position            = position|default('bottom') %}
-{% set _customize           = customize|default(false) %}
+{% set _customize           = customize|default('no') %}
 
 {% set _header              = header|default('') %}{# Header content #}
 {% set _header_template     = header_template|default('') %}{# Header template #}
@@ -77,7 +77,7 @@
             {% endif %}
         </div>
     
-        {% if _customize is same as true %}
+        {% if _customize == 'yes' %}
         <form class="cookie-box-options">
 
             {# necessary #}
@@ -136,7 +136,7 @@
                 }
             } %}
     
-            {% if _customize is same as true %}
+            {% if _customize == 'yes' %}
             {% component 'button' with {
                 label       : _labels.accept_selected,
                 dataset     : {

@@ -8,6 +8,7 @@ use Devbrain\Ui\DependencyInjection\Configuration;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ComponentRuntime implements RuntimeExtensionInterface
 {
@@ -27,6 +28,7 @@ class ComponentRuntime implements RuntimeExtensionInterface
         #[Autowire(service: 'service_container')] private ContainerInterface $container,
         private Environment $environment,
         private RequestStack $requestStack,
+        private ParameterBagInterface $params,
     ){
         $this->configuration = $container->getParameter(Configuration::NAME);
         $this->request = $requestStack->getCurrentRequest();
@@ -213,6 +215,32 @@ class ComponentRuntime implements RuntimeExtensionInterface
                 $properties = explode(",", $properties);
                 return in_array($property, $properties);
             }
+        }
+    }
+
+
+
+
+    public function doc_preview(string $source="", array $options=[])
+    {
+        $template = $this->environment->render(
+            "@DevbrainUiDoc/sources/{$source}",
+            $options
+        );
+        echo "<div class=\"rendering_preview\">{$template}</div>";
+    }
+
+    public function doc_code(string $source="")
+    {
+        $source = __DIR__."/../../../documentation/sources/{$source}";
+
+        if (file_exists($source))
+        {
+            $content = file_get_contents($source);
+            $content = htmlspecialchars($content);
+            // $content = nl2br($content);
+
+            echo "<pre class=\"code_preview\">{$content}</pre>";
         }
     }
 }

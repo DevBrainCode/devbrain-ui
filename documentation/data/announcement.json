@@ -1,0 +1,74 @@
+{
+    "_toto": "revoir la partie JS pour le defillement du texte + sass utilisation de la pallette",
+    "name": "Announcement",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+    "type": "component",
+    "status": "☑️",
+    "twig": {
+        "source": "announcement/main.twig",
+        "examples": [
+            {
+                "name": "Contenu défilant",
+                "description": "",
+                "file": "announcement/scroll.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "active",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "Si <code>yes</code>, affiche le composent"
+            },
+            {
+                "name": "fluid",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "Si <code>yes</code>, ajoute la class <code>container-fluid</code>"
+            },
+            {
+                "name": "content",
+                "type": "string | array",
+                "required": false,
+                "default": "[]",
+                "description": "Indique le ou les contenus a faire defiler"
+            }
+        ]
+    },
+    "sass": {
+        "import": "announcement",
+        "required": true,
+        "variables": [
+            {
+                "name": "announcement--height",
+                "default": "40px",
+                "description": "Fixe la hauteur du composant"
+            }
+        ],
+        "theme": [
+            {
+                "name": "announcement--text-color",
+                "default": "$primary--text-color",
+                "description": ""
+            },
+            {
+                "name": "announcement--background-color",
+                "default": "$rimary--background-color",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": "AnnouncementComponent",
+        "required": false
+    }
+}

@@ -10,7 +10,7 @@
 {% set _type           = type|default('image') %}
 {% set _legend         = legend|default('') %}
 {% set _source         = source|default([]) %}
-{% set _inline         = inline|default(false) %}
+{% set _inline         = inline|default('no') %}
 
 {# Images properties #}
 {% set _alt            = alt|default('') %}
@@ -19,10 +19,10 @@
 {% set _sizes          = sizes|default([]) %}
 
 {# Audio & Video properties #}
-{% set _controls       = controls|default(false) %}
-{% set _autoplay       = autoplay|default(false) %}
-{% set _loop           = loop|default(false) %}
-{% set _muted          = muted|default(false) %}
+{% set _controls       = controls|default('no') %}
+{% set _autoplay       = autoplay|default('no') %}
+{% set _loop           = loop|default('no') %}
+{% set _muted          = muted|default('no') %}
 {% set _preload        = preload|default('') %}
 {% set _placeholder    = placeholder|default('') %}
 

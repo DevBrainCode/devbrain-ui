@@ -35,8 +35,8 @@ $default--switch-disabled--indicator-color : $gray-500;
 // Sizes & positions
 // --------------------------
 
-$switch-width: 30;
-$switch-height: 14;
+$switch-width: 30 !default;
+$switch-height: 14 !default;
 
 $switch-width-px: #{$switch-width}px;
 $switch-height-px: #{$switch-height}px;

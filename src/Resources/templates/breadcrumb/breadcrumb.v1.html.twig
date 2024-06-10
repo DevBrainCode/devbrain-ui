@@ -27,7 +27,7 @@
 {% for _link in _items %}
 {% component 'breadcrumb' part 'item' with {
     link  : _link,
-    active: loop.last ? true : false
+    active: loop.last ? "yes" : "no"
 } %}
 {% endfor %}
 </ul>

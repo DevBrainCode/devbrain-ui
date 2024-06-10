@@ -1,0 +1,48 @@
+{
+    "name": "Dialog",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    "twig": {
+        "_source": "dialog.twig",
+        "_examples": [
+            {
+                "name": "",
+                "description": "",
+                "file": ""
+            }
+        ],
+        "_variables": [
+            {
+                "name": "xxx",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "sass": {
+        "import": "dialog",
+        "required": true,
+        "_variables": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ],
+        "_theme": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

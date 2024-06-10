@@ -1,0 +1,18 @@
+{% component 'media' with {
+    class: "my-custom-class",
+    type: 'image',
+    source: "https://picsum.photos/400/200",
+    legend: "Source: picsum.photos",
+    inline: 'yes',
+    alt: 'Alt texte',
+    referrerpolicy: "no-referrer-when-downgrade",
+} %}
+
+{% component 'media.image' with {
+    class: "my-custom-class",
+    source: "https://picsum.photos/400/200",
+    legend: "Source: picsum.photos",
+    inline: 'yes',
+    alt: 'Alt texte',
+    referrerpolicy: "no-referrer-when-downgrade",
+} %}

@@ -1,23 +1,31 @@
 {# --------------- DevBrain Component : Card Footer - Settings -------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
-{% set _content = content|default('') %}
+{# Private properties #}
+{% set _attr         = attr|default({}) %}
+{% set _attr         = _attr|merge({class: ''}) %}
+{% set _attr         = _add_attribute(_attr, 'class', _attr.class ~' card-footer') %}
+
+{# Public properties #}
+{% set _class       = class|default('') %}
+{% set _content     = content|default('') %}
+{% set _template    = template|default('') %}
+{% set _options     = options|default({}) %}
 
 
 {# ----------------- DevBrain Component : Card Footer - Attr ---------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
-
 {# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' card-footer') %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 {# --------------- DevBrain Component : Card Footer - Content --------------- #}
 {# -------------------------------------------------------------------------- #}
 <footer {{ _get_attributes(_attr) }}>
+{% if _template is not empty %}
+    {% include _template with _options %}
+{% else %}
     {{ _content|raw }}
+{% endif %}
 </footer>

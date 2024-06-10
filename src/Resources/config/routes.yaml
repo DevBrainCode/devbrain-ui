@@ -1,0 +1,6 @@
+_devbrain_ui_doc:
+    path: /dev-brain-ui
+    methods: [GET]
+    controller: Devbrain\Ui\Controller\DocController::index
+    defaults:
+        _page: registration

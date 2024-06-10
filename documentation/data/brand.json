@@ -1,0 +1,138 @@
+{
+    "name": "Brand",
+    "description": "Documentation et exemples pour le logo Brand",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "brand/main.twig",
+        "examples": [
+            {
+                "name": "Tailles",
+                "description": "Déclinaison de tailles",
+                "file": "brand/sizes.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "logo",
+                "type": "string",
+                "required": true,
+                "default": "",
+                "description": "URL de l'image représentant le logo de la marque"
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Nom de la marque. Ce texte est injecté dans l'attribut <code>alt</code> de l'imgae, ou est utilisé si le logo n'est pas définit"
+            },
+            {
+                "name": "url",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "URL du lien"
+            },
+            {
+                "name": "tagline",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Slogan de l'entreprise"
+            },
+            {
+                "name": "size",
+                "type": "enum",
+                "required": false,
+                "default": "medium",
+                "description": "Tailles d'affichage prédefinient ( <code>small</code>, <code>medium</code>, <code>large</code> )"
+            }
+        ]
+    },
+    "sass": {
+        "import": "brand",
+        "required": true,
+        "variables": [
+            {
+                "name": "brand--small--font-size",
+                "default": "1.2rem",
+                "description": "Taille de la police pour la déclinaison <code>small</code>"
+            },
+            {
+                "name": "brand--small--tagline-size",
+                "default": ".8rem"
+            },
+            {
+                "name": "brand--small--tagline-offset",
+                "default": "6px"
+            },
+            {
+                "name": "brand--small--font-weight",
+                "default": "600"
+            },
+            {
+                "name": "brand--small--img-height",
+                "default": "32px"
+            },
+            {
+                "name": "brand--medium--font-size",
+                "default": "1.5rem",
+                "description": "Taille de la police pour la déclinaison <code>medium</code>"
+            },
+            {
+                "name": "brand--medium--tagline-size",
+                "default": "1rem"
+            },
+            {
+                "name": "brand--medium--tagline-offset",
+                "default": "8px"
+            },
+            {
+                "name": "brand--medium--font-weight",
+                "default": "700"
+            },
+            {
+                "name": "brand--medium--img-height",
+                "default": "42px"
+            },
+            {
+                "name": "brand--large--font-size",
+                "default": "2rem",
+                "description": "Taille de la police pour la déclinaison <code>large</code>"
+            },
+            {
+                "name": "brand--large--tagline-size",
+                "default": "1.2rem"
+            },
+            {
+                "name": "brand--large--tagline-offset",
+                "default": "12px"
+            },
+            {
+                "name": "brand--large--font-weight",
+                "default": "900"
+            },
+            {
+                "name": "brand--large--img-height",
+                "default": "56px"
+            }
+        ],
+        "theme": [
+            {
+                "name": "brand--text-color",
+                "default": "$gray-700",
+                "description": "Definit la couleur du texte"
+            },
+            {
+                "name": "brand--text-hover-color",
+                "default": "$black",
+                "description": "Definit la couleur du texte au survol de la souris"
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

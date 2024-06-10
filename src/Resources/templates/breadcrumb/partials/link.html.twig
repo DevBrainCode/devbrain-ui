@@ -11,26 +11,26 @@
 {% set _label     = label|default('') %}
 {% set _url       = url|default('#') %}
 {% set _target    = target|default('_self') %}
-{% set _active    = active|default(false) %}
-{% set _disabled  = disabled|default(false) %}
+{% set _active    = active|default("no") %}
+{% set _disabled  = disabled|default("no") %}
 
 
 {# -------------------- DevBrain Component : Link - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
 
 {# Active link #}
-{% if _active is not same as false %}
+{% if _active == "yes" %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' active') %}
 {% endif %}
 
 {# Disabled link #}
-{% if _disabled is not same as false %}
+{% if _disabled == "yes" %}
 {% set _attr = _add_attribute(_attr, 'disabled', 'disabled') %}
 {% set _attr = _add_attribute(_attr, 'aria-disabled', 'true') %}
 {% endif %}
 
 {# Link is not disabled #}
-{% if _disabled is same as false %}
+{% if _disabled == "no" %}
 {% set _attr = _add_attribute(_attr, 'href', _url) %}
 {% set _attr = _add_attribute(_attr, 'target', _target) %}
 {% endif %}

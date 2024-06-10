@@ -1,0 +1,73 @@
+{
+    "name": "Map",
+    "description": "Documentation et exemples pour le composant Map",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "map/main.twig",
+        "examples": [
+            {
+                "name": "Google Map",
+                "description": "",
+                "file": "map/google.twig"
+            },
+            {
+                "name": "LeafLet",
+                "description": "",
+                "file": "map/leaflet.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "provider",
+                "type": "enum",
+                "required": false,
+                "default": "google",
+                "description": "Type du fournisseur de service de cartographie: <code>google</code>, <code>leaflet</code>"
+            },
+            {
+                "name": "reference",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "URL ou Référence de la carte"
+            },
+            {
+                "name": "dataset",
+                "type": "array",
+                "required": false,
+                "default": "{}",
+                "description": "Liste d'attribut data"
+            }
+        ]
+    },
+    "sass": {
+        "import": "map",
+        "required": true,
+        "_variables": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ],
+        "_theme": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

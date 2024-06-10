@@ -1,0 +1,287 @@
+{
+    "name": "Card",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "card/main.twig",
+        "examples": [
+            {
+                "name": "Card templates",
+                "description": "",
+                "file": "card/template.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "title",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Titre de l'entete du composant"
+            },
+            {
+                "name": "title_tag",
+                "type": "string",
+                "required": false,
+                "default": "div",
+                "description": "Type de tag pour le titre du composant"
+            },
+            {
+                "name": "subtitle",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Sous-titre dans l'entete du composant"
+            },
+            {
+                "name": "header_template",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Emplacement du template de l'entete du composant"
+            },
+            {
+                "name": "header_options",
+                "type": "array",
+                "required": false,
+                "default": "{}",
+                "description": "Liste des options a passer à l'entete du composant"
+            },
+            {
+                "name": "body",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Texts du corps du composant"
+            },
+            {
+                "name": "body_template",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Emplacement du template du corps du composant"
+            },
+            {
+                "name": "body_options",
+                "type": "array",
+                "required": false,
+                "default": "{}",
+                "description": "Liste des options a passer au corps du composant"
+            },
+            {
+                "name": "footer",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Texte du pied du composant"
+            },
+            {
+                "name": "footer_template",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Emplacement du template du pied du composant"
+            },
+            {
+                "name": "footer_options",
+                "type": "array",
+                "required": false,
+                "default": "{}",
+                "description": "Liste des options a passer au pied du composant"
+            }
+        ]
+    },
+    "sass": {
+        "import": "card",
+        "required": true,
+        "variables": [
+            {
+                "name": "card--inner--padding",
+                "default": "($spacer * .6) $spacer"
+            },
+            {
+                "name": "card--border-radius",
+                "default": "$border-radius"
+            },
+            {
+                "name": "card--border-width",
+                "default": "1px"
+            },
+            {
+                "name": "card--border-style",
+                "default": "solid"
+            },
+            {
+                "name": "card-header--border-radius",
+                "default": "$card--border-radius"
+            },
+            {
+                "name": "card-header--border-width",
+                "default": "$card--border-width"
+            },
+            {
+                "name": "card-header--border-style",
+                "default": "$card--border-style"
+            },
+            {
+                "name": "card-header--border-top-left-radius",
+                "default": "$card-header--border-radius"
+            },
+            {
+                "name": "card-header--border-top-right-radius",
+                "default": "$card-header--border-radius"
+            },
+            {
+                "name": "card-header--border-bottom-left-radius",
+                "default": "0"
+            },
+            {
+                "name": "card-header--border-bottom-right-radius",
+                "default": "0"
+            },
+            {
+                "name": "card-header--border-top-width",
+                "default": "$card-header--border-width"
+            },
+            {
+                "name": "card-header--border-right-width",
+                "default": "$card-header--border-width"
+            },
+            {
+                "name": "card-header--border-bottom-width",
+                "default": "$card-header--border-width"
+            },
+            {
+                "name": "card-header--border-left-width",
+                "default": "$card-header--border-width"
+            },
+            {
+                "name": "card-header--border-top-style",
+                "default": "$card-header--border-style"
+            },
+            {
+                "name": "card-header--border-right-style",
+                "default": "$card-header--border-style"
+            },
+            {
+                "name": "card-header--border-bottom-style",
+                "default": "$card-header--border-style"
+            },
+            {
+                "name": "card-header--border-left-style",
+                "default": "$card-header--border-style"
+            },
+            {
+                "name": "card-footer--border-radius",
+                "default": "$card--border-radius"
+            },
+            {
+                "name": "card-footer--border-width",
+                "default": "$card--border-width"
+            },
+            {
+                "name": "card-footer--border-style",
+                "default": "$card--border-style"
+            },
+            {
+                "name": "card-footer--border-top-left-radius",
+                "default": "0"
+            },
+            {
+                "name": "card-footer--border-top-right-radius",
+                "default": "0"
+            },
+            {
+                "name": "card-footer--border-bottom-left-radius",
+                "default": "$card-footer--border-radius"
+            },
+            {
+                "name": "card-footer--border-bottom-right-radius",
+                "default": "$card-footer--border-radius"
+            },
+            {
+                "name": "card-footer--border-top-width",
+                "default": "$card-footer--border-width"
+            },
+            {
+                "name": "card-footer--border-right-width",
+                "default": "$card-footer--border-width"
+            },
+            {
+                "name": "card-footer--border-bottom-width",
+                "default": "$card-footer--border-width"
+            },
+            {
+                "name": "card-footer--border-left-width",
+                "default": "$card-footer--border-width"
+            },
+            {
+                "name": "card-footer--border-top-style",
+                "default": "$card-footer--border-style"
+            },
+            {
+                "name": "card-footer--border-right-style",
+                "default": "$card-footer--border-style"
+            },
+            {
+                "name": "card-footer--border-bottom-style",
+                "default": "$card-footer--border-style"
+            },
+            {
+                "name": "card-footer--border-left-style",
+                "default": "$card-footer--border-style"
+            }
+            
+        ],
+        "theme": [
+            {
+                "name": "default--card--text-color",
+                "default": "$black"
+            },
+            {
+                "name": "default--card--border-color",
+                "default": "$gray-500"
+            },
+            {
+                "name": "default--card--background-color",
+                "default": "$white"
+            },
+            {
+                "name": "default--card-header--text-color",
+                "default": "$black"
+            },
+            {
+                "name": "default--card-header--border-color",
+                "default": "$gray-500"
+            },
+            {
+                "name": "default--card-header--background-color",
+                "default": "$gray-200"
+            },
+            {
+                "name": "default--card-footer--text-color",
+                "default": "$black"
+            },
+            {
+                "name": "default--card-footer--border-color",
+                "default": "$gray-500"
+            },
+            {
+                "name": "default--card-footer--background-color",
+                "default": "$gray-200"
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

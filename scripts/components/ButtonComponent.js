@@ -45,11 +45,6 @@ export default class ButtonComponent extends AbstractComponent
 
     _onInit() 
     {
-        this.on('dbclick', {
-            do    : this._dbclick,
-            before: this._beforeDbclick,
-            after : this._afterDbclick,
-        });
         this.on('click', {
             do    : this._click,
             before: this._beforeClick,
@@ -135,71 +130,6 @@ export default class ButtonComponent extends AbstractComponent
         // --
         
         // console.log("Default do after click");
-    }
-
-    
-    _dbclick(handler, event, element)
-    {
-        // Always Dbclick script
-        // --
-
-
-        //  Custom Dbclick script
-        // --
-
-        if (typeof handler.onDbclick === 'function')
-        {
-            handler.onDbclick(event, element); 
-            return;
-        }
-
-        
-        //  Default Dbclick script
-        // --
-        
-        // console.log("Default do dbclick");
-    }
-    _beforeDbclick(handler, event, element)
-    {
-        // Always Before Dbclick script
-        // --
-
-
-        //  Custom Before Dbclick script
-        // --
-
-        if (typeof handler.onBeforeDbclick === 'function')
-        {
-            handler.onBeforeDbclick(event, element); 
-            return;
-        }
-
-        
-        //  Default Before Dbclick script
-        // --
-        
-        // console.log("Default do before dbclick");
-    }
-    _afterDbclick(handler, event, element)
-    {
-        // Always After Dbclick script
-        // --
-
-
-        //  Custom After Dbclick script
-        // --
-
-        if (typeof handler.onAfterDbclick === 'function')
-        {
-            handler.onAfterDbclick(event, element); 
-            return;
-        }
-
-        
-        //  Default After Dbclick script
-        // --
-        
-        // console.log("Default do after dbclick");
     }
 
     _mousedown(handler, event, element)

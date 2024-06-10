@@ -1,0 +1,48 @@
+{
+    "name": "Pagination",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    "twig": {
+        "_source": "pagination.twig",
+        "_examples": [
+            {
+                "name": "",
+                "description": "",
+                "file": ""
+            }
+        ],
+        "_variables": [
+            {
+                "name": "xxx",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "sass": {
+        "import": "pagination",
+        "required": true,
+        "_variables": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ],
+        "_theme": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "name": "Breadcrumb",
+    "description": "Documentation et exemples pour le composant breadcrumb",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "breadcrumb/main.twig",
+        "_examples": [
+            {
+                "name": "",
+                "description": "",
+                "file": ""
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Nom de la classe CSS personnalisée"
+            },
+            {
+                "name": "items",
+                "type": "array",
+                "required": false,
+                "default": "[]",
+                "description": "Liste des éléments du breadcrumb"
+            },
+            {
+                "name": "item.label",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Texte du lien"
+            },
+            {
+                "name": "item.url",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "URL du lien"
+            },
+            {
+                "name": "item.target",
+                "type": "string",
+                "required": false,
+                "default": "_self",
+                "description": "Attribut <code>target</code> du lien."
+            },
+            {
+                "name": "item.disabled",
+                "type": "string",
+                "required": false,
+                "default": "no",
+                "description": "Si <code>yes</code>, ajoute l'attribut <code>disabled</code>"
+            }
+        ]
+    },
+    "sass": {
+        "import": "breadcrumb",
+        "required": true,
+        "variables": [
+            {
+                "name": "breadcrumb--separator",
+                "default": "\"/\"",
+                "description": "Symbole de séparation des items"
+            }
+        ],
+        "theme": [
+            {
+                "name": "breadcrumb--background-color",
+                "default": "transparent",
+                "description": ""
+            },
+            {
+                "name": "breadcrumb--link-color",
+                "default": "$gray-700",
+                "description": ""
+            },
+            {
+                "name": "breadcrumb--link-hover-color",
+                "default": "$gray-900",
+                "description": ""
+            },
+            {
+                "name": "breadcrumb--active-color",
+                "default": "$gray-600",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

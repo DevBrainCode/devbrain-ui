@@ -1,37 +1,59 @@
 {# ------------------ DevBrain Component : Card - Settings ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
+{# Private properties #}
+{% set _attr         = attr|default({}) %}
+{% set _attr         = _attr|merge({class: ''}) %}
+{% set _attr         = _add_attribute(_attr, 'class', _attr.class ~' card-header') %}
+
+{# Public properties #}
+{% set _class       = class|default('') %}
+
+{% set _content     = content|default('') %}
+{% set _template    = template|default('') %}
+{% set _options     = options|default({}) %}
+
 {% set _title = title|default('') %}
 {% set _title_tag = title_tag|default('div') %}
 {% set _subtitle = subtitle|default('') %}
 {% set _subtitle_tag = subtitle_tag|default('div') %}
 
-{# Title Tag #}
-{% if _title_tag is not empty %}
-{% set _title = '<'~ _title_tag ~' class="card-title">'~ _title ~'</'~ _title_tag ~'>' %}
-{% endif %}
-
-{# Sub title Tag #}
-{% if _subtitle is not empty %}
-{% set _subtitle = '<'~ _subtitle_tag ~' class="card-subtitle">'~ _subtitle ~'</'~ _subtitle_tag ~'>' %}
-{% endif %}
 
 
 {# -------------------- DevBrain Component : Card - Attr -------------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
+{% if _template is not empty %}
+{% set _options = {
+    title: _title,
+    subtitle: _subtitle,
+}|merge(_options) %}
+
+{% else %}
+
+    {# Title Tag #}
+    {% if _title_tag is not empty %}
+    {% set _title = '<'~ _title_tag ~' class="card-title">'~ _title ~'</'~ _title_tag ~'>' %}
+    {% endif %}
+
+    {# Sub title Tag #}
+    {% if _subtitle is not empty %}
+    {% set _subtitle = '<'~ _subtitle_tag ~' class="card-subtitle">'~ _subtitle ~'</'~ _subtitle_tag ~'>' %}
+    {% endif %}
+
+    {% set _content = _title ~ _subtitle %}
+{% endif %}
 
 {# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' card-header') %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
 
 {# ------------------ DevBrain Component : Card - Content ------------------- #}
 {# -------------------------------------------------------------------------- #}
 <header {{ _get_attributes(_attr) }}>
-    {{ _title|raw }}
-    {{ _subtitle|raw }}
+    {% if _template is not empty %}
+        {% include _template with _options %}
+    {% else %}
+        {{ _content|raw }}
+    {% endif %}
 </header>

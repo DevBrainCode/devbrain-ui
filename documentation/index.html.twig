@@ -1,0 +1,259 @@
+{% set _current_section = type|default('') %}
+{% set _current_element = element|default('') %}
+{% set menu_layout = [] %}
+{% set menu_pallet = [] %}
+{% set menu_component = [] %}
+
+{% for item in navigation %}{% if item.type == 'layout' %}{% set menu_layout = menu_layout|merge([{
+    label: item.label,
+    url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
+    active: _current_section == item.type and _current_element == item.path
+}]) %}{% endif %}{% endfor %}
+{% for item in navigation %}{% if item.type == 'pallet' %}{% set menu_pallet = menu_pallet|merge([{
+    label: item.label,
+    url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
+    active: _current_section == item.type and _current_element == item.path
+}]) %}{% endif %}{% endfor %}
+{% for item in navigation %}{% if item.type == 'component' %}{% set menu_component = menu_component|merge([{
+    label: item.label,
+    url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
+    active: _current_section == item.type and _current_element == item.path
+}]) %}{% endif %}{% endfor %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}{{ encore_entry_link_tags('main') }}{% endblock %}
+        {% block javascripts %}{{ encore_entry_script_tags('main') }}{% endblock %}
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            <div class="grid gap-2">
+                <div class="column-2">
+                    
+                    <h6>Layout</h6>
+                    {% component 'menu' with {
+                        class      : 'mb-3',
+                        orientation: 'vertical',
+                        items      : menu_layout
+                    } %}
+                    
+                    <h6>Pallet</h6>
+                    {% component 'menu' with {
+                        class      : 'mb-3',
+                        orientation: 'vertical',
+                        items      : menu_pallet
+                    } %}
+                    
+                    <h6>Components</h3>
+                    {% component 'menu' with {
+                        orientation: 'vertical',
+                        items      : menu_component
+                    } %}
+
+                </div>
+                <div class="column-8">
+                {% if item is not empty  %}
+                    
+                    <header class="page-header">
+                        <h2>{{ item.name }}</h2>
+                        <p>{{ item.description|raw }}</p>
+                    </header>
+
+
+                    {# Twig Source #}
+                    {% if item.twig.source is defined %}
+                    <hr>
+                    {% include "@DevbrainUiDoc/sources/" ~ item.twig.source %}
+                    <hr>
+                    {% endif %}
+
+
+
+
+                    {# Install / Imports #}
+                    <section>
+                        <h3>Imports</h3>
+                        <dl class="doc_properties">
+                        {% if item.sass.import is defined and item.sass.import is not empty %}
+                            <dt><strong>SASS</strong> <small>{{ item.sass.required ? 'requrired':'optional' }}</small></dt>
+                            <dd><code>@import 'vendor/devbraincode/devbrain-ui/sass/components/{{ item.sass.import }}';</code></dd>
+                        {% endif %}
+                        {% if item.javascript.import is defined and item.javascript.import is not empty %}
+                            <dt><strong>JavaScript</strong> <small>{{ item.javascript.required ? 'requrired':'optional' }}</small></dt>
+                            <dd><code>import {{ item.javascript.import }} from 'vendor/devbraincode/devbrain-ui/scripts/components/{{ item.javascript.import }}';</code></dd>
+                        {% endif %}
+                        </dl>
+                    </section>
+
+
+
+
+                    {% if item.twig.source is defined or item.twig.variables is defined or item.twig.examples is defined %}
+                    <hr>
+                    {% endif %}
+
+                    {# Twig Source #}
+                    {% if item.twig.source is defined %}
+                    <section>
+                        <h3>Twig Source</h3>
+                        {{ _documentation_code(item.twig.source) }}
+                    </section>
+                    {% endif %}
+
+                    {# Twig Variables #}
+                    {% if item.twig.variables is defined %}   
+                    <section>
+                        <h3>Twig Variables</h3>
+                        <dl class="doc_properties">
+                            {% for variable in item.twig.variables %}
+                            <dt>
+                                <code>{{ variable.name|raw }}</code> <small class="type">{{ variable.type }}</small><br>
+                                <small>@Required: <code>{{ variable.required ? "true":"false" }}</code></small><br>
+                                <small>@Default: <code>{{ variable.default ? variable.default : "''" }}</code></small>
+                            </dt>
+                            <dd>{{ variable.description|raw }}</dd>
+                            {% endfor %}
+                        </dl>
+                    </section>
+                    {% endif %}
+
+                    {% if item.twig.examples is defined and item.twig.examples is not empty %}
+                    {% for example in item.twig.examples %}
+                    <section>
+                        <h3>{{example.name}}</h3>
+                        <p>{{ example.description|raw }}</p>
+                        {{ _documentation_preview(example.file) }}
+                        {{ _documentation_code(example.file) }}
+                    </section>
+                    {% endfor %}
+                    {% endif %}
+
+
+
+
+                    {% if item.sass.variables is defined or item.sass.theme is defined %}
+                    <hr>
+                    {% endif %}
+
+                    {# SASS Variables #}
+                    {% if item.sass.variables is defined %}
+                    <section>
+                        <h3>Sass Variables</h3>
+                        {% for variable in item.sass.variables %}
+                        <div class="sass_variable">
+                            <code>${{ variable.name }}: {{ variable.default }};</code> 
+                            {% if variable.description is defined and variable.description is not empty %}
+                            <small>// {{ variable.description|raw }}</small>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+
+                        <pre class="code_preview">{% for variable in item.sass.variables %}
+${{ variable.name }}: {{ variable.default }};
+{% endfor %}</pre>
+                    </section>
+                    {% endif %}
+
+                    {# SASS Theme #}
+                    {% if item.sass.theme is defined %}
+                    <section>
+                        <h3>Sass Theme</h3>
+                        {% for variable in item.sass.theme %}
+                        <div class="sass_variable">
+                            <code>{{ variable.name }}: {{ variable.default }};</code> 
+                            {% if variable.description is defined and variable.description is not empty %}
+                            <small>// {{ variable.description|raw }}</small>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        <pre class="code_preview">$theme-properties: ();
+$theme-properties: map-merge($theme-properties, (
+{% for variable in item.sass.theme %}
+    {{ variable.name }}: {{ variable.default }},
+{% endfor %}
+));</pre>
+                    </section>
+                    {% endif %}
+
+
+
+
+                    {% if item.javascript.methods is defined or item.javascript.source is defined %}
+                    <hr>
+                    {% endif %}
+
+
+                    {# JavaScript Methods #}
+                    {% if item.javascript.source is defined %}
+                    <section>
+                        <h3>JavaScript Exemple</h3>
+                        {{ _documentation_code(item.javascript.source) }}
+                    </section>
+                    {% endif %}
+
+
+                    {# JavaScript Methods #}
+                    {% if item.javascript.methods is defined %}
+                    <section>
+                        <h3>JavaScript Methods</h3>
+
+                        <dl class="doc_properties">
+                        {% for method in item.javascript.methods %}
+                            <dt>
+                                <code>{{ method.name|raw }}</code>
+                            </dt>
+                            <dd>
+                                {% if method.description is defined and method.description is not empty %}
+                                    <div>{{ method.description|raw }}</div>
+                                    <br>
+                                {% endif %}
+
+
+                                {% if method.parameters is defined and method.parameters is not empty %}
+                                {% for parameter in method.parameters %}
+                                <div>
+                                    <code>@Param {{ parameter.name }}</code>
+                                    <small>{{ parameter.description|raw }}</small>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+
+
+                                <div>
+                                    <code>@Return {% if method.return is defined and method.return is not empty %}
+                                        {{ method.return|raw }}
+                                    {% else %}
+                                        void
+                                    {% endif %}</code>
+                                </div>
+
+                                {% if method.source is defined and method.source is not empty %}
+                                {{ _documentation_code(method.source) }}
+                                {% endif %}
+                            </dd>
+                        {% endfor %}
+                        </dl>
+                    </section>
+                    {% endif %}
+
+
+                    
+                    <hr>
+                    <section>
+                        <h3>{{ item.path }}.json</h3>
+                        {{ dump(item) }}
+                    </section>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

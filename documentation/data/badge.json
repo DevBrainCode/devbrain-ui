@@ -1,0 +1,66 @@
+{
+    "name": "Badge",
+    "description": "Documentation et exemples pour les badges",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "badge/main.twig",
+        "examples": [
+            {
+                "name": "Type / Pallet",
+                "description": "Utilisation des badges associés à la palette de couleur",
+                "file": "badge/pallet.twig"
+            },
+            {
+                "name": "Context",
+                "description": "",
+                "file": "badge/context.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "label",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Texte du badge. Si <code>label</code> est vide, le badge n'est pas injecté"
+            },
+            {
+                "name": "max",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Si <code>label</code> est un nombre, <code>max</code> indique la valeur maximum avant que l'affichage ne soit contraint."
+            }
+        ]
+    },
+    "sass": {
+        "import": "badge",
+        "required": true,
+        "_variables": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ],
+        "_theme": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

@@ -1,0 +1,191 @@
+{
+    "name": "Switch",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "switch/main.twig",
+        "examples": [
+            {
+                "name": "On / Off",
+                "description": "",
+                "file": "switch/checked.twig"
+            },
+            {
+                "name": "Activé / Désactivé",
+                "description": "",
+                "file": "switch/disabled.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "label",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Texte associé au bouton switch"
+            },
+            {
+                "name": "checked",
+                "type": "string",
+                "required": false,
+                "default": "no",
+                "description": "Définit si le bouton switch est en position On ou OFF, Valeurs possible <code>yes</code> ou <code>no</code>"
+            },
+            {
+                "name": "disabled",
+                "type": "string",
+                "required": false,
+                "default": "no",
+                "description": "Définit si le bouton switch est désactivé ou non, Valeurs possible <code>yes</code> ou <code>no</code>"
+            },
+            {
+                "name": "eventHandler",
+                "type": "string",
+                "required": false,
+                "default": "js-switch",
+                "description": "Définit le non du trigger JavaScript"
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Valeur de l'attribut <code>name</code>"
+            }
+        ]
+    },
+    "sass": {
+        "import": "switch",
+        "required": true,
+        "variables": [
+            {
+                "name": "switch-width",
+                "default": "30",
+                "description": ""
+            },
+            {
+                "name": "switch-height",
+                "default": "14",
+                "description": ""
+            }
+        ],
+        "theme": [
+            {
+                "name": "switch-off--border-color",
+                "default": "$gray-700",
+                "description": ""
+            },
+            {
+                "name": "switch-off--background-color",
+                "default": "$gray-200",
+                "description": ""
+            },
+            {
+                "name": "switch-off--indicator-color",
+                "default": "$gray-700",
+                "description": ""
+            },
+            {
+                "name": "switch-on--border-color",
+                "default": "$blue",
+                "description": ""
+            },
+            {
+                "name": "switch-on--background-color",
+                "default": "$blue",
+                "description": ""
+            },
+            {
+                "name": "switch-on--indicator-color",
+                "default": "$white",
+                "description": ""
+            },
+            {
+                "name": "switch-disabled--border-color",
+                "default": "$gray-500",
+                "description": ""
+            },
+            {
+                "name": "switch-disabled--background-color",
+                "default": "$gray-200",
+                "description": ""
+            },
+            {
+                "name": "switch-disabled--indicator-color",
+                "default": "$gray-500",
+                "description": ""
+            }
+        ]
+
+    },
+    "javascript": {
+        "import": "SwitchComponent",
+        "required": true,
+        "_source": "switch/script.twig",
+        "methods": [
+            {
+                "name": "onChange",
+                "description": "S'execute lorsque la valeur est modifiée",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "description": "L'évènement déclencheur."
+                    },
+                    {
+                        "name": "element",
+                        "description": "L'élément HTML déclencheur de l'évènement."
+                    }
+                ],
+                "return": "",
+                "source": "switch/script-onChange.twig"
+            },
+            {
+                "name": "onBeforeChange",
+                "description": "S'execute juste avant que la valeur ne soit modifiée",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "description": "L'évènement déclencheur."
+                    },
+                    {
+                        "name": "element",
+                        "description": "L'élément HTML déclencheur de l'évènement."
+                    }
+                ],
+                "return": "",
+                "source": "switch/script-onBeforeChange.twig"
+            },
+            {
+                "name": "onAfterChange",
+                "description": "S'execute juste après la modification de la valeur",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "description": "L'évènement déclencheur."
+                    },
+                    {
+                        "name": "element",
+                        "description": "L'élément HTML déclencheur de l'évènement."
+                    }
+                ],
+                "return": "",
+                "source": "switch/script-onAfterChange.twig"
+            },
+            {
+                "name": "isActive",
+                "description": "indique l'etat du switch au moment de l'execution",
+                "parameters": [],
+                "return": "boolean",
+                "source": "switch/script-isActive.twig"
+            }
+        ]
+    }
+}

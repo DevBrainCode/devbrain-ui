@@ -49,6 +49,7 @@ class DevbrainUiExtension extends Extension implements PrependExtensionInterface
 	{
         $twigConfig = [];
         $twigConfig['paths'][__DIR__.'/../Resources/templates'] = "DevbrainUi";
+        $twigConfig['paths'][__DIR__.'/../../documentation'] = "DevbrainUiDoc";
         $container->prependExtensionConfig('twig', $twigConfig);
 	}
 }

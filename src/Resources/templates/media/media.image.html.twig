@@ -12,7 +12,7 @@
 {% set _legend              = legend|default('') %}
 {% set _source              = source|default([]) %}
 {% set _sizes               = sizes|default([]) %}
-{% set _inline              = inline|default(false) %}
+{% set _inline              = inline|default("no") %}
 
 {% set _alt                 = alt|default('') %}
 {% set _referrerpolicy      = referrerpolicy|default('') %}
@@ -47,7 +47,7 @@
 {% set _sizes = _sizes|join(', ') %}
 
 {# Inline media #}
-{% if _inline is same as true %}
+{% if _inline == "yes" %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' media-inline') %}
 {% endif %}
 

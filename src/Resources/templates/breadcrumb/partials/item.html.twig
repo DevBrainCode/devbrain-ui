@@ -10,8 +10,8 @@
 {% set _class    = class|default('') %}
 
 {# Link properties #}
-{% set _link    = link|default({}) %}
-{% set _active   = active|default(false) %}
+{% set _link     = link|default({}) %}
+{% set _active   = active|default("no") %}
 
 
 
@@ -19,7 +19,7 @@
 {# -------------------------------------------------------------------------- #}
 
 {# Active link #}
-{% if _active is not same as false %}
+{% if _active == "yes" %}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' active') %}
 {% endif %}
 
@@ -31,7 +31,7 @@
 {# ---------------- DevBrain Component : Menu Item - Content ---------------- #}
 {# -------------------------------------------------------------------------- #}
 <li {{ _get_attributes(_attr) }}>
-{% if _active %}
+{% if _active == "yes" %}
     {{ _link.label }}
 {% else %}
 {% component 'breadcrumb' part 'link' with _link %}

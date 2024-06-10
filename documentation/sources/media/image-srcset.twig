@@ -1,0 +1,20 @@
+{% component 'media.image' with {
+    legend: "Source: picsum.photos",
+    source: {
+        '200w': asset('build/images/set/sample-200x200.jpg'),
+        '300w': asset('build/images/set/sample-300x300.jpg'),
+        '500w': asset('build/images/set/sample-500x500.jpg'),
+        '1200w': asset('build/images/set/sample-700x700.jpg'),
+        '1600w': asset('build/images/set/sample-800x800.jpg'),
+    },
+    sizes: [
+        "(max-width: 600px) 480px",
+        "(max-width: 900px) 720px",
+        "1080px"
+    ],
+
+    inline: 'yes',
+    alt: 'Alt texte',
+    referrerpolicy: "no-referrer-when-downgrade",
+    lazy: "yes",
+} %}

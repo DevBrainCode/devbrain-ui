@@ -1,0 +1,48 @@
+{% component 'cookie-box' with {
+    type: 'banner',
+    backdrop: true,
+    customize: false,
+
+    header: 'Cookie Consent Header Text',
+    header_template: '@DevbrainUiDoc/sources/cookie-box/template-header.html.twig',
+    header_options: {
+        title: "Cookie Consent Header Template with title"
+    },
+
+    content: 'We are using cookies...',
+    content_template: '@DevbrainUiDoc/sources/cookie-box/template-content.html.twig',
+    content_options: {
+        link: url('app_homepage')
+    },
+
+    labels: {
+        accept_selected: "Accept Selected",
+        accept_all: "Accept All",
+        reject_all: "Reject All",
+    }
+} %}
+
+
+{# -------------------- Trigger du composant -------------------- #}
+
+{# Affiche la Cookie Box depuis un bouton #}
+<button data-action="show" data-target="cookie-box">Show Cookie Box</button> <br>
+
+{# Affiche la Cookie Box depuis un lien #}
+<a href="#" data-action="show" data-target="cookie-box">Show Cookie Box</a>
+
+{# Affiche la Cookie Box depuis un element du composant menu #}
+{% component 'menu' with {
+    class: '',
+    label: 'Secondary',
+    orientation: 'vertical',
+    items: [
+        {
+            label: "Show Cookie Box",
+            dataset: {
+                action: "show",
+                target: "cookie-box",
+            }
+        }
+    ]
+} %}

@@ -4,6 +4,7 @@
 {# Public properties #}
 {% set _class        = class|default('') %}
 {% set _label        = label|default('') %}
+{% set _max          = max|default('') %}
 
 
 
@@ -16,6 +17,7 @@
 {# -------------------------------------------------------------------------- #}
 
 {% component 'badge' part 'badge' with {
-    label: _label,
     class: _class,
+    label: _label,
+    max  : _max,
 } %}

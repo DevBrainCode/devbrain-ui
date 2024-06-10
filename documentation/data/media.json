@@ -1,0 +1,162 @@
+{
+    "name": "Media",
+    "description": "Documentation et exemples pour le composant média de type <code>images</code>, <code>audio</code>, <code>video</code>",
+    "type": "component",
+    "status": "✅",
+    "twig": {
+        "source": "media/main.twig",
+        "examples": [
+            {
+                "name": "Media Image",
+                "description": "",
+                "file": "media/type-image.twig"
+            },
+            {
+                "name": "Media Audio",
+                "description": "",
+                "file": "media/type-audio.twig"
+            },
+            {
+                "name": "Media Video",
+                "description": "",
+                "file": "media/type-video.twig"
+            },
+            {
+                "name": "Image srcset",
+                "description": "",
+                "file": "media/image-srcset.twig"
+            }
+        ],
+        "variables": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "type",
+                "type": "enum",
+                "required": false,
+                "default": "image",
+                "description": "Type de media <code>image</code>, <code>audio</code>, <code>video</code>"
+            },
+            {
+                "name": "source",
+                "type": "string | array",
+                "required": false,
+                "default": "[]",
+                "description": "Source(s) du media"
+            },
+            {
+                "name": "legend",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Texte du <code>figcaption</code>"
+            },
+            {
+                "name": "inline",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "Definit si le media est de type <code>block</code> ou <code>inline</code>"
+            },
+            {
+                "name": "alt",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "<small><code>image</code></small> Texte de l'attribut <code>alt</code>"
+            },
+            {
+                "name": "referrerpolicy",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "<small><code>image</code></small> Spécifie les informations de référence à utiliser lors de la récupération d'une image. <a href=\"https://www.w3schools.com/tags/att_img_referrepolicy.asp\" target=\"_blank\">w3school</a>"
+            },
+            {
+                "name": "lazy",
+                "type": "boolean",
+                "required": false,
+                "default": "yes",
+                "description": "<small><code>image</code></small> Si <code>yes</code> le navigateur charge les images uniquement si l'utilisateur les affiches"
+            },
+
+
+            {
+                "name": "controls",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "<small><code>audio|video</code></small> Si <code>yes</code>, affiche les controls."
+            },
+            {
+                "name": "autoplay",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "<small><code>audio|video</code></small> Si <code>yes</code>, démarre la lecture automatiquement."
+            },
+            {
+                "name": "loop",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "<small><code>audio|video</code></small> Si <code>yes</code>, joue le média en boucle."
+            },
+            {
+                "name": "muted",
+                "type": "boolean",
+                "required": false,
+                "default": "no",
+                "description": "<small><code>audio|video</code></small> Si <code>yes</code>, le media est mis en sourdine au chargement de la page."
+            },
+            {
+                "name": "preload",
+                "type": "enum",
+                "required": false,
+                "default": "metadata",
+                "description": "<small><code>audio|video</code></small> <code>auto</code>, <code>metadata</code>, <code>none</code>."
+            },
+            {
+                "name": "poster",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "<small><code>video</code></small> "
+            },
+            {
+                "name": "track",
+                "type": "array",
+                "required": false,
+                "default": "",
+                "description": "<small><code>audio|video</code></small> "
+            }
+        ]
+    },
+    "sass": {
+        "import": "media",
+        "required": true,
+        "variables": [
+            {
+                "name": "media--caption--font-size",
+                "default": "0.9rem",
+                "description": ""
+            }
+        ],
+        "_theme": [
+            {
+                "name": "",
+                "default": "",
+                "description": ""
+            }
+        ]
+    },
+    "javascript": {
+        "import": null,
+        "required": false
+    }
+}

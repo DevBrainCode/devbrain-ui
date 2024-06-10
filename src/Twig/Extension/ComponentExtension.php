@@ -23,6 +23,10 @@ class ComponentExtension extends AbstractExtension
             new TwigFunction('_cookie_box__is_property_disabled', [ComponentRuntime::class, 'cookie_box__is_property_disabled']),
             new TwigFunction('_cookie_box__is_property_checked', [ComponentRuntime::class, 'cookie_box__is_property_checked']),
             new TwigFunction('_get_cookie_name', [ComponentRuntime::class, 'getCookieConsentName']),
+
+            // Documentation Function
+            new TwigFunction('_documentation_preview', [ComponentRuntime::class, 'doc_preview'], ['is_safe' => ['html']]),
+            new TwigFunction('_documentation_code', [ComponentRuntime::class, 'doc_code']),
         ];
     }
 

@@ -13,7 +13,7 @@
 {% set _target       = target|default('_self') %}
 {% set _role         = role|default('button') %}
 {% set _disabled     = disabled|default('no') %}
-{% set _eventHandler = eventHandler|default(false) %}
+{% set _eventHandler = eventHandler|default('js-button') %}
 {% set _dataset      = dataset|default({}) %}
 
 
@@ -30,9 +30,7 @@
 {% endfor %}
 
 {# Has event handler #}
-{% if _eventHandler %}
-{% set _attr = _eventHandler is same as true ? _add_attribute(_attr, 'rel', "js-button") : _add_attribute(_attr, 'rel', "js-"~ _eventHandler) %}
-{% endif %}
+{% set _attr = _add_attribute(_attr, 'rel', _eventHandler) %}
 
 {% if _disabled != 'yes' %}
 {% set _attr = _add_attribute(_attr, 'href', _url) %}

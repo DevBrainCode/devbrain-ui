@@ -9,6 +9,7 @@
 {# Public properties #}
 {% set _class        = class|default('') %}
 {% set _label        = label|default('') %}
+{% set _max          = max|default(99) %}
 
 
 
@@ -18,8 +19,16 @@
 {# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
 
+{# Match integer #}
+{% if _label matches '/^\\d+$/' or _label matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %}
+{% if _label > _max %}
+{% set _label = _max ~ '+' %}
+{% endif %}
+{% endif %}
 
 
 {# ------------------ DevBrain Component : Badge - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
+{% if _label is not empty %}
 <span {{ _get_attributes(_attr) }}>{{ _label|raw }}</span>
+{% endif %}

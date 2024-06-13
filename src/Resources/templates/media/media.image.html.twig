@@ -34,6 +34,9 @@
 {% set _source = {'default': _source[_first_key]}|merge(_source) %}
 {% endif %}
 
+
+{% set _src = _source.default|default('') %}
+
 {# Src Set #}
 {% set _srcset = [] %}
 {% for _key, _url in _source %}
@@ -60,7 +63,7 @@
 <figure {{ _get_attributes(_attr) }}>
 
     {% component 'media' part 'img' with {
-        src           : _source.default,
+        src           : _src,
         srcset        : _srcset,
         sizes         : _sizes,
         alt           : _alt,

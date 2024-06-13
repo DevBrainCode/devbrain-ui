@@ -1,0 +1,33 @@
+{# ---------- DevBrain Component : Carousel Indicators - Settings ----------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' carousel-indicators') %}
+
+{# Public properties #}
+{# {% set _slides              = slides|default([]) %} #}
+
+
+
+{# ------------ DevBrain Component : Carousel Indicators - Attr ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+
+{# ----------- DevBrain Component : Carousel Indicators - Content ----------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}></div>
+
+
+
+{# <div {{ _get_attributes(_attr) }}> #}
+{# {% for _slide in _slides %}
+{% set _options =  _slide.indicator|default({}) %}
+{% component 'carousel' part 'indicator' with {
+    index  : loop.index,
+    options: _options,
+} %}
+{% endfor %} #}
+{# </div> #}

@@ -1,18 +1,48 @@
 {# ---------------- DevBrain Component : Carousel - Settings ---------------- #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _class = class|default('') %}
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' carousel') %}
+
+{# Public properties #}
+{% set _class               = class|default('') %}
+{% set _id                  = id|default('_' ~ _rand_id()) %}
+{% set _slides              = slides|default({}) %}
+{% set _startAt             = startAt|default(1) %}
+{% set _loop                = loop|default('yes') %}
+{% set _with_indicators     = with_indicators|default('yes') %}
+{% set _with_controls       = with_controls|default('yes') %}
+
+
+{% set _controls_options    = controls_options|default({}) %}
+
+{# looping slides #}
+{% set _attr = _add_attribute(_attr, 'data-loop', 'true') %}
 
 
 
 {# ------------------ DevBrain Component : Carousel - Attr ------------------ #}
 {# -------------------------------------------------------------------------- #}
 
-{% set _attr = attr|default({}) %}
+{# Carousel ID #}
+{% set _attr = _add_attribute(_attr, 'id', _id) %}
 
-{# Class Attribute #}
-{% set _attr = _attr|merge({class: ''}) %}
-{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' carousel') %}
+{# Carousel JS Trigger #}
+{% set _attr = _add_attribute(_attr, 'rel', 'js-carousel') %}
+
+{# Stop looping slides #}
+{% if _loop == 'no' %}
+{% set _attr = _add_attribute(_attr, 'data-loop', 'false') %}
+{% endif %}
+
+{# First Slide #}
+{% for _slide in _slides %}
+{% if _slide.start is defined and _slide.start is same as true %}
+{% set _startAt = loop.index %}
+{% endif %}
+{% endfor %}
 
 {# Add custom class #}
 {% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
@@ -22,5 +52,23 @@
 {# ---------------- DevBrain Component : Carousel - Content ----------------- #}
 {# -------------------------------------------------------------------------- #}
 <div {{ _get_attributes(_attr) }}>
-    Carousel
+
+    {% component 'carousel' part 'slides' with {
+        slides : _slides,
+        startAt: _startAt
+    } %}
+
+    {% if _with_indicators == 'yes' %}
+    {% component 'carousel' part 'indicators' with {
+        id     : _id,
+        slides : _slides
+    } %}
+    {% endif %}
+
+    {% if _with_controls == 'yes' %}
+    {% component 'carousel' part 'controls' with {
+        id     : _id,
+        options: _controls_options
+    } %}
+    {% endif %}
 </div>

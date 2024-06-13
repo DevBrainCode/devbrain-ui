@@ -1,0 +1,26 @@
+{# ------------ DevBrain Component : Carousel Control - Settings ------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _type = 'next' %}
+{% set _attr = attr|default({}) %}
+{% set _attr = _attr|merge({class: ''}) %}
+
+{# Public properties #}
+{% set _class   = class|default('') %}
+{% set _id      = id|default('') %}
+{% set _label   = label|default('') %}
+
+
+
+{# -------------- DevBrain Component : Carousel Control - Attr -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+{# ------------ DevBrain Component : Carousel Control - Content ------------- #}
+{% component 'carousel' part 'control' with {
+    type: _type,
+    class: _class,
+    id   : _id,
+    label: _label,
+} %}

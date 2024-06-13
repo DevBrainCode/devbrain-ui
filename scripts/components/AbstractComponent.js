@@ -51,6 +51,7 @@ const nativeEvents = new Set([
 
 export default class AbstractComponent
 {
+    _id;
     _node;
     _element;
     // _name;
@@ -59,7 +60,8 @@ export default class AbstractComponent
     constructor(node)
     {
         this._node = node;
-        this._onInit();
+        this._id = node.id;
+        if (typeof this._onInit === 'function') this._onInit();
     }
 
     on(handler, delegatedFunctions)
@@ -106,6 +108,18 @@ export default class AbstractComponent
     {
         return this._element;
     }
+
+
+    set id(id)
+    {
+        this._id = id;
+    }
+    get id()
+    {
+        return this._id;
+    }
+
+
 
 
     // Event Click

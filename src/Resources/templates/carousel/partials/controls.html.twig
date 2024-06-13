@@ -1,0 +1,33 @@
+{# ----------- DevBrain Component : Carousel Controls - Settings ------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' carousel-controls') %}
+
+{# Public properties #}
+{% set _id = id %}
+{% set _prev_label = 'previous' %}
+{% set _next_label = 'next' %}
+
+
+{# ------------- DevBrain Component : Carousel Controls - Attr -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+
+{# ------------ DevBrain Component : Carousel Controls - Content ------------ #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    {% component 'carousel.prev' with {
+        class  : "carousel-control prev",
+        id     : _id,
+        label  : _prev_label,
+    } %}
+    {% component 'carousel.next' with {
+        class  : "carousel-control next",
+        id     : _id,
+        label  : _next_label,
+    } %}
+</div>

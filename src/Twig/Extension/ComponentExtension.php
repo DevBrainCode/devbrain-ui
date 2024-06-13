@@ -27,6 +27,9 @@ class ComponentExtension extends AbstractExtension
             // Documentation Function
             new TwigFunction('_documentation_preview', [ComponentRuntime::class, 'doc_preview'], ['is_safe' => ['html']]),
             new TwigFunction('_documentation_code', [ComponentRuntime::class, 'doc_code']),
+            
+            // Utils
+            new TwigFunction('_rand_id', [ComponentRuntime::class, 'rand_id']),
         ];
     }
 

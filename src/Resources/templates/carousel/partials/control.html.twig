@@ -1,0 +1,27 @@
+{# ----------- DevBrain Component : Carousel Controls - Settings ------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _types   = ['prev','next'] %}
+{% set _attr    = attr|default({}) %}
+{% set _attr    = _attr|merge({class: ''}) %}
+
+{# Public properties #}
+{% set _type    = type|default('') %}
+{% set _class   = class|default('') %}
+{% set _id      = id|default('') %}
+{% set _label   = label|default('') %}
+
+
+{# ------------- DevBrain Component : Carousel Controls - Attr -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Default referrer policy #}
+{% if _type not in _types %}
+{% set _type = 'prev' %}
+{% endif %}
+
+
+{# ------------ DevBrain Component : Carousel Controls - Content ------------ #}
+{# -------------------------------------------------------------------------- #}
+<button data-controls="{{ _type }}" data-target="{{ _id }}" aria-label="{{ _label }}">{{ _label|raw }}</button>

@@ -1,36 +1,92 @@
 {
     "name": "Carousel",
-    "description": "Documentation et exemples pour le composant d'accordéon",
+    "description": "Documentation et exemples pour le composant Carousel",
     "type": "component",
     "status": "⚠️",
     "_status": "✅",
     "twig": {
-        "_source": "carousel.twig",
-        "_examples": [
+        "source": "carousel/main.twig",
+        "examples": [
             {
-                "name": "",
+                "name": "Controles externe",
                 "description": "",
-                "file": ""
+                "file": "carousel/controls.twig"
             }
         ],
-        "_variables": [
+        "variables": [
             {
-                "name": "xxx",
+                "name": "class",
                 "type": "string",
                 "required": false,
                 "default": "",
-                "description": ""
+                "description": "Liste des classes personnalisée"
+            },
+            {
+                "name": "id",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "ID du carousel, si le parametre n'est pas renseigné, un ID sera généré automatiquement"
+            },
+            {
+                "name": "with_indicators",
+                "type": "boolean",
+                "required": false,
+                "default": "yes",
+                "description": "Si <code>yes</code>, l'indicateur de slide sera affiché"
+            },
+            {
+                "name": "with_controls",
+                "type": "boolean",
+                "required": false,
+                "default": "yes",
+                "description": "Si <code>yes</code>, les boutons de controls de slide seront affichés"
+            },
+            {
+                "name": "startAt",
+                "type": "integer",
+                "required": false,
+                "default": "1",
+                "description": "Index de la slide de demarrage"
+            },
+            {
+                "name": "slides",
+                "type": "array",
+                "required": true,
+                "default": "[]",
+                "description": "Liste des slides"
+            },
+            {
+                "name": "slide.class",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "description": "Liste des classes personnalisée de la slide"
+            },
+            {
+                "name": "slide.start",
+                "type": "boolean",
+                "required": false,
+                "default": "false",
+                "description": "Si <code>true</code>, l'index de la slide remplace la valeur de l'option <code>startAt</code>. La dernière slide à avoir le paramètre à <code>true</code> gagne."
+            },
+            {
+                "name": "slide.indicator",
+                "type": "array",
+                "required": false,
+                "default": "{}",
+                "description": "Option de l'indicateur pour la slide"
             }
         ]
     },
     "sass": {
         "import": "carousel",
         "required": true,
-        "_variables": [
+        "variables": [
             {
-                "name": "",
-                "default": "",
-                "description": ""
+                "name": "carousel--slides--height",
+                "default": "300px",
+                "description": "Hauteur des slides"
             }
         ],
         "_theme": [
@@ -42,7 +98,24 @@
         ]
     },
     "javascript": {
-        "import": null,
-        "required": false
+        "import": "CarouselComponent",
+        "required": true,
+        "source": "carousel/script.twig",
+        "methods": [
+            {
+                "name": "current",
+                "description": "Retourne l'index de la slide courante",
+                "parameters": [],
+                "return": "number",
+                "source": "carousel/script-current.twig"
+            },
+            {
+                "name": "prev / next",
+                "description": "Passe à la slide précedente ou suivante",
+                "parameters": [],
+                "return": "",
+                "source": "carousel/script-prev-next.twig"
+            }
+        ]
     }
 }

@@ -1,0 +1,33 @@
+{# ------------ DevBrain Component : Carousel Slide - Settings -------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' carousel-slide') %}
+
+{# Public properties #}
+{% set _index               = index %}
+{% set _class               = class|default('') %}
+{% set _active              = active|default('') %}
+
+
+
+{# -------------- DevBrain Component : Carousel Slide - Attr ---------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# is Active #}
+{% if _active == 'yes' %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' active') %}
+{% endif %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------- DevBrain Component : Carousel Slide - Content -------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    Slide: {{ _index }}
+</div>

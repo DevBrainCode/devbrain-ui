@@ -29,7 +29,7 @@
 {% endif %}
 
 {# _source - default entry #}
-{% if _source.default is not defined %}
+{% if _source.default is not defined and _source is not empty %}
 {% set _first_key = _source | keys | first %}
 {% set _source = {'default': _source[_first_key]}|merge(_source) %}
 {% endif %}

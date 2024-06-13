@@ -1,0 +1,53 @@
+{% set slides = [
+    {
+        _class: "my-first-slide-custom-class",
+        _template: "",
+        _options: "",
+        _indicator: {
+            class: "my-first-indicator-class",
+            _template: "",
+            _options: "",
+        }
+    },
+    {
+        _class: "my-second-slide-custom-class",
+        _start: true,
+        _indicator: {
+            class: "my-second-indicator-class",
+        }
+    },
+    {
+        _class: "my-third-slide-custom-class",
+        _indicator: {
+            class: "my-third-indicator-class",
+        }
+    },
+    {
+        _class: "my-fourth-slide-custom-class",
+        _indicator: {
+            class: "my-fourth-indicator-class",
+        }
+    },
+    {
+        _start: true,
+        _indicator: {
+            class: "my-fifth-indicator-class",
+        }
+    }
+] %}
+
+{% component 'carousel' with {
+    class          : "my-custom-carousel",
+    id             : "my-carousel",
+    with_indicators: "yes",
+    with_controls  : "yes",
+    loop           : "yes",
+    _startAt       : 3,
+    slides         : slides,
+} %}
+
+{# prev / next : label / class / event #}
+{# trigger externe de  prev / next #}
+{# Duree d'affichage de la slide #}
+{# Pause au survol #}
+{# Type d'indicateur : dot / dash / image #}

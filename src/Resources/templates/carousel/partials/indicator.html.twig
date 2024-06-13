@@ -1,0 +1,27 @@
+{# ---------- DevBrain Component : Carousel Indicators - Settings ----------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' carousel-indicator') %}
+
+{# Public properties #}
+{% set _index              = index %}
+{% set _class              = options.class|default('') %}
+
+
+
+{# ------------ DevBrain Component : Carousel Indicators - Attr ------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ----------- DevBrain Component : Carousel Indicators - Content ----------- #}
+{# -------------------------------------------------------------------------- #}
+<li {{ _get_attributes(_attr) }}>
+    indicator: {{ _index }}
+</li>

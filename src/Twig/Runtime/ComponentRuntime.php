@@ -243,4 +243,9 @@ class ComponentRuntime implements RuntimeExtensionInterface
             echo "<pre class=\"code_preview\">{$content}</pre>";
         }
     }
+
+    public function rand_id(): string
+    {
+        return uniqid();
+    }
 }

@@ -45,6 +45,7 @@ $cbs: '';
 $cbs: unquote(str-slice($cbs, 1, -3));
 
 #{$cbs} {
+  position: static;
   display: block;
   width: 100%;
   padding-right: map-get($spacers, 3);

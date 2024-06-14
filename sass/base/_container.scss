@@ -52,6 +52,7 @@ $cbs: unquote(str-slice($cbs, 1, -3));
   padding-left: map-get($spacers, 3);
   margin-right: auto;
   margin-left: auto;
+  z-index: 1;
 }
 
 

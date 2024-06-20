@@ -4,9 +4,13 @@
 // *
 // ************************************************************************** //
 
+@use './../functions/collection';
+@use './../mixins/dumper';
 
-/// Breakpoints and Containers names
+
+/// Defaults Breakpoints and Containers names
 /// =============================================
+/// 
 
 $breakpoint-name-phone  : 'phone' !default;
 $breakpoint-name-tablet : 'tablet' !default;
@@ -16,25 +20,18 @@ $breakpoint-name-wide   : 'wide' !default;
 $breakpoint-name-ultra  : 'ultra' !default;
 
 
-/// Breakpoints
+/// Defaults Breakpoints collection
 /// =============================================
 ///
-/// sm      | phone         | < 576px               
-/// md      | tablet        | >= 768px & < 992px
-/// lg      | laptop        | >= 992px & < 1200px
-/// xl      | desktop       | >= 1200px & 1400px
-/// xxl     | wide          | >= 1400px & < 1600px
-/// xxxl    | ultra-wide    | >= 1600px
 
-$breakpoint-phone  : 576px !default;   // Small devices (landscape phones, 576px and up)
-$breakpoint-tablet : 768px !default;   // Medium devices (tablets, 768px and up)
-$breakpoint-laptop : 992px !default;   // Large devices (desktops, 992px and up)
-$breakpoint-desktop: 1200px !default;  // X-Large devices (large desktops, 1200px and up)
-$breakpoint-wide   : 1400px !default;  // XX-Large devices (larger desktops, 1400px and up)
-$breakpoint-ultra  : 1600px !default;  // XXX-Large devices (larger desktops, 1600px and up)
+$breakpoint-phone  : 576px !default;
+$breakpoint-tablet : 768px !default;
+$breakpoint-laptop : 992px !default;
+$breakpoint-desktop: 1200px !default;
+$breakpoint-wide   : 1400px !default;
+$breakpoint-ultra  : 1600px !default;
 
 $breakpoints: (
-    xs     : 0,
     $breakpoint-name-phone  : $breakpoint-phone,
     $breakpoint-name-tablet : $breakpoint-tablet,
     $breakpoint-name-laptop : $breakpoint-laptop,
@@ -43,7 +40,8 @@ $breakpoints: (
     $breakpoint-name-ultra  : $breakpoint-ultra,
 );
 
-/// Containers
+
+/// Defaults Containers collection
 /// =============================================
 ///
 
@@ -62,6 +60,69 @@ $containers: (
     $breakpoint-name-wide   : $container-wide,
     $breakpoint-name-ultra  : $container-ultra,
 );
+
+
+/// Customize Breakpoints and Containers
+/// =============================================
+/// 
+
+
+/// Add customs Breakpoints and Containers
+/// -------------------------
+/// $additional-breakpoints: ( ('ultra-wide': (breakpoint: 1800px, container: 1740px)) ) !default;
+/// 
+
+$additional-breakpoints: () !default;
+
+@if collection.notEmpty($additional-breakpoints) {
+    @each $key, $value in $additional-breakpoints {
+
+        $additional-breakpoint-value: map-get($value, 'breakpoint');
+        $additional-container-value: map-get($value, 'container');
+
+        @if $additional-breakpoint-value {
+            $breakpoints: map-merge($breakpoints, ($key: $additional-breakpoint-value));
+        }
+        @if $additional-container-value {
+            $containers: map-merge($containers, ($key: $additional-container-value));
+        }
+    }
+}
+
+
+/// Remove not needed Breakpoints and Containers
+/// -------------------------
+/// $disable-breakpoints: ('tablet');
+/// 
+
+$disable-breakpoints: () !default;
+
+@if collection.notEmpty($disable-breakpoints) {
+    @each $key, $value in $breakpoints {
+        @if collection.keyExists($disable-breakpoints, $key) {
+            $breakpoints: collection.unset($breakpoints, $key);
+            $containers: collection.unset($containers, $key);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /// Delays
 /// =============================================

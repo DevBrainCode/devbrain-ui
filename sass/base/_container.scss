@@ -18,7 +18,6 @@
 @use './../abstracts/functions/collection';
 
 
-
 /// Containers Base 
 /// =============================================
 ///
@@ -27,11 +26,7 @@
 /// .container, 
 /// .container-fluid, 
 /// .container-phone, 
-/// .container-tablet, 
-/// .container-laptop, 
-/// .container-desktop, 
-/// .container-wide, 
-/// .container-ultra { ... }
+/// .container-tablet { ... }
 
 $cbl: (container, container-fluid);
 $cbs: '';
@@ -56,20 +51,15 @@ $cbs: unquote(str-slice($cbs, 1, -3));
 }
 
 
-/// Containers Sizes 
+/// Set .container-xx width
 /// =============================================
 ///
-/// .container-phone {max-width: 540px;}
-/// .container-tablet {max-width: 720px;}
-/// .container-laptop {max-width: 960px;}
-/// .container-desktop {max-width: 1140px;}
-/// .container-wide {max-width: 1440px;}
-/// .container-ultra {max-width: 1520px;}
+/// .container-phone { ... }
+/// .container-tablet { ... }
 
-@each $size, $container in $containers {
-  .container-#{$size} {
-    // min-width: map-get($containers, 'phone');
-    max-width: map-get($containers, $size);
+@each $key, $value in $containers {
+  .container-#{$key} {
+    max-width: map-get($containers, $key);
   }
 }
 
@@ -78,35 +68,26 @@ $cbs: unquote(str-slice($cbs, 1, -3));
 /// Responsive containers
 /// =============================================
 ///
-
+/// @media (min-width: ...px) {.container { ... }}
 
 @each $size, $breakpoint in $breakpoints {
   @if $breakpoint > 0 {
 
-    // .container-#{$size} {
-    //   max-width: map-get($containers, $size);
-    // }
-
     $container-list : (container);
     @media (min-width: $breakpoint) {
 
-      // @each $key, $container in $containers {
-      //   @if $container < $breakpoint {
-      //     $container-list: append($container-list, container-#{$key});
-      //   }
-      // }
-
       $selectors: '';
       $container-list: collection.reverse($container-list);
+
       @each $container in $container-list {
         $selectors: $selectors + '.#{$container}, ';
       }
       $selectors: unquote(str-slice($selectors, 1, -3));
 
       #{$selectors} { 
-        // min-width: map-get($containers, 'phone');
         max-width: map-get($containers, $size);
       }
+
     }
   }
 }

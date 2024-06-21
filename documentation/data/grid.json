@@ -1,0 +1,72 @@
+{
+    "type": "layout",
+    "status": "✅",
+
+    "name": "Grille & Colonnes",
+    "description": "Documentation et exemples pour le system de grille",
+    "style": "layout/grid/style.css",
+    "blocks": [
+        {
+            "title": "Import SASS",
+            "description": "Import du fichier SASS",
+            "source": "layout/grid/import.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Utilisation de la grille",
+            "_description": "Import du fichier SASS",
+            "source": "layout/grid/grid-usage.twig",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Le système de colonnes",
+            "_description": "Import du fichier SASS",
+            "blocks": [
+                {
+                    "title": "Les colonnes génériques",
+                    "description": "La class <code>.column</code> permet de placer des colonnes dont la largeure s'adapte à la grille",
+                    "source": "layout/grid/column-usage.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
+                    "title": "Les colonnes fixes",
+                    "_description": "",
+                    "source": "layout/grid/column-size-usage.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
+                    "title": "Le colonne wrapping",
+                    "description": "Par défaut, le système de colonnes se base sur 12 division.<br>Si le nombre de division d'une ligne dépasse 12, les colonnes sont automatiquement placées en dessous",
+                    "source": "layout/grid/column-wrapping.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
+                    "title": "Le colonne breaking",
+                    "description": "Force le systeme de colonne à placer les colonnes suivantes en dessous",
+                    "source": "layout/grid/column-breaking.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
+                    "title": "Le colonne offset",
+                    "description": "Definition du nombre de colonnes de decalage vers la droite",
+                    "source": "layout/grid/column-offset.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
+                    "title": "Personnaliser le nombre de colonnes",
+                    "description": "Le système se base sur une grille de 12 divisions par défaut, mais vous pouvez modifier ce nombre depuis votre SASS",
+                    "source": "layout/grid/column-custom.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,66 @@
 {
-    "name": "Container",
-    "description": "Documentation et exemples pour les class container",
     "type": "layout",
-    "status": "✅"
+    "status": "✅",
+
+    "name": "Container",
+    "description": "Documentation et exemples pour les classes container",
+    "style": "layout/containers/style.css",
+    "blocks": [
+        {
+            "title": "Import SASS",
+            "description": "Import du fichier SASS",
+            "source": "layout/containers/import.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Containers par défaut",
+            "description": "DevBrain UI intégre une liste de containers par défaut",
+            "source": "layout/containers/list.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "title": "Container générique",
+            "description": "Le container par défaut est <code>.container</code>, la largeur de ce container est fixe",
+            "source": "layout/containers/default.twig",
+            "render_preview": true,
+            "render_source": true
+        },
+        {
+            "title": "Containers responsive",
+            "description": "Les containers responsive applique une largeur fixe lorsque la zone d'affichage est suppérieur au breakpoint du meme nom",
+            "source": "layout/containers/responsive.twig",
+            "render_preview": true,
+            "render_source": true
+        },
+        {
+            "title": "Personnalisation des noms",
+            "description": "Si les noms des containers ne vous plaisent pas, vous pouvez toujours les redefinir dans votre SASS.<br>Attention, cela impact les breakboints",
+            "source": "layout/breakpoints/custom-names.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Personnalisation des valeurs",
+            "description": "Si les valeurs des containers ne vous plaisent pas, vous pouvez toujours les redefinir dans votre SASS",
+            "source": "layout/containers/custom-values.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Ajouter vos propres containers",
+            "description": "Si il n'y à pas assez de containers, ajoutez les votre.<br>Attention, cela impact les breakboints",
+            "source": "layout/breakpoints/additional.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Supprimer des containers",
+            "description": "Si il y a trop de containers inutilisés, supprimez les.<br>Attention, cela impact les breakboints",
+            "source": "layout/breakpoints/remove.scss",
+            "render_preview": false,
+            "render_source": true
+        }
+    ]
 }

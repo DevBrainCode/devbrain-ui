@@ -1,0 +1,44 @@
+{
+    "type": "layout",
+    "status": "✅",
+
+    "name": "Breakpoints",
+    "description": "Documentation et exemples pour les breakpoints",
+    "blocks": [
+        {
+            "title": "Breakpoints par défaut",
+            "description": "DevBrain UI intégre une liste de breakpoints par defaut",
+            "source": "layout/breakpoints/list.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "title": "Personnalisation des noms",
+            "description": "Si les noms des breakpoints ne vous plaisent pas, vous pouvez toujours les redefinir dans votre SASS.<br>Attention, cela impact les containers",
+            "source": "layout/breakpoints/custom-names.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Personnalisation des valeurs",
+            "description": "Si les valeurs des breakpoints ne vous plaisent pas, vous pouvez toujours les redefinir dans votre SASS",
+            "source": "layout/breakpoints/custom-values.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Ajouter vos propres breakpoints",
+            "description": "Si il n'y à pas assez de breakpoints, ajoutez les votre.<br>Attention, cela impact les containers",
+            "source": "layout/breakpoints/additional.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Supprimer des breakpoints",
+            "description": "Si il y a trop de breakpoints inutilisés, supprimez les.<br>Attention, cela impact les containers",
+            "source": "layout/breakpoints/remove.scss",
+            "render_preview": false,
+            "render_source": true
+        }
+    ]
+}

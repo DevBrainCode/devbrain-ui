@@ -1,0 +1,44 @@
+{% set _level = level|default(2) %}
+
+{% if data.blocks is defined %}
+{% for block in data.blocks %}
+<section>
+
+    <header>
+        {# Block Title #}
+        <h{{ _level }}>{{ block.title }}</h{{ _level }}>
+    
+        {# Block Description #}
+        {% if block.description is defined and block.description is not empty %}
+        <p>{{ block.description|raw }}</p>
+        {% endif %}
+    </header>
+
+    <div>
+
+        {# {{ _documentation_preview(example.file) }} #}
+
+        {# Code Source example #}
+        {% if block.source is defined and block.source is not empty %}
+        {% if block.render_preview is defined and block.render_preview is same as true %}
+        {{ _documentation_preview(block.source) }}
+        {% endif %}
+        {% if block.render_source is defined and block.render_source is same as true %}
+        {{ _documentation_code(block.source) }}
+        {% endif %}
+        {% endif %}
+
+        {# Variable explanation #}
+
+
+    </div>
+
+    {# Embed Blocks #}
+    {% include "@DevbrainUiDoc/blocks.html.twig" with {
+        data: block,
+        level: _level + 1
+    } %}
+
+</section>
+{% endfor %}
+{% endif %}

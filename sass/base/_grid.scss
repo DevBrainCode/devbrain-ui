@@ -24,7 +24,13 @@
 
 @mixin make-column($columns) 
 {
-  width: percentage(math.div($columns, $grid-columns));
+    flex: 0 0 percentage(math.div($columns, $grid-columns));
+    max-width: percentage(math.div($columns, $grid-columns));
+}
+@mixin make-break($columns) 
+{
+    // flex: 0 0 percentage(math.div($columns, $grid-columns));
+    margin-right: 100% - (percentage(math.div($columns, $grid-columns)));
 }
 @mixin make-offset($columns) 
 {
@@ -96,10 +102,25 @@
     flex: 1 0 0%;
 }
 
+
+// [class^=column].break {
+//     border: 3px solid red;
+//     // margin-right: 100%; 
+// }
+
 @for $i from 1 through $grid-columns {
+    // :root {
+    //     --column-#{$i}-width: #{percentage(math.div($i, $grid-columns))};
+    // }
+
     .column-#{$i} {
-        flex: 0 0 auto;
+        // flex: 0 0 var(--column-#{$i}-width);
+        // max-width: var(--column-#{$i}-width);
         @include make-column($i);
+        
+        &.column-break {
+            @include make-break($i);
+        }
     }
 }
 
@@ -112,7 +133,7 @@
             @for $i from 1 through $grid-columns 
             {
                 .column-#{$size}-#{$i} {
-                    flex: 0 0 auto;
+                    // flex: 0 0 auto;
                     @include make-column($i);
                 }
             }

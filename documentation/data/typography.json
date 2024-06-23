@@ -41,6 +41,13 @@
             ]
         },
         {
+            "title": "Gestion des headings",
+            "_description": "Definit si les classes des graisses sont ajouter au CSS ou non",
+            "_source": "misc/typography/weight.scss",
+            "_render_preview": false,
+            "_render_source": true
+        },
+        {
             "title": "Gestion de la graisse",
             "description": "Definit si les classes des graisses sont ajouter au CSS ou non",
             "source": "misc/typography/weight.scss",

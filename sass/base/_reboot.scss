@@ -54,60 +54,6 @@ body {
 }
 
 
-/// Headings
-/// =============================================
-/// 
-
-hr {
-    margin: map-get($spacers, 3) map-get($spacers, 0);
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;  
-    opacity: 0.25;
-}
-
-$headings: (h1, h2, h3, h4, h5, h6);
-$selectors: ();
-
-@each $heading in $headings {
-    $selectors: append($selectors, unquote(".#{$heading}, #{$heading}"), comma);
-}
-
-#{$selectors} {
-    margin-top: map-get($spacers, 0);
-    margin-bottom: map-get($spacers, 2);
-    padding: map-get($spacers, 0);
-    //     font-family: Poppins;
-
-    font-family: var(--font-#{$font-name-headings});
-    font-weight: 700;
-    line-height: 1.33;
-}
-
-$heading-font-size: $heading-font-size-base;
-
-@function calculate-font-size($index) {
-    @if ($index == 1) {
-        @return $heading-font-size;
-    }
-    @else if ($index == 2)
-    {
-        @return $heading-font-size - .5;
-    }
-    @else
-    {
-        @return $heading-font-size - ($index * .25);
-    }
-}
-
-@each $heading in $headings {
-    #{$heading}, .#{$heading} {
-        font-size: calculate-font-size(index($headings, $heading)); // Utilisation de la fonction pour calculer la taille de police
-    }
-}
-
-
-
 
 // html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, 
 // blockquote, pre,a, abbr, acronym, address, big, cite, code, del, dfn, em, img, 

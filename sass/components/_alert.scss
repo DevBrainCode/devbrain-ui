@@ -25,7 +25,7 @@
     border-style: solid;
 }
 
-@each $key, $value in $base-pallet {
+@each $key, $value in $pallet {
     .alert-#{$key} {
         color: $value;
         background-color: color.tint($value, 70%);

@@ -1,0 +1,8 @@
+// 1. Theme name
+$name: dark;
+
+// 2. Theme properties
+$properties: ( ... );
+
+// 3. Export du theme
+$themes: map-merge($themes, ($name: $properties));

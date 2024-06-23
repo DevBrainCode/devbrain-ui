@@ -1,0 +1,36 @@
+{
+    "type": "misc",
+    "status": "✅",
+
+    "name": "Transition",
+    "description": "Documentation et exemples pour le system de grille",
+    "blocks": [
+        {
+            "title": "Import SASS",
+            "description": "Import du fichier SASS",
+            "source": "misc/transition/import.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Délais",
+            "description": "Gestion des dalais de transition.<br> Les alias sont :<br><code>default</code> correspond à <code>$transition-speed</code>,<br><code>slow</code> correspond à <code>$transition-speed * 0.8</code>,<br><code>normal</code> correspond à <code>$transition-speed * 0.3</code>,<br><code>fast</code> correspond à <code>$transition-speed * 0.1</code>,<br><code>none</code> correspond à <code>0</code>",
+            "blocks": [
+                {
+                    "title": "Personnaliser la vitesse de base",
+                    "description": "La vitesse dexecution des transition se base sur <code>1 seconde</code>. Vous pouvez modifier cette vitesse dans votre SASS",
+                    "source": "misc/transition/speed.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Personnaliser les ratios",
+                    "_description": "",
+                    "source": "misc/transition/ratios.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
+}

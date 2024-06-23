@@ -1,0 +1,65 @@
+{
+    "type": "pallet",
+    "status": "✅",
+
+    "name": "Pallet",
+    "description": "Documentation et exemples pour la gestion de la pallette de couleurs",
+    "_style": "layout/grid/style.css",
+    "blocks": [
+        {
+            "title": "Import SASS",
+            "_description": "",
+            "source": "pallet/pallet/import.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Liste des élément de la palette",
+            "description": "La palette possède une liste d'éléments par défaut: <code>success</code>, <code>danger</code>, <code>warning</code>, <code>info</code>, <code>primary</code>, <code>secondary</code>, <code>light</code>, <code>dark</code>, <code>muted</code>.",
+            "source": "pallet/pallet/pallet.twig",
+            "render_preview": true
+        },
+        {
+            "title": "Valeurs par défaut de la palette",
+            "description": "Les valeurs par défaults sont issues des variables de couleurs",
+            "source": "pallet/pallet/default.twig",
+            "_render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Personnaliser les noms de la palette",
+            "description": "Les noms des éléments sont personnalisables depuis votre SASS",
+            "source": "pallet/pallet/custom-name.scss",
+            "_render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Personnaliser les valeurs de la palette",
+            "description": "Les valeus des éléments sont personnalisables depuis votre SASS",
+            "source": "pallet/pallet/custom-value.scss",
+            "_render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Ajouter des éléments à la palette",
+            "description": "Vous pouvez ajouter vos propre elements à la palette depuis votre SASS",
+            "source": "pallet/pallet/add.scss",
+            "_render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Supprimer des éléments de la palette",
+            "description": "Supprimer les definitions inutiles depuis votre SASS",
+            "source": "pallet/pallet/delete.scss",
+            "_render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Teintes et Nuances",
+            "description": "Désactiver les teintes et nuances depuis votre SASS",
+            "source": "pallet/pallet/tint.scss",
+            "_render_preview": false,
+            "render_source": true
+        }
+    ]
+}

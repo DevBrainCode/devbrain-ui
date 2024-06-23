@@ -41,7 +41,7 @@ body {
     margin: map-get($spacers , 0);
     padding: map-get($spacers , 0);
 
-    font-family: "OpenSans", "Cantarell", "Helvetica", "Arial", sans-serif;
+    font-family: var(--font-#{$font-name-primary});
     font-size: $font-size-base;
     line-height: 1.45; 
     -webkit-font-smoothing: antialiased;
@@ -78,6 +78,8 @@ $selectors: ();
     margin-bottom: map-get($spacers, 2);
     padding: map-get($spacers, 0);
     //     font-family: Poppins;
+
+    font-family: var(--font-#{$font-name-headings});
     font-weight: 700;
     line-height: 1.33;
 }

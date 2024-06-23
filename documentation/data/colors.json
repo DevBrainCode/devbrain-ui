@@ -1,0 +1,58 @@
+{
+    "type": "pallet",
+    "status": "✅",
+
+    "name": "Colors",
+    "description": "Documentation et exemples pour le system de grille",
+    "_style": "layout/grid/style.css",
+    "blocks": [
+        {
+            "title": "Les couleurs par défauts",
+            "description": "Le système embarque quelques variable de définition de couleurs.<br>Ajoute les variables css dans <code>:root{}</code>",
+            "blocks": [
+                {
+                    "title": "Import SASS",
+                    "description": "Import du fichier SASS",
+                    "source": "pallet/colors/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Les nuances de gris",
+                    "_description": "Import du fichier SASS",
+                    "source": "pallet/colors/gray.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "La pallette de couleurs de base",
+                    "_description": "Import du fichier SASS",
+                    "source": "pallet/colors/base.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Personnaliser les couleurs",
+                    "description": "Vous pouvez personnaliser les couleurs et nuances de gris de base depuis votre SASS",
+                    "source": "pallet/colors/custom.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        },
+        {
+            "title": "Ajouter des couleurs",
+            "description": "Ajouter vos propres couleurs",
+            "source": "pallet/colors/additional.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Supprimer des couleurs",
+            "description": "Supprimer les variables de couleur inutile",
+            "source": "pallet/colors/useless.scss",
+            "render_preview": false,
+            "render_source": true
+        }
+    ]
+}

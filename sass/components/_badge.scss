@@ -44,7 +44,7 @@
     line-height: 1;
 }
 
-@each $_key, $_color in $base-pallet {
+@each $_key, $_color in $pallet {
 
     $_shade       : color.shade($_color, 30%);
     $_tint        : color.tint($_color, 60%);

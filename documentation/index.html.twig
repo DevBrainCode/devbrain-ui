@@ -3,18 +3,27 @@
 {% set menu_layout = [] %}
 {% set menu_pallet = [] %}
 {% set menu_component = [] %}
+{% set menu_misc = [] %}
 
 {% for item in navigation %}{% if item.type == 'layout' %}{% set menu_layout = menu_layout|merge([{
     label: item.label,
     url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
     active: _current_section == item.type and _current_element == item.path
 }]) %}{% endif %}{% endfor %}
+
 {% for item in navigation %}{% if item.type == 'pallet' %}{% set menu_pallet = menu_pallet|merge([{
     label: item.label,
     url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
     active: _current_section == item.type and _current_element == item.path
 }]) %}{% endif %}{% endfor %}
+
 {% for item in navigation %}{% if item.type == 'component' %}{% set menu_component = menu_component|merge([{
+    label: item.label,
+    url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
+    active: _current_section == item.type and _current_element == item.path
+}]) %}{% endif %}{% endfor %}
+
+{% for item in navigation %}{% if item.type == 'misc' %}{% set menu_misc = menu_misc|merge([{
     label: item.label,
     url: url('_devbrain_ui_doc', {type:item.type, element: item.path}), 
     active: _current_section == item.type and _current_element == item.path
@@ -54,6 +63,12 @@
                     {% component 'menu' with {
                         orientation: 'vertical',
                         items      : menu_component
+                    } %}
+                    
+                    <h6>Misc</h3>
+                    {% component 'menu' with {
+                        orientation: 'vertical',
+                        items      : menu_misc
                     } %}
 
                 </div>

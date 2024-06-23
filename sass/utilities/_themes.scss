@@ -1,6 +1,6 @@
 // ******************************* DevBrain UI ****************************** //
 // *
-// *    Utilities : themes
+// *    Themes builder
 // *
 // ************************************************************************** //
 // *
@@ -9,28 +9,28 @@
 // *
 // ************************************************************************** //
 
-
+@use './../abstracts/functions/utils';
+@use './../abstracts/functions/collection';
 @use './../abstracts/functions/color';
+@use './../abstracts/mixins/dumper';
 
-:root {
-    @each $key, $value in $base-pallet {
-        $shade: color.shade($value, 30%);
-        $tint: color.tint($value, 60%);
-        $contrastText: color.contrastText($shade);
 
-        --#{$key}: #{$value};
-        --#{$key}-shade: #{$shade};
-        --#{$key}-tint: #{$tint};
-    }
-
-    @each $property, $value in map-get($themes , $theme-default ) {
-        --#{$property}: #{$value};
+/// Default Theme
+/// =============================================
+@if utils.not-empty(map-get($themes , $theme-default)) {
+    :root {
+        @each $property, $value in map-get($themes , $theme-default) {
+            --#{$property}: #{$value};
+        }
     }
 }
 
+
+
+/// Additional Themes
+/// =============================================
 @each $theme, $properties in $themes {
-    @if ($theme != $theme-default)
-    {
+    @if ($theme != $theme-default) {
         :root[data-theme=#{$theme}] {
             @each $property, $value in $properties {
                 --#{$property}: #{$value};

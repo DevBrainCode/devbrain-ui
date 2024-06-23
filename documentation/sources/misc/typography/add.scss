@@ -1,0 +1,16 @@
+// Depuis Google Font
+$roboto: (
+    'family': "'Roboto', sans-serif",
+    'url': "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+);
+
+// Depuis une source locale
+$digital-7: (
+    'family': "digital-7",
+    'source': "./builds/fonts/digital-7.ttf"
+);
+
+$additional-fonts: (
+    'roboto'                : $roboto,      // Add new font
+    '#{$font-name-headings}': $digital-7,   // override font
+);

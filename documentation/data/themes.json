@@ -1,0 +1,43 @@
+{
+    "type": "pallet",
+    "status": "✅",
+
+    "name": "Themes",
+    "description": "Documentation et exemples pour la gestion des thémes.<br>Le système est dépourvue de theme, mais vous pouvez ajouter autant de themes que vous souhaitez.",
+    "_style": "layout/grid/style.css",
+    "blocks": [
+        {
+            "title": "Import SASS",
+            "_description": "",
+            "source": "pallet/themes/import-base.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Créer un theme",
+            "blocks": [
+                {
+                    "title": "Définition des propriétés du theme",
+                    "description": "Creez un fichier SASS pour votre theme dans votre répertoire SASS.<br><br>1. Définir le nom du theme<br>2. Définir les propriétés du théme<br>3. Ajouter le theme dans la liste des themes du systeme",
+                    "source": "pallet/themes/create.scss",
+                    "_render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Importation du theme",
+                    "description": "Import des fichiers SASS des themes.<br>ATTENTION: pensez à définier la variables de liste des themes avant vos imports",
+                    "source": "pallet/themes/import-themes.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        },
+        {
+            "title": "Theme par défaut",
+            "description": "Le système est definit pour mettre le theme <code>light</code> en theme par défaut si celui-ci est créé.<br>Vous pouvez modifier le theme par defaut depuis votre SASS",
+            "source": "pallet/themes/default.scss",
+            "render_preview": false,
+            "render_source": true
+        }
+    ]
+}

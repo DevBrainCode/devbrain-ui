@@ -1,4 +1,4 @@
-.rendering_preview [class^=column] {
+.rendering_preview [class^=column]:not(.column-break) {
     text-align: center;
     background-color: var(--light-shade); 
     margin-bottom: 5px;

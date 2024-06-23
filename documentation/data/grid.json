@@ -60,6 +60,13 @@
                     "render_source": true
                 },
                 {
+                    "title": "Les colonnes responsive",
+                    "description": "Les colonnes s'adaptent a la largeur de l'ecran. utilisez la syntaxe de classe <code>.column-{breakpoint}-{x}</code>.<br><code>.column-phone-{x}</code>, <code>.column-tablet-{x}</code>, <code>.column-laptop-{x}</code>, <code>.column-desktop-{x}</code>, <code>.column-wide-{x}</code>, <code>.column-ultra-{x}</code>",
+                    "source": "layout/grid/column-responsive.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
                     "title": "Personnaliser le nombre de colonnes",
                     "description": "Le système se base sur une grille de 12 divisions par défaut, mais vous pouvez modifier ce nombre depuis votre SASS",
                     "source": "layout/grid/column-custom.scss",

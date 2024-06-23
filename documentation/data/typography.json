@@ -1,0 +1,58 @@
+{
+    "type": "misc",
+    "status": "✅",
+
+    "name": "Typography",
+    "description": "Documentation et exemples pour les éléments de Typography",
+    "_style": "layout/grid/style.css",
+    "blocks": [
+        {
+            "title": "Gestion des Fonts",
+            "_description": "",
+            "blocks": [
+                {
+                    "title": "Import SASS",
+                    "description": "Import du fichier SASS",
+                    "source": "misc/typography/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Personnalisation des noms",
+                    "description": "Personnaliser les noms des variables de font",
+                    "source": "misc/typography/custom-name.scss",
+                    "_render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Ajouter / Modifier des fonts",
+                    "description": "Ajouter et modifier des definition de font depuis votre SASS.<br>Modifier la liste <code>$additional-fonts</code>",
+                    "source": "misc/typography/add.scss",
+                    "_render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Supprimer des definitions",
+                    "_description": "Vous pouvez personnaliser les couleurs et nuances de gris de base depuis votre SASS",
+                    "_source": "misc/typography/useless.scss",
+                    "_render_preview": false,
+                    "_render_source": true
+                }
+            ]
+        },
+        {
+            "title": "Gestion de la graisse",
+            "description": "Definit si les classes des graisses sont ajouter au CSS ou non",
+            "source": "misc/typography/weight.scss",
+            "render_preview": false,
+            "render_source": true
+        },
+        {
+            "title": "Gestion des couleurs",
+            "description": "Les classes de couleurs de texte sont générées avec la référence à la Pallette",
+            "source": "misc/typography/colors.twig",
+            "render_preview": true,
+            "render_source": false
+        }
+    ]
+}

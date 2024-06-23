@@ -1,0 +1,9 @@
+<div class="grid">
+    <div class="column-4"><strong>Class Name</strong></div>
+    <div class="column-8"><strong>Render</strong></div>
+
+    {% for pallet in ['success', 'danger', 'warning', 'info', 'primary', 'secondary', 'light', 'dark', 'custom-pallet'] %}
+    <div class="column-4"><code>.text-{{pallet}}</code></div>
+    <div class="column-8 text-{{pallet}}">Lorem ipsum dolor sit amet...</div>
+    {% endfor %}
+</div>

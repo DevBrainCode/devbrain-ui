@@ -10,21 +10,29 @@
 @mixin margin($top: null, $right: null, $bottom: null, $left: null) 
 {
   // margin: $top $right $bottom $left;
-  @include coords('margin', $top, $right, $bottom, $left);
+  @include _coords('margin', $top, $right, $bottom, $left);
 }
 
 @mixin padding($top: null, $right: null, $bottom: null, $left: null) 
 {
-  @include coords('padding', $top, $right, $bottom, $left);
+  @include _coords('padding', $top, $right, $bottom, $left);
 }
 
 /// Position mixin's utilities
 /// =============================================
 /// 
-@mixin coords($type, $top: null, $right: null, $bottom: null, $left: null) 
+@mixin _coords($type, $top: null, $right: null, $bottom: null, $left: null) 
 {
-  @if ($top not null) {#{$type}-top : $top;}
-  @if ($right not null) {#{$type}-right : $right;}
-  @if ($bottom not null) {#{$type}-bottom : $bottom;}
-  @if ($left not null) {#{$type}-left : $left;}
+  @if $right == $top and $bottom == $right and $left == $bottom and $top == $left {
+    #{$type}: $top;
+  }
+  @else if $top == $bottom and $left == $right {
+    #{$type}: $top $left;
+  }
+  @else {
+    @if ($top not null) {#{$type}-top : $top;}
+    @if ($right not null) {#{$type}-right : $right;}
+    @if ($bottom not null) {#{$type}-bottom : $bottom;}
+    @if ($left not null) {#{$type}-left : $left;}
+  }
 }

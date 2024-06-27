@@ -8,7 +8,15 @@ class ClassListService {
 
     public function add(string $className): static
     {
-        array_push($this->classList, $className);
+        $className = explode(" ", $className);
+
+        foreach ($className as $classNameItem)
+        {
+            if (!in_array($classNameItem, $this->classList))
+            {
+                array_push($this->classList, $classNameItem);
+            }
+        }
 
         return $this;
     }

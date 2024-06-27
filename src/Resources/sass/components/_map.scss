@@ -4,16 +4,27 @@
 // *
 // ************************************************************************** //
 
+@use './../abstracts/mixins/banner';
 
-/// Map variables
+@include banner.header('Component Map');
+
+
+/// Badge variables
 /// =============================================
-///
+
+// Default Values
+// --------------------------
+// -- No data
+
+
+// Default Theme
+// --------------------------
+// -- No data
 
 
 
-/// Map component
+/// Badge component
 /// =============================================
-///
 
 .map {
     $offset: 0;
@@ -24,13 +35,14 @@
     min-height: 100%;
     overflow: hidden;
 
+    height: 420px;
+
     & iframe {
         border: none !important;
         position: absolute;
         height: calc(100% + ($offset_px * 2));
         width: calc(100% + ($offset_px * 2));
 
-        
         top: $offset_px * -1;
         right: $offset_px * -1;
         bottom: $offset_px * -1;

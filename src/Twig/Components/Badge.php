@@ -2,6 +2,7 @@
 
 namespace Devbrain\Ui\Twig\Components;
 
+use Devbrain\Ui\Enum\Size;
 use Devbrain\Ui\Enum\Pallet;
 use Devbrain\Ui\Service\ClassListService;
 use Symfony\UX\TwigComponent\Attribute\PreMount;
@@ -18,15 +19,15 @@ final class Badge
     #[ExposeInTemplate(name: 'class', getter: 'fetchClass')]
     public string $class;
 
-    public int $max;
     public string $is;
+    public string $size;
+    public int $max;
     public bool $outline;
 
 
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
     public function __construct( private ClassListService $classlist ){}
-
 
     #[PreMount]
     public function preMount(array $data): array
@@ -56,6 +57,11 @@ final class Badge
         $resolver->setDefaults(['outline' => false]);
         $resolver->setAllowedTypes('outline', 'boolean');
 
+        // Size
+        $resolver->setDefaults(['size' => Size::NORMAL->value]);
+        $resolver->setAllowedTypes('size', 'string');
+        $resolver->setAllowedValues('size', Size::toArray());
+
         return $resolver->resolve($data) + $data;
     }
 
@@ -80,10 +86,17 @@ final class Badge
         $this->classlist->add("badge");
         // $this->classlist->add("badge-{$this->is}");
 
+        // Pallet / Outline
         $this->outline 
             ? $this->classlist->add("badge-{$this->is}-outline")
             : $this->classlist->add("badge-{$this->is}")
         ;
+
+        // Size
+        if (in_array($this->size, Size::toArray()) && $this->size != Size::NORMAL->value)
+        {
+            $this->classlist->add("badge-{$this->size}");
+        }
 
         $this->classlist->add($this->class);
 

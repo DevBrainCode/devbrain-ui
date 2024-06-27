@@ -41,6 +41,13 @@
                             "description": "Texte du badge. Si <code>label</code> est vide, le badge n'est pas injecté"
                         },
                         {
+                            "name": "size",
+                            "type": "string",
+                            "required": false,
+                            "default": "normal",
+                            "description": "Taille du badge <code>small</code>, <code>normal</code>, <code>large</code>"
+                        },
+                        {
                             "name": "max",
                             "type": "string",
                             "required": false,
@@ -56,6 +63,12 @@
                         {
                             "title": "Adaptation contextuelle",
                             "source": "Badge/examples/context.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Size",
+                            "source": "Badge/examples/size.html.twig",
                             "render_preview": true,
                             "render_source": true
                         },

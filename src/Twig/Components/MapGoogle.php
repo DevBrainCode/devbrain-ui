@@ -8,14 +8,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
-#[AsTwigComponent(template: '@DevbrainUi/Map/map.html.twig')]
-final class Map
+#[AsTwigComponent(template: '@DevbrainUi/Map/map-google.html.twig')]
+final class MapGoogle
 {
     #[ExposeInTemplate(name: 'href')]
     public string $href;
-
-    #[ExposeInTemplate(name: 'provider', getter: 'fetchProvider')]
-    public string $provider;
 
     #[ExposeInTemplate(name: 'dataset')]
     public array $dataset;
@@ -53,22 +50,11 @@ final class Map
 
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-    public function fetchProvider(): ?string
-    {
-        $host = parse_url($this->href, PHP_URL_HOST);
-
-        if (preg_match("/google/", $host))
-        {
-            return 'google';
-        }
-
-        return null;
-    }
-
     public function fetchClass(): string
     {
         $this->classlist->reset();
         $this->classlist->add("map");
+        $this->classlist->add("map-google");
         $this->classlist->add($this->class);
 
         return $this->classlist->print();

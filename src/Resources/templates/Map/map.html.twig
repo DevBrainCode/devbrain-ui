@@ -1,0 +1,15 @@
+{# -- Component Settings ---------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+{% set _attr = _add_attribute(_attr, 'class', class) %}
+
+
+{# -- Component Rendering --------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% if provider == 'google' %}
+<twig:MapGoogle :href="href" :class="class" :dataset="dataset" />
+{% else %}
+<twig:Alert message="No map provider" is="warning" />
+{% endif %}

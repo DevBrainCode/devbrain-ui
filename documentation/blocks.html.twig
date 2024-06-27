@@ -23,10 +23,10 @@
         {# Code Source example #}
         {% if block.source is defined and block.source is not empty %}
         {% if block.render_preview is defined and block.render_preview is same as true %}
-        {{ _documentation_preview(block.source) }}
+        {{ _component_preview(block.source) }}
         {% endif %}
         {% if block.render_source is defined and block.render_source is same as true %}
-        {{ _documentation_code(block.source) }}
+        {{ _component_code(block.source) }}
         {% endif %}
         {% endif %}
 
@@ -102,7 +102,7 @@
                 </div>
 
                 {% if method.source is defined and method.source is not empty %}
-                {{ _documentation_code(method.source) }}
+                {{ _component_code(method.source) }}
                 {% endif %}
             </dd>
         {% endfor %}

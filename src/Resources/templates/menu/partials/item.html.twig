@@ -44,16 +44,11 @@
         level: _level
     } %}
 {% else %}
-    {% db_component 'link' with {
-        class   : "menu-link",
-        label   : _label,
-        url     : _url,
-        target  : _target,
-        active  : _active,
-        disabled: _disabled,
-        dataset : _dataset,
-
-        action  : _action,
-    } %}
+    <twig:Link 
+        :label="_label"
+        :url="_url"
+        :isActive="_active"
+        class="menu-link"
+    />
 {% endif %}
 </li>

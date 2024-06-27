@@ -3,9 +3,18 @@
 
 {% set _attr = attr|default({}) %}
 {% set _attr = _add_attribute(_attr, 'class', class) %}
+
+{% if isDisabled == 1 %}
+{% set _attr = _add_attribute(_attr, 'disabled', true) %}
+{% set _attr = _add_attribute(_attr, 'aria-disabled', 'true') %}
+{% else %}
 {% set _attr = _add_attribute(_attr, 'href', href) %}
 {% set _attr = _add_attribute(_attr, 'target', target) %}
+{% endif %}
 
+{% for name, value in dataset %}
+{% set _attr = _add_attribute(_attr, 'data-'~ name, value) %}
+{% endfor %}
 
 {# -- Component Rendering --------------------------------------------------- #}
 {# -------------------------------------------------------------------------- #}

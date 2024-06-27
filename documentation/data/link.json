@@ -1,0 +1,137 @@
+{
+    "type": "component",
+    "status": "✅",
+    
+    "name": "Link",
+    "description": "Documentation et exemples pour le composant Link",
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "Link/examples/main.html.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "Link/examples/main.html.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Attribut Target",
+                            "description": "",
+                            "source": "Link/examples/target.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Disabled link",
+                            "description": "",
+                            "source": "Link/examples/disabled.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Dataset",
+                            "description": "",
+                            "source": "Link/examples/dataset.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Supprime la classe Link",
+                            "description": "",
+                            "source": "Link/examples/class.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "description": "Texte du lien"
+                        },
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "description": "Adresse du lien"
+                        },
+                        {
+                            "name": "target",
+                            "type": "string",
+                            "required": false,
+                            "default": "_self",
+                            "description": "Valeur de l'attribut target"
+                        },
+                        {
+                            "name": "disabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "description": "Desactive le lien"
+                        },
+                        {
+                            "name": "dataset",
+                            "type": "array",
+                            "required": false,
+                            "default": "[]",
+                            "description": "Liste d'attributs data"
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Nom de la classe CSS personnalisée"
+                        },
+                        {
+                            "name": "isActive",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "fasle",
+                            "description": "Si <code>true</code>, ajoute la class <code>.active</code> au composant"
+                        },
+                        {
+                            "name": "noClassLink",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "description": "Supprime la class <code>.link</code>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "Link/examples/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
+}

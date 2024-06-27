@@ -25,11 +25,17 @@ class ComponentExtension extends AbstractExtension
             new TwigFunction('_get_cookie_name', [ComponentRuntime::class, 'getCookieConsentName']),
 
             // Documentation Function
-            new TwigFunction('_documentation_preview', [ComponentRuntime::class, 'doc_preview'], ['is_safe' => ['html']]),
-            new TwigFunction('_documentation_code', [ComponentRuntime::class, 'doc_code']),
+            // new TwigFunction('_documentation_preview', [ComponentRuntime::class, 'doc_preview'], ['is_safe' => ['html']]),
+            // new TwigFunction('_documentation_code', [ComponentRuntime::class, 'doc_code']),
             
             // Utils
             new TwigFunction('_rand_id', [ComponentRuntime::class, 'rand_id']),
+
+            // -------
+
+            new TwigFunction('_component_preview', [ComponentRuntime::class, 'getPreview'], ['is_safe' => ['html']]),
+            new TwigFunction('_component_code', [ComponentRuntime::class, 'getCode']),
+
         ];
     }
 

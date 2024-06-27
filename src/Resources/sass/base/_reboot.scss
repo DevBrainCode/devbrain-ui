@@ -164,8 +164,9 @@ a {
 }
 
 a {
-    cursor: pointer !important;
-    text-decoration: none;
+    cursor: pointer;
+    text-decoration: underline;
+
     // background: red
 }
 

@@ -147,15 +147,22 @@ class ComponentRuntime implements RuntimeExtensionInterface
 
         foreach ($attr as $key => $value)
         {
-            $value = trim($value);
+            $_value = trim($value);
 
-            if (!empty($value))
+            if (!empty($_value))
             {
                 if (!empty($str)) {
                     $str.= " ";
                 }
 
-                $str.= "$key=\"$value\"";
+                if ($value === true) 
+                {
+                    $str.= "{$key}";
+                }
+                else 
+                {
+                    $str.= "{$key}=\"{$_value}\"";
+                }
             }
         }
 
@@ -221,18 +228,55 @@ class ComponentRuntime implements RuntimeExtensionInterface
 
 
 
-    public function doc_preview(string $source="", array $options=[])
+    // public function doc_preview(string $source="", array $options=[])
+    // {
+    //     $template = $this->environment->render(
+    //         "@DevbrainUiDoc/sources/{$source}",
+    //         $options
+    //     );
+    //     echo "<div class=\"rendering_preview\">{$template}</div>";
+    // }
+
+    // public function doc_code(string $source="")
+    // {
+    //     $source = __DIR__."/../../../documentation/sources/{$source}";
+
+    //     if (file_exists($source))
+    //     {
+    //         $content = file_get_contents($source);
+    //         $content = htmlspecialchars($content);
+    //         // $content = nl2br($content);
+
+    //         echo "<pre class=\"code_preview\">{$content}</pre>";
+    //     }
+    // }
+
+    public function rand_id(): string
+    {
+        return uniqid();
+    }
+
+
+
+
+
+
+
+
+
+    public function getPreview(string $source="", array $options=[])
     {
         $template = $this->environment->render(
-            "@DevbrainUiDoc/sources/{$source}",
+            "@DevbrainUi/{$source}",
             $options
         );
+
         echo "<div class=\"rendering_preview\">{$template}</div>";
     }
 
-    public function doc_code(string $source="")
+    public function getCode(string $source="")
     {
-        $source = __DIR__."/../../../documentation/sources/{$source}";
+        $source = __DIR__."/../../../src/Resources/templates/{$source}";
 
         if (file_exists($source))
         {
@@ -244,8 +288,4 @@ class ComponentRuntime implements RuntimeExtensionInterface
         }
     }
 
-    public function rand_id(): string
-    {
-        return uniqid();
-    }
 }

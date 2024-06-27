@@ -1,0 +1,8 @@
+{% set dataset = {
+    info: "This is a link",
+    price: "9.99",
+    hello: true,
+    goodbye: false,
+} %}
+
+<twig:Link label="Link" :dataset="dataset" :url="url('app_homepage')" />

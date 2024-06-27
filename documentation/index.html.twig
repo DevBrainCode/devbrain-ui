@@ -118,13 +118,13 @@
 
 
 
-                    {% if item.twig.source is defined or item.twig.variables is defined or item.twig.examples is defined %}
+                    {# {% if item.twig.source is defined or item.twig.variables is defined or item.twig.examples is defined %}
                     <hr>
                     {% endif %}
 
 
                     {# Twig Variables #}
-                    {% if item.twig.variables is defined %}   
+                    {# {% if item.twig.variables is defined %}   
                     <section>
                         <h3>Twig Variables</h3>
                         <dl class="doc_properties">
@@ -156,10 +156,10 @@
 
                     {% if item.sass.variables is defined or item.sass.theme is defined %}
                     <hr>
-                    {% endif %}
+                    {% endif %} #}
 
                     {# SASS Variables #}
-                    {% if item.sass.variables is defined %}
+                    {# {% if item.sass.variables is defined %}
                     <section>
                         <h3>Sass Variables</h3>
                         {% for variable in item.sass.variables %}
@@ -176,10 +176,10 @@
 ${{ variable.name }}: {{ variable.default }};
 {% endfor %}</pre>
                     </section>
-                    {% endif %}
+                    {% endif %} #}
 
                     {# SASS Theme #}
-                    {% if item.sass.theme is defined %}
+                    {# {% if item.sass.theme is defined %}
                     <section>
                         <h3>Sass Theme</h3>
                         {% for variable in item.sass.theme %}
@@ -205,20 +205,20 @@ $theme-properties: map-merge($theme-properties, (
 
                     {% if item.javascript.methods is defined or item.javascript.source is defined %}
                     <hr>
-                    {% endif %}
+                    {% endif %} #}
 
 
                     {# JavaScript Methods #}
-                    {% if item.javascript.source is defined %}
+                    {# {% if item.javascript.source is defined %}
                     <section>
                         <h3>JavaScript Exemple</h3>
                         {{ _documentation_code(item.javascript.source) }}
                     </section>
-                    {% endif %}
+                    {% endif %} #}
 
 
                     {# JavaScript Methods #}
-                    {% if item.javascript.methods is defined %}
+                    {# {% if item.javascript.methods is defined %}
                     <section>
                         <h3>JavaScript Methods</h3>
 
@@ -259,7 +259,7 @@ $theme-properties: map-merge($theme-properties, (
                         {% endfor %}
                         </dl>
                     </section>
-                    {% endif %}
+                    {% endif %} #}
 
 
                     

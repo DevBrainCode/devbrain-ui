@@ -1,30 +1,29 @@
 {
     "type": "component",
-    "status": "⚠️",
-    "_status": "✅",
+    "status": "✅",
 
     "name": "Badge",
-    "description": "Documentation et exemples pour les badges",
+    "description": "Documentation et exemples pour le composant <code>&lt;twig:Badge /&gt;</code>",
     "blocks": [
         {
-            "_title": "Render example",
-            "_description": "",
-            "source": "components/badge/main.twig",
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "Badge/examples/main.html.twig",
             "render_preview": true,
             "render_source": false
         },
         {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
             "title": "Composant Twig",
-            "_description": "",
             "blocks": [
                 {
+                    "_BLOCK": "--- TWIG SOURCE ---",
                     "title": "Intégration du composant Twig",
-                    "_description": "",
-                    "source": "components/badge/main.twig",
+                    "source": "Badge/examples/main.html.twig",
                     "render_preview": false,
                     "render_source": true
                 },
                 {
+                    "_BLOCK": "--- TWIG PARAMS ---",
                     "title": "Parametres du composant",
                     "params_twig": [
                         {
@@ -51,29 +50,33 @@
                     ]
                 },
                 {
-                    "title": "Composant avec type / pallet",
-                    "description": "Utilisation des badges associés à la palette de couleur",
-                    "source": "components/badge/pallet.twig",
-                    "render_preview": true,
-                    "render_source": true
-                },
-                {
-                    "title": "Composant aven context",
-                    "_description": "",
-                    "source": "components/badge/context.twig",
-                    "render_preview": true,
-                    "render_source": true
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Adaptation contextuelle",
+                            "source": "Badge/examples/context.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Couleur de la pallette",
+                            "source": "Badge/examples/pallet.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
                 }
             ]
         },
         {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
             "title": "Configuration SASS",
-            "_description": "",
             "blocks": [
                 {
+                    "_BLOCK": "--- IMPORT SASS ---",
                     "title": "Import du composant SASS",
-                    "_description": "Import du fichier SASS du composant",
-                    "source": "components/badge/import.scss",
+                    "source": "Badge/examples/import.scss",
                     "render_preview": false,
                     "render_source": true
                 }

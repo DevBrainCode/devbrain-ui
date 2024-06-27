@@ -1,0 +1,16 @@
+{% for ui_level in ['success','danger','warning','info','primary','secondary','light','dark','muted'] %}
+    <div class="grid">
+        <div class="column-3">
+            <code>.badge-{{ui_level}}</code>
+        </div>
+        <div class="column-2">
+            <twig:Badge label="Hello" is="{{ ui_level }}" />
+        </div>
+        <div class="column-4 offset-1">
+            <code>.badge-{{ui_level}}-outline</code>
+        </div>
+        <div class="column-2">
+            <twig:Badge label="Hello" is="{{ ui_level }}" outline />
+        </div>
+    </div>
+{% endfor %}

@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
-#[AsTwigComponent(template: '@DevbrainUi/Breadcrumb/root.html.twig')]
+#[AsTwigComponent(template: '@DevbrainUi/Breadcrumb/breadcrumb.html.twig')]
 final class Breadcrumb
 {
     #[ExposeInTemplate(name: 'class', getter: 'fetchClass')]

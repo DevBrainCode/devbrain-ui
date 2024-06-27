@@ -7,7 +7,7 @@
     "blocks": [
         {
             "_BLOCK": "--- RENDERING PREVIEW ---",
-            "source": "components/breadcrumb/preview.twig",
+            "source": "Breadcrumb/examples/main.html.twig",
             "render_preview": true,
             "render_source": false
         },
@@ -18,22 +18,9 @@
                 {
                     "_BLOCK": "--- TWIG SOURCE ---",
                     "title": "Intégration du composant Twig",
-                    "source": "components/breadcrumb/preview.twig",
+                    "source": "Breadcrumb/examples/main.html.twig",
                     "render_preview": false,
                     "render_source": true
-                },
-                {
-                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
-                    "title": "Exemples supplémentaires",
-                    "blocks": [
-                        {
-                            "title": "Custom attribute",
-                            "description": "",
-                            "source": "components/breadcrumb/example-attr.twig",
-                            "render_preview": true,
-                            "render_source": true
-                        }
-                    ]
                 },
                 {
                     "_BLOCK": "--- TWIG PARAMS ---",
@@ -100,7 +87,7 @@
                 {
                     "_BLOCK": "--- IMPORT SASS ---",
                     "title": "Import du composant SASS",
-                    "source": "components/breadcrumb/import.scss",
+                    "source": "Breadcrumb/examples/import.scss",
                     "render_preview": false,
                     "render_source": true
                 },

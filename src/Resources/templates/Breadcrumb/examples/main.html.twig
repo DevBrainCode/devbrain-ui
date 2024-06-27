@@ -1,0 +1,7 @@
+{% set items = [
+    { label: "Item 1", url: url('app_homepage'), target: "_blank"},
+    { label: "Item 2", url: url('app_homepage')},
+    { label: "Item 3", url: url('app_homepage')}
+] %}
+
+<twig:Breadcrumb class="my-custom-class" :items="items"/>

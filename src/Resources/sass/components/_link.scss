@@ -12,6 +12,16 @@
 /// link variables
 /// =============================================
 
+// Default Values
+// --------------------------
+// -- No data
+
+
+// Default Theme
+// --------------------------
+// -- No data
+
+
 
 /// link component
 /// =============================================
@@ -25,8 +35,8 @@
 }
 
 
-// Disabled link
-// --
+/// Disabled link
+/// --
 
 a[disabled] {
     cursor: default !important;
@@ -34,8 +44,9 @@ a[disabled] {
 }
 
 
-// _blank link symbol
-// --
+/// _blank link symbol
+/// --
+
 a[target]:not([target=_self],[target=_parent]) {
     position: relative;
     padding-right: 8px;

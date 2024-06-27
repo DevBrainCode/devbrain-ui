@@ -3,7 +3,7 @@
     "status": "✅",
     
     "name": "Link",
-    "description": "Documentation et exemples pour le composant Link",
+    "description": "Documentation et exemples pour le composant <code>&lt;twig:Link /&gt;</code>",
     "blocks": [
         {
             "_BLOCK": "--- RENDERING PREVIEW ---",
@@ -21,40 +21,6 @@
                     "source": "Link/examples/main.html.twig",
                     "render_preview": false,
                     "render_source": true
-                },
-                {
-                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
-                    "title": "Exemples supplémentaires",
-                    "blocks": [
-                        {
-                            "title": "Attribut Target",
-                            "description": "",
-                            "source": "Link/examples/target.html.twig",
-                            "render_preview": true,
-                            "render_source": true
-                        },
-                        {
-                            "title": "Disabled link",
-                            "description": "",
-                            "source": "Link/examples/disabled.html.twig",
-                            "render_preview": true,
-                            "render_source": true
-                        },
-                        {
-                            "title": "Dataset",
-                            "description": "",
-                            "source": "Link/examples/dataset.html.twig",
-                            "render_preview": true,
-                            "render_source": true
-                        },
-                        {
-                            "title": "Supprime la classe Link",
-                            "description": "",
-                            "source": "Link/examples/class.html.twig",
-                            "render_preview": true,
-                            "render_source": true
-                        }
-                    ]
                 },
                 {
                     "_BLOCK": "--- TWIG PARAMS ---",
@@ -115,6 +81,40 @@
                             "required": false,
                             "default": "false",
                             "description": "Supprime la class <code>.link</code>"
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Attribut Target",
+                            "description": "",
+                            "source": "Link/examples/target.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Disabled link",
+                            "description": "",
+                            "source": "Link/examples/disabled.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Dataset",
+                            "description": "",
+                            "source": "Link/examples/dataset.html.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Supprime la classe Link",
+                            "description": "",
+                            "source": "Link/examples/class.html.twig",
+                            "render_preview": true,
+                            "render_source": true
                         }
                     ]
                 }

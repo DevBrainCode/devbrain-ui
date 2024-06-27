@@ -9,6 +9,6 @@
 {# -------------------------------------------------------------------------- #}
 <ul {{ _get_attributes(_attr) }} {{ attributes }}>
     {% for item in items %}
-    <twig:BreadcrumbItem :label="item.label" :url="item.url" :isActive="loop.last" />
+    <twig:BreadcrumbItem :label="item.label" :url="item.url" :target="item.target|default('_self')" :isActive="loop.last" />
     {% endfor %}
 </ul>

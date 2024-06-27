@@ -7,6 +7,7 @@
 @use './../abstracts/mixins/corner';
 @use './../abstracts/mixins/spaces';
 @use './../abstracts/mixins/banner';
+@use './../abstracts/mixins/pallet';
 @use './../abstracts/mixins/transition';
 @use './../abstracts/functions/color';
 
@@ -30,8 +31,9 @@
 
     
 
-    // Button Sizes
-    // -------------------------
+    /// Button Sizes
+    /// --
+
     @include spaces.padding( $spacer * .6, $spacer * 1.4, $spacer * .6, $spacer * 1.4 );
     font-size: $spacer * 1;
 
@@ -46,16 +48,18 @@
     }
 
 
-    // Button block
-    // -------------------------
+    /// Button block
+    /// --
+    
     &-block {
         display: block;
         min-width: 100%;
     }
 
 
-    // Pallet colors
-    // -------------------------
+    /// Pallet colors
+    /// --
+    
     border-color: transparent;
     background-color: transparent;
 
@@ -65,7 +69,7 @@
         $contrastText: color.contrastText($shade);
 
         // Fill color
-        // ---------------
+        // --
         &-#{$key} {
             color: $contrastText;
             background-color: var(--#{$key});
@@ -79,13 +83,9 @@
         }
 
         // Stroke (outline) color
-        // ---------------
+        // --
         &-#{$key}-outline {
-            color: var(--#{$key});
-            background-color: transparent;
-            border-color: var(--#{$key}) !important;
-            border-width: 1px !important;
-            border-style: solid !important;
+            @include pallet.outline($key);
 
             &:hover {
                 color: $contrastText;

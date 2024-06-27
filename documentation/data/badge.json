@@ -1,66 +1,83 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+
     "name": "Badge",
     "description": "Documentation et exemples pour les badges",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "badge/main.twig",
-        "examples": [
-            {
-                "name": "Type / Pallet",
-                "description": "Utilisation des badges associés à la palette de couleur",
-                "file": "badge/pallet.twig"
-            },
-            {
-                "name": "Context",
-                "description": "",
-                "file": "badge/context.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "label",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte du badge. Si <code>label</code> est vide, le badge n'est pas injecté"
-            },
-            {
-                "name": "max",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Si <code>label</code> est un nombre, <code>max</code> indique la valeur maximum avant que l'affichage ne soit contraint."
-            }
-        ]
-    },
-    "sass": {
-        "import": "badge",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "_theme": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+    "blocks": [
+        {
+            "_title": "Render example",
+            "_description": "",
+            "source": "components/badge/main.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "title": "Composant Twig",
+            "_description": "",
+            "blocks": [
+                {
+                    "title": "Intégration du composant Twig",
+                    "_description": "",
+                    "source": "components/badge/main.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte du badge. Si <code>label</code> est vide, le badge n'est pas injecté"
+                        },
+                        {
+                            "name": "max",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Si <code>label</code> est un nombre, <code>max</code> indique la valeur maximum avant que l'affichage ne soit contraint."
+                        }
+                    ]
+                },
+                {
+                    "title": "Composant avec type / pallet",
+                    "description": "Utilisation des badges associés à la palette de couleur",
+                    "source": "components/badge/pallet.twig",
+                    "render_preview": true,
+                    "render_source": true
+                },
+                {
+                    "title": "Composant aven context",
+                    "_description": "",
+                    "source": "components/badge/context.twig",
+                    "render_preview": true,
+                    "render_source": true
+                }
+            ]
+        },
+        {
+            "title": "Configuration SASS",
+            "_description": "",
+            "blocks": [
+                {
+                    "title": "Import du composant SASS",
+                    "_description": "Import du fichier SASS du composant",
+                    "source": "components/badge/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
 }

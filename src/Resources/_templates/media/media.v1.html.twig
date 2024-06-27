@@ -1,0 +1,77 @@
+{# ----------------- DevBrain Component : Media - Settings ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr           = attr|default({}) %}
+{% set _attr           = _attr|merge({class: ''}) %}
+
+{# Public properties #}
+{% set _class          = class|default('') %}
+{% set _type           = type|default('image') %}
+{% set _legend         = legend|default('') %}
+{% set _source         = source|default([]) %}
+{% set _inline         = inline|default('no') %}
+
+{# Images properties #}
+{% set _alt            = alt|default('') %}
+{% set _referrerpolicy = referrerpolicy|default('') %}
+{% set _lazy           = lazy|default('yes') %}
+{% set _sizes          = sizes|default([]) %}
+
+{# Audio & Video properties #}
+{% set _controls       = controls|default('no') %}
+{% set _autoplay       = autoplay|default('no') %}
+{% set _loop           = loop|default('no') %}
+{% set _muted          = muted|default('no') %}
+{% set _preload        = preload|default('') %}
+{% set _placeholder    = placeholder|default('') %}
+
+{# Video properties #}
+{% set _poster         = poster|default('') %}
+
+
+{# ------------------- DevBrain Component : Media - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+
+{# ------------------ DevBrain Component : Media - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{% if _type == 'image' %}
+{% db_component 'media.image' with {
+    class         : _class,
+    legend        : _legend,
+    source        : _source,
+    sizes         : _sizes,
+    inline        : _inline,
+    alt           : _alt,
+    lazy          : _lazy,
+    referrerpolicy: _referrerpolicy,
+} %}
+{% elseif _type == 'audio' %}
+{% db_component 'media.audio' with {
+    class         : _class,
+    legend        : _legend,
+    source        : _source,
+    inline        : _inline,
+    controls      : _controls,
+    autoplay      : _autoplay,
+    loop          : _loop,
+    muted         : _muted,
+    preload       : _preload,
+} %}
+{% elseif _type == 'video' %}
+{% db_component 'media.video' with {
+    class         : _class,
+    legend        : _legend,
+    source        : _source,
+    inline        : _inline,
+    controls      : _controls,
+    autoplay      : _autoplay,
+    loop          : _loop,
+    muted         : _muted,
+    preload       : _preload,
+    poster        : _poster,
+} %}
+{% endif %}

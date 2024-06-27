@@ -1,103 +1,177 @@
 {
-    "name": "Carousel",
-    "description": "Documentation et exemples pour le composant Carousel",
     "type": "component",
     "status": "⚠️",
     "_status": "✅",
-    "twig": {
-        "source": "carousel/main.twig",
-        "examples": [
-            {
-                "name": "Controles externe",
-                "description": "",
-                "file": "carousel/controls.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "id",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "ID du carousel, si le parametre n'est pas renseigné, un ID sera généré automatiquement"
-            },
-            {
-                "name": "with_indicators",
-                "type": "boolean",
-                "required": false,
-                "default": "yes",
-                "description": "Si <code>yes</code>, l'indicateur de slide sera affiché"
-            },
-            {
-                "name": "with_controls",
-                "type": "boolean",
-                "required": false,
-                "default": "yes",
-                "description": "Si <code>yes</code>, les boutons de controls de slide seront affichés"
-            },
-            {
-                "name": "startAt",
-                "type": "integer",
-                "required": false,
-                "default": "1",
-                "description": "Index de la slide de demarrage"
-            },
-            {
-                "name": "slides",
-                "type": "array",
-                "required": true,
-                "default": "[]",
-                "description": "Liste des slides"
-            },
-            {
-                "name": "slide.class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée de la slide"
-            },
-            {
-                "name": "slide.start",
-                "type": "boolean",
-                "required": false,
-                "default": "false",
-                "description": "Si <code>true</code>, l'index de la slide remplace la valeur de l'option <code>startAt</code>. La dernière slide à avoir le paramètre à <code>true</code> gagne."
-            },
-            {
-                "name": "slide.indicator",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Option de l'indicateur pour la slide"
-            }
-        ]
-    },
-    "sass": {
-        "import": "carousel",
-        "required": true,
-        "variables": [
-            {
-                "name": "carousel--slides--height",
-                "default": "300px",
-                "description": "Hauteur des slides"
-            }
-        ],
-        "_theme": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
+
+    "name": "Carousel",
+    "description": "Documentation et exemples pour le composant Carousel",
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/carousel/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/carousel/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Controles externe",
+                            "description": "",
+                            "source": "components/carousel/controls.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "blocks": [
+                        {
+                            "_BLOCK": "--- TWIG PARAMS ---",
+                            "title": "Parametres du slider",
+                            "params_twig": [
+                                {
+                                    "name": "class",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "",
+                                    "description": "Liste des classes personnalisée"
+                                },
+                                {
+                                    "name": "id",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "",
+                                    "description": "ID du carousel, si le parametre n'est pas renseigné, un ID sera généré automatiquement"
+                                },
+                                {
+                                    "name": "with_indicators",
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "yes",
+                                    "description": "Si <code>yes</code>, l'indicateur de slide sera affiché"
+                                },
+                                {
+                                    "name": "with_controls",
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "yes",
+                                    "description": "Si <code>yes</code>, les boutons de controls de slide seront affichés"
+                                },
+                                {
+                                    "name": "startAt",
+                                    "type": "integer",
+                                    "required": false,
+                                    "default": "1",
+                                    "description": "Index de la slide de demarrage"
+                                },
+                                {
+                                    "name": "slides",
+                                    "type": "array",
+                                    "required": true,
+                                    "default": "[]",
+                                    "description": "Liste des slides"
+                                }
+                            ]
+                        },
+                        {
+                            "_BLOCK": "--- TWIG PARAMS ---",
+                            "title": "Parametres des slides",
+                            "params_twig": [
+                                {
+                                    "name": "class",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "",
+                                    "description": "Liste des classes personnalisée de la slide"
+                                },
+                                {
+                                    "name": "start",
+                                    "type": "boolean",
+                                    "required": false,
+                                    "default": "false",
+                                    "description": "Si <code>true</code>, l'index de la slide remplace la valeur de l'option <code>startAt</code>. La dernière slide à avoir le paramètre à <code>true</code> gagne."
+                                },
+                                {
+                                    "name": "indicator",
+                                    "type": "array",
+                                    "required": false,
+                                    "default": "{}",
+                                    "description": "Option de l'indicateur pour la slide"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/carousel/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "carousel--slides--height",
+                            "default": "300px",
+                            "description": "Hauteur des slides"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/carousel/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- METHODES JAVASCRIPT ---",
+                    "title": "Méthodes JavaScript",
+                    "description": "Ajouter vos propres methode JavaScript sur les evenement suivant",
+                    "source": "components/carousel/example-onClick.js",
+                    "render_preview": false,
+                    "render_source": true,
+                    "params_js": [
+                    ]
+                }
+            ]
+        }
+    ],
+
+
+    
+    "_javascript": {
         "import": "CarouselComponent",
         "required": true,
         "source": "carousel/script.twig",

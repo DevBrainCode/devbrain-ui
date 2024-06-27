@@ -1,0 +1,16 @@
+{# -- Component Settings ---------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+{% set _attr = _add_attribute(_attr, 'type', type) %}
+{% set _attr = _add_attribute(_attr, 'class', class) %}
+{% set _attr = _add_attribute(_attr, 'rel', eventHandler) %}
+
+{% if disabled %}
+{% set _attr = _add_attribute(_attr, 'disabled', 'disabled') %}
+{% endif %}
+
+
+{# -- Component Rendering --------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+<button {{ _get_attributes(_attr) }}>{{ label }}</button>

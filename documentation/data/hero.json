@@ -1,153 +1,198 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    
     "name": "Hero",
     "description": "Documentation et exemples pour le composant Hero",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "hero/main.twig",
-        "examples": [
-            {
-                "name": "Hero Small",
-                "description": "",
-                "file": "hero/small.twig"
-            },
-            {
-                "name": "Hero Medium",
-                "description": "",
-                "file": "hero/medium.twig"
-            },
-            {
-                "name": "Hero Large",
-                "description": "",
-                "file": "hero/large.twig"
-            },
-            {
-                "name": "Hero Halfscreen",
-                "description": "",
-                "file": "hero/halfscreen.twig"
-            },
-            {
-                "name": "Hero Fullscreen",
-                "description": "",
-                "file": "hero/fullscreen.twig"
-            },
-            {
-                "name": "Hero Header / Content / Footer",
-                "description": "",
-                "file": "hero/hcf.twig"
-            },
-            {
-                "name": "Hero Templates",
-                "description": "",
-                "file": "hero/template.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "type",
-                "type": "enum",
-                "required": false,
-                "default": "",
-                "description": "Définit le type de bannière Hero ( <code>small</code>, <code>medium</code>, <code>large</code>, <code>halfscreen</code>, <code>fullscreen</code> )"
-            },
-            {
-                "name": "header",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Contenu texte de l'élément <code>header</code>"
-            },
-            {
-                "name": "header_template",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Emplacement du template de l'élément <code>header</code>"
-            },
-            {
-                "name": "header_options",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Liste d'options transmisent au template de l'élément <code>header</code>"
-            },
-            {
-                "name": "content",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Contenu texte de l'élément <code>content</code>"
-            },
-            {
-                "name": "content_template",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Emplacement du template de l'élément <code>content</code>"
-            },
-            {
-                "name": "content_options",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Liste d'options transmisent au template de l'élément <code>content</code>"
-            },
 
-            {
-                "name": "footer",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Contenu texte de l'élément <code>footer</code>"
-            },
-            {
-                "name": "footer_template",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Emplacement du template de l'élément <code>footer</code>"
-            },
-            {
-                "name": "footer_options",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Liste d'options transmisent au template de l'élément <code>footer</code>"
-            }
-        ]
-    },
-    "sass": {
-        "import": "hero",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "theme": [
-            {
-                "name": "hero--text-color",
-                "default": "$black",
-                "description": ""
-            },
-            {
-                "name": "hero--background-color",
-                "default": "$gray-200",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/hero/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/hero/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Hero Small",
+                            "description": "",
+                            "source": "components/hero/small.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Hero Medium",
+                            "description": "",
+                            "source": "components/hero/medium.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Hero Large",
+                            "description": "",
+                            "source": "components/hero/large.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Hero Halfscreen",
+                            "description": "",
+                            "source": "components/hero/halfscreen.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Hero Fullscreen",
+                            "description": "",
+                            "source": "components/hero/fullscreen.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Hero Header / Content / Footer",
+                            "description": "",
+                            "source": "components/hero/hcf.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Hero Templates",
+                            "description": "",
+                            "source": "components/hero/template.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "type",
+                            "type": "enum",
+                            "required": false,
+                            "default": "",
+                            "description": "Définit le type de bannière Hero ( <code>small</code>, <code>medium</code>, <code>large</code>, <code>halfscreen</code>, <code>fullscreen</code> )"
+                        },
+                        {
+                            "name": "header",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Contenu texte de l'élément <code>header</code>"
+                        },
+                        {
+                            "name": "header_template",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Emplacement du template de l'élément <code>header</code>"
+                        },
+                        {
+                            "name": "header_options",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Liste d'options transmisent au template de l'élément <code>header</code>"
+                        },
+                        {
+                            "name": "content",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Contenu texte de l'élément <code>content</code>"
+                        },
+                        {
+                            "name": "content_template",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Emplacement du template de l'élément <code>content</code>"
+                        },
+                        {
+                            "name": "content_options",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Liste d'options transmisent au template de l'élément <code>content</code>"
+                        },
+            
+                        {
+                            "name": "footer",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Contenu texte de l'élément <code>footer</code>"
+                        },
+                        {
+                            "name": "footer_template",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Emplacement du template de l'élément <code>footer</code>"
+                        },
+                        {
+                            "name": "footer_options",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Liste d'options transmisent au template de l'élément <code>footer</code>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/hero/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "hero--text-color",
+                            "default": "$black",
+                            "description": ""
+                        },
+                        {
+                            "name": "hero--background-color",
+                            "default": "$gray-200",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

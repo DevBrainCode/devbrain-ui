@@ -1,0 +1,253 @@
+{
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    
+    "name": "Toggle",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/switch/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/switch/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "On / Off",
+                            "description": "",
+                            "source": "components/switch/checked.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Activé / Désactivé",
+                            "description": "",
+                            "source": "components/switch/disabled.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte associé au bouton switch"
+                        },
+                        {
+                            "name": "checked",
+                            "type": "string",
+                            "required": false,
+                            "default": "no",
+                            "description": "Définit si le bouton switch est en position On ou OFF, Valeurs possible <code>yes</code> ou <code>no</code>"
+                        },
+                        {
+                            "name": "disabled",
+                            "type": "string",
+                            "required": false,
+                            "default": "no",
+                            "description": "Définit si le bouton switch est désactivé ou non, Valeurs possible <code>yes</code> ou <code>no</code>"
+                        },
+                        {
+                            "name": "eventHandler",
+                            "type": "string",
+                            "required": false,
+                            "default": "js-switch",
+                            "description": "Définit le non du trigger JavaScript"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Valeur de l'attribut <code>name</code>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/switch/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "switch-width",
+                            "default": "30",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-height",
+                            "default": "14",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "switch-off--border-color",
+                            "default": "$gray-700",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-off--background-color",
+                            "default": "$gray-200",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-off--indicator-color",
+                            "default": "$gray-700",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-on--border-color",
+                            "default": "$blue",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-on--background-color",
+                            "default": "$blue",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-on--indicator-color",
+                            "default": "$white",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-disabled--border-color",
+                            "default": "$gray-500",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-disabled--background-color",
+                            "default": "$gray-200",
+                            "description": ""
+                        },
+                        {
+                            "name": "switch-disabled--indicator-color",
+                            "default": "$gray-500",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/switch/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- METHODES JAVASCRIPT ---",
+                    "title": "Méthodes JavaScript",
+                    "description": "Ajouter vos propres methode JavaScript sur les evenement suivant",
+                    "params_js": [
+                        {
+                            "name": "onChange",
+                            "description": "S'execute lorsque la valeur est modifiée",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "source": "components/switch/example-onChange.twig"
+                        },
+                        {
+                            "name": "onBeforeChange",
+                            "description": "S'execute juste avant que la valeur ne soit modifiée",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "source": "components/switch/example-onBeforeChange.twig"
+                        },
+                        {
+                            "name": "onAfterChange",
+                            "description": "S'execute juste après la modification de la valeur",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "source": "components/switch/example-onAfterChange.twig"
+                        },
+                        {
+                            "name": "isActive",
+                            "description": "indique l'etat du switch au moment de l'execution",
+                            "parameters": [],
+                            "return": "boolean",
+                            "source": "components/switch/example-isActive.twig"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

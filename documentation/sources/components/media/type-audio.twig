@@ -1,0 +1,25 @@
+{% db_component 'media' with {
+    type: 'audio',
+    legend: "Media legend",
+    inline  : false,
+    controls: true,
+    autoplay: true,
+    loop    : true,
+    muted   : false,
+    preload : 'metadata',
+    source: "https://file-examples.com/storage/fe4e1227086659fa1a24064/2017/11/file_example_MP3_700KB.mp3",
+} %}
+
+{% db_component 'media.audio' with {
+    legend: "Media legend",
+    inline  : false,
+    controls: true,
+    autoplay: false,
+    loop    : false,
+    muted   : false,
+    preload : 'none',
+    source: [
+        "https://file-examples.com/storage/fe4e1227086659fa1a24064/2017/11/file_example_MP3_700KB.mp3",
+        "https://file-examples.com/storage/fe4e1227086659fa1a24064/2017/11/file_example_WAV_1MG.wav",
+    ]
+} %}

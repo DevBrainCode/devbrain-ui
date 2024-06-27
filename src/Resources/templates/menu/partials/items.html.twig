@@ -27,7 +27,7 @@
 {# -------------------------------------------------------------------------- #}
 <ul {{ _get_attributes(_attr) }}>
     {% for item in _items %}
-    {% component 'menu' part 'item' with {
+    {% db_component 'menu' part 'item' with {
         class   : item.class|default(''),
         label   : item.label|default(''),
         url     : item.url|default(''),

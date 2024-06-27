@@ -1,0 +1,16 @@
+{# -- Component Settings ---------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+{% set _attr = _add_attribute(_attr, 'class', class) %}
+
+{% if isActive %}
+{% set _attr = _add_attribute(_attr, 'aria-current', "page") %}
+{% endif %}
+
+
+{# -- Component Rendering --------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+<li {{ _get_attributes(_attr) }} {{ attributes }}>
+    <twig:Link :label="label" :url="url" />
+</li>

@@ -1,0 +1,14 @@
+{% for ui_level in ['success','danger','warning','info','primary','secondary','light','dark','muted'] %}
+    <div class="grid">
+        <div class="column-4">
+
+            <twig:Button label=".button-{{ui_level}}" is="{{ ui_level }}" />
+
+        </div>
+        <div class="column-4">
+
+            <twig:Button label=".button-{{ui_level}}-outline"is="{{ ui_level }}" outline />
+
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,44 @@
+{# ------------------ DevBrain Component : Map - Settings ------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _reference    = reference|default('') %}
+{% set _dataset      = dataset|default({}) %}
+
+
+
+{# -------------------- DevBrain Component : Map - Attr --------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Badge Class #}
+{% set _class = 'map-leaflet ' ~ _class %}
+
+
+{# ------------------- DevBrain Component : Map - Content ------------------- #}
+{# -------------------------------------------------------------------------- #}
+{# {% db_component 'map' part 'master' with {
+    class       : _class,
+    reference   : _reference,
+    dataset     : _dataset,
+} %} #}
+
+<div id="map"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialiser la carte et définir sa vue sur un point géographique et un niveau de zoom
+    var map = L.map('map').setView([48.8566, 2.3522], 13); // Coordonnées pour Paris, France
+
+    // Ajouter une couche de tuiles OpenStreetMap à la carte
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Ajouter un marqueur à la carte
+    var marker = L.marker([48.8566, 2.3522]).addTo(map)
+        .bindPopup('Paris, France')
+        .openPopup();
+</script>

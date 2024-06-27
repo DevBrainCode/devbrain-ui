@@ -11,7 +11,7 @@ class ComponentNode extends Node
         parent::__construct([
             'options' => $options
         ], [
-            'component' => $component,
+            'db_component' => $component,
             'part'   => $part,
         ], $lineno, $tag);
     }
@@ -21,7 +21,7 @@ class ComponentNode extends Node
         $compiler
             ->addDebugInfo($this)
             ->write('echo $this->env->getRuntime(\'Devbrain\\Ui\\Twig\\Runtime\\ComponentRuntime\')->getComponent(')
-            ->string($this->getAttribute('component'))
+            ->string($this->getAttribute('db_component'))
             ->raw(', ')
             ->string($this->getAttribute('part'))
             ->raw(', ')

@@ -1,0 +1,1 @@
+import CarouselComponent from 'vendor/devbraincode/devbrain-ui/scripts/components/CarouselComponent';

@@ -6,8 +6,10 @@
 
     <header>
         {# Block Title #}
+        {% if block.title is defined and block.title is not empty %}
         <h{{ _level }}>{{ block.title }}</h{{ _level }}>
-    
+        {% endif %}
+
         {# Block Description #}
         {% if block.description is defined and block.description is not empty %}
         <p>{{ block.description|raw }}</p>
@@ -28,8 +30,84 @@
         {% endif %}
         {% endif %}
 
-        {# Variable explanation #}
+        {# Params Twig #}
+        {% if block.params_twig is defined and block.params_twig is not empty %}
+        <dl class="doc_properties">
+            {% for parameter in block.params_twig %}
+            <dt>
+                <code>{{ parameter.name|raw }}</code> 
 
+                {% if parameter.type is defined and parameter.type is not empty %}
+                <small class="type">{{ parameter.type }}</small>
+                {% endif %}
+
+                <br>
+
+                {% if parameter.required is defined and parameter.required is not empty %}
+                <small>@Required: <code>{{ parameter.required ? "true":"false" }}</code></small><br>
+                {% endif %}
+
+                {% if parameter.default is defined and parameter.default is not empty %}
+                <small>@Default: <code>{{ parameter.default ? parameter.default : "''" }}</code></small>
+                {% endif %}
+            </dt>
+            <dd>{{ parameter.description|raw }}</dd>
+            {% endfor %}
+        </dl>
+        {% endif %}
+
+        {# Params SASS #}
+        {% if block.params_sass is defined and block.params_sass is not empty %}
+        {% for variable in block.params_sass %}
+        <div class="sass_variable">
+            <code>${{ variable.name }}: {{ variable.default }};</code> 
+            {% if variable.description is defined and variable.description is not empty %}
+            <small>// {{ variable.description|raw }}</small>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+        {# JavaScript Methods #}
+        {% if block.params_js is defined and block.params_js is not empty %}
+        <dl class="doc_properties">
+        {% for method in block.params_js %}
+            <dt>
+                <code>{{ method.name|raw }}</code>
+            </dt>
+            <dd>
+                {% if method.description is defined and method.description is not empty %}
+                    <div>{{ method.description|raw }}</div>
+                    <br>
+                {% endif %}
+
+
+                {% if method.parameters is defined and method.parameters is not empty %}
+                {% for parameter in method.parameters %}
+                <div>
+                    <code>@Param {{ parameter.name }}</code>
+                    <small>{{ parameter.description|raw }}</small>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+
+                <div>
+                    <code>@Return {% if method.return is defined and method.return is not empty %}
+                        {{ method.return|raw }}
+                    {% else %}
+                        void
+                    {% endif %}</code>
+                </div>
+
+                {% if method.source is defined and method.source is not empty %}
+                {{ _documentation_code(method.source) }}
+                {% endif %}
+            </dd>
+        {% endfor %}
+        </dl>
+        {% endif %}
 
     </div>
 

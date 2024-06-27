@@ -1,97 +1,147 @@
 {
-    "name": "Breadcrumb",
-    "description": "Documentation et exemples pour le composant breadcrumb",
     "type": "component",
     "status": "✅",
-    "twig": {
-        "source": "breadcrumb/main.twig",
-        "_examples": [
-            {
-                "name": "",
-                "description": "",
-                "file": ""
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Nom de la classe CSS personnalisée"
-            },
-            {
-                "name": "items",
-                "type": "array",
-                "required": false,
-                "default": "[]",
-                "description": "Liste des éléments du breadcrumb"
-            },
-            {
-                "name": "item.label",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte du lien"
-            },
-            {
-                "name": "item.url",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "URL du lien"
-            },
-            {
-                "name": "item.target",
-                "type": "string",
-                "required": false,
-                "default": "_self",
-                "description": "Attribut <code>target</code> du lien."
-            },
-            {
-                "name": "item.disabled",
-                "type": "string",
-                "required": false,
-                "default": "no",
-                "description": "Si <code>yes</code>, ajoute l'attribut <code>disabled</code>"
-            }
-        ]
-    },
-    "sass": {
-        "import": "breadcrumb",
-        "required": true,
-        "variables": [
-            {
-                "name": "breadcrumb--separator",
-                "default": "\"/\"",
-                "description": "Symbole de séparation des items"
-            }
-        ],
-        "theme": [
-            {
-                "name": "breadcrumb--background-color",
-                "default": "transparent",
-                "description": ""
-            },
-            {
-                "name": "breadcrumb--link-color",
-                "default": "$gray-700",
-                "description": ""
-            },
-            {
-                "name": "breadcrumb--link-hover-color",
-                "default": "$gray-900",
-                "description": ""
-            },
-            {
-                "name": "breadcrumb--active-color",
-                "default": "$gray-600",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+    
+    "name": "Breadcrumb",
+    "description": "Documentation et exemples pour le composant breadcrumb",
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/breadcrumb/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/breadcrumb/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Custom attribute",
+                            "description": "",
+                            "source": "components/breadcrumb/example-attr.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Nom de la classe CSS personnalisée"
+                        },
+                        {
+                            "name": "items",
+                            "type": "array",
+                            "required": false,
+                            "default": "[]",
+                            "description": "Liste des éléments du breadcrumb"
+                        }
+                    ],
+                    "blocks": [
+                        {
+                            "title": "Item",
+                            "description": "voir le composant Link",
+                            "_params_twig": [
+                                {
+                                    "name": "label",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "",
+                                    "description": "Texte du lien"
+                                },
+                                {
+                                    "name": "url",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "",
+                                    "description": "URL du lien"
+                                },
+                                {
+                                    "name": "target",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "_self",
+                                    "description": "Attribut <code>target</code> du lien."
+                                },
+                                {
+                                    "name": "disabled",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "no",
+                                    "description": "Si <code>yes</code>, ajoute l'attribut <code>disabled</code>"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/breadcrumb/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "breadcrumb--separator",
+                            "default": "\"/\"",
+                            "description": "Symbole de séparation des items"
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "breadcrumb--background-color",
+                            "default": "transparent",
+                            "description": ""
+                        },
+                        {
+                            "name": "breadcrumb--link-color",
+                            "default": "$gray-700",
+                            "description": ""
+                        },
+                        {
+                            "name": "breadcrumb--link-hover-color",
+                            "default": "$gray-900",
+                            "description": ""
+                        },
+                        {
+                            "name": "breadcrumb--active-color",
+                            "default": "$gray-600",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

@@ -1,0 +1,26 @@
+{# ------------------ DevBrain Component : Badge - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Public properties #}
+{% set _class        = class|default('') %}
+{% set _label        = label|default('') %}
+{% set _max          = max|default('') %}
+
+
+
+{# ------------------- DevBrain Component : Badge - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Badge Class #}
+{% set _class = 'badge-danger ' ~ _class %}
+
+
+
+{# ------------------ DevBrain Component : Badge - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{% db_component 'badge' part 'badge' with {
+    class: _class,
+    label: _label,
+    max  : _max,
+} %}

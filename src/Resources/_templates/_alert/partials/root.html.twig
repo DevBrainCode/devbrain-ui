@@ -1,0 +1,42 @@
+{# ------------------ DevBrain Component : Alert - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr            = attr|default({}) %}
+{% set _attr            = _attr|merge({class: ''}) %}
+{% set _attr            = _add_attribute(_attr, 'class', _attr.class ~' alert') %}
+{% set _attr            = _add_attribute(_attr, 'role', 'alert') %}
+
+{# Public properties #}
+{% set _class           = class|default('') %}
+{% set _message         = message|default('') %}
+{% set _type            = type|default('') %}
+{% set _isDismissible   = dismissible|default('no') %}
+
+
+
+{# ------------------- DevBrain Component : Alert - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% if _type is not empty %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' alert-' ~ _type) %}
+{% endif %}
+
+{% if _isDismissible == 'yes' %}
+{% set _attr = _add_attribute(_attr, 'rel', 'js-alert') %}
+{% endif %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------------ DevBrain Component : Alert - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+    {{ _message|raw }}
+
+    {% if _isDismissible == 'yes' %}
+        {% db_component 'button.close' %}
+    {% endif %}
+</div>

@@ -1,0 +1,14 @@
+{# -- Component Settings ---------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+{% set _attr = _add_attribute(_attr, 'class', class) %}
+
+
+{# -- Component Rendering --------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+<ul {{ _get_attributes(_attr) }} {{ attributes }}>
+    {% for item in items %}
+    <twig:BreadcrumbItem :label="item.label" :url="item.url" :isActive="loop.last" />
+    {% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+{# -- Component Settings ---------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{% set _attr = attr|default({}) %}
+{% set _attr = _add_attribute(_attr, 'class', class) %}
+{% set _attr = _add_attribute(_attr, 'href', href) %}
+{% set _attr = _add_attribute(_attr, 'target', target) %}
+
+
+{# -- Component Rendering --------------------------------------------------- #}
+{# -------------------------------------------------------------------------- #}
+<a {{ _get_attributes(_attr) }}>{{ label }}</a>

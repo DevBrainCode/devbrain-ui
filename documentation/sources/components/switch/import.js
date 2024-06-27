@@ -1,0 +1,1 @@
+import SwitchComponent from 'vendor/devbraincode/devbrain-ui/scripts/components/SwitchComponent';

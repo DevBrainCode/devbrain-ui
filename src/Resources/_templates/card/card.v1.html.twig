@@ -1,0 +1,64 @@
+{# ------------------ DevBrain Component : Card - Settings ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr            = attr|default({}) %}
+{% set _attr            = _attr|merge({class: ''}) %}
+{% set _attr            = _add_attribute(_attr, 'class', _attr.class ~' card') %}
+
+{# Public properties #}
+{% set _class           = class|default('') %}
+{% set _title           = title|default('') %}
+{% set _title_tag       = title_tag|default('') %}
+{% set _subtitle        = subtitle|default('') %}
+
+{% set _header          = header|default('') %} {# Header content #}
+{% set _header_template = header_template|default('') %}{# Header template #}
+{% set _header_options  = header_options|default({}) %}{# Header template option #}
+
+{% set _footer          = footer|default('') %} {# Footer content #}
+{% set _footer_template = footer_template|default('') %}{# Footer template #}
+{% set _footer_options  = footer_options|default({}) %}{# Footer template option #}
+
+{% set _body            = body|default('') %} {# Main content #}
+{% set _body_template   = body_template|default('') %}{# Main template #}
+{% set _body_options    = body_options|default({}) %}{# Main template option #}
+
+
+
+{# -------------------- DevBrain Component : Card - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ------------------ DevBrain Component : Card - Content ------------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+{% db_component "card" part 'header' with {
+    title: _title,
+    title_tag: _title_tag,
+    subtitle: _subtitle,
+    content  : _header,
+    template : _header_template,
+    options  : _header_options,
+} %}
+
+{% if _body is not empty or _body_template is not empty %}
+{% db_component "card" part 'body' with {
+    content : _body,
+    template: _body_template,
+    options : _body_options,
+} %}
+{% endif %}
+
+{% if _footer is not empty or _footer_template is not empty %}
+{% db_component "card" part 'footer' with {
+    content : _footer,
+    template: _footer_template,
+    options : _footer_options,
+} %}
+{% endif %}
+</div>

@@ -1,0 +1,129 @@
+{# ---------------- DevBrain Component : Carousel - Settings ---------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' carousel') %}
+
+{# Public properties #}
+{% set _class               = class|default('') %}
+{% set _id                  = id|default('_' ~ _rand_id()) %}
+{% set _slides              = slides|default({}) %}
+{# {% set _startAt             = startAt|default(1) %} #}
+{# {% set _loop                = loop|default('yes') %} #}
+{% set _with_indicators     = with_indicators|default('yes') %}
+{% set _with_controls       = with_controls|default('yes') %}
+
+
+{% set _tns_mode                        = mode|default('carousel') %}
+{% set _tns_axis                        = axis|default('horizontal') %}
+{% set _tns_items                       = items|default(1) %}
+{% set _tns_slideBy                     = slideBy|default(1) %}
+{% set _tns_startIndex                  = startIndex|default(0) %}
+{% set _tns_center                      = center|default('yes') %}
+{% set _tns_arrowKeys                   = arrowKeys|default('no') %}
+{% set _tns_speed                       = speed|default(300) %}
+{% set _tns_loop                        = loop|default('yes') %}
+{% set _tns_rewind                      = rewind|default('no') %}
+{% set _tns_autoplay                    = autoplay|default('yes') %}
+{% set _tns_autoplayTimeout             = autoplayTimeout|default(5000) %}
+{% set _tns_autoplayDirection           = autoplayDirection|default('forward') %}
+{% set _tns_autoplayHoverPause          = autoplayHoverPause|default('no') %}
+{% set _tns_autoplayResetOnVisibility   = autoplayResetOnVisibility|default('yes') %}
+{% set _tns_animateIn                   = animateIn|default('tns-fadeIn') %}
+{% set _tns_animateOut                  = animateOut|default('tns-fadeOut') %}
+{% set _tns_animateNormal               = animateNormal|default('tns-normal') %}
+{% set _tns_lazyloadSelector            = lazyloadSelector|default('no') %}
+{% set _tns_touch                       = touch|default('yes') %}
+{% set _tns_mouseDrag                   = mouseDrag|default('yes') %}
+
+{% set _controls_options    = controls_options|default({}) %}
+
+{# looping slides #}
+{# {% set _attr = _add_attribute(_attr, 'data-loop', 'true') %} #}
+
+
+
+{# ------------------ DevBrain Component : Carousel - Attr ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Carousel ID #}
+{% set _attr = _add_attribute(_attr, 'id', _id) %}
+
+{# Carousel JS Trigger #}
+{% set _attr = _add_attribute(_attr, 'rel', 'js-carousel') %}
+
+{# Stop looping slides #}
+{# {% if _loop == 'no' %}
+{% set _attr = _add_attribute(_attr, 'data-loop', 'false') %}
+{% endif %} #}
+
+{# First Slide #}
+{% for _slide in _slides %}
+{% if _slide.start is defined and _slide.start is same as true %}
+{% set _startAt = loop.index %}
+{% endif %}
+{% endfor %}
+
+
+{# Tiny Slider Mode #}
+{# {% set _attr = _add_attribute(_attr, 'data-mode', _mode) %} #}
+
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ---------------- DevBrain Component : Carousel - Content ----------------- #}
+{# -------------------------------------------------------------------------- #}
+<div {{ _get_attributes(_attr) }}>
+
+    <script rel="options" type="application/ld+json">{
+        "mode"                     : "{{ _tns_mode }}",
+        "axis"                     : "{{ _tns_axis }}",
+        "items"                    : {{ _tns_items }},
+        "slideBy"                  : {{ _tns_slideBy }},
+        "startIndex"               : {{ _tns_startIndex }},
+        "center"                   : {{ _tns_center == 'yes' ? 'true' : 'false' }},
+        "arrowKeys"                : {{ _tns_arrowKeys == 'yes' ? 'true' : 'false' }},
+        "speed"                    : {{ _tns_speed }},
+        "loop"                     : {{ _tns_loop == 'yes' ? 'true' : 'false' }},
+        "rewind"                   : {{ _tns_rewind == 'yes' ? 'true' : 'false' }},
+        "autoplay"                 : {{ _tns_autoplay == 'yes' ? 'true' : 'false' }},
+        "autoplayTimeout"          : {{ _tns_autoplayTimeout }},
+        "autoplayDirection"        : "{{ _tns_autoplayDirection }}",
+        "autoplayHoverPause"       : {{ _tns_autoplayHoverPause == 'yes' ? 'true' : 'false' }},
+        "autoplayResetOnVisibility": {{ _tns_autoplayResetOnVisibility == 'yes' ? 'true' : 'false' }},
+        "animateIn"                : "{{ _tns_animateIn }}",
+        "animateOut"               : "{{ _tns_animateOut }}",
+        "animateNormal"            : "{{ _tns_animateNormal }}",
+        "lazyloadSelector"         : {{ _tns_lazyloadSelector == 'yes' ? 'true' : 'false' }},
+        "touch"                    : {{ _tns_touch == 'yes' ? 'true' : 'false' }},
+        "mouseDrag"                : {{ _tns_mouseDrag == 'yes' ? 'true' : 'false' }}
+    }</script>
+
+    {% db_component 'carousel' part 'slides' with {
+        slides : _slides,
+        startAt: _tns_startIndex
+    } %}
+
+    {% if _with_indicators == 'yes' %}
+    {% db_component 'carousel' part 'indicators' with {
+        id     : _id,
+        slides : _slides
+    } %}
+    {% endif %}
+
+    {% if _with_controls == 'yes' %}
+    {% db_component 'carousel' part 'controls' with {
+        id     : _id,
+        options: _controls_options
+    } %}
+    {% endif %}
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>

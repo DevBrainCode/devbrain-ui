@@ -1,0 +1,1 @@
+import MapComponent from 'vendor/devbraincode/devbrain-ui/scripts/components/MapComponent';

@@ -1,0 +1,15 @@
+{% if type == 'link' %}
+{% include "@DevbrainUi/Button/link.html.twig" with {
+    class   : class,
+    disabled: disabled,
+    label   : label,
+} only %}
+{% else %}
+{% include "@DevbrainUi/Button/button.html.twig" with {
+    type        : type,
+    class       : class,
+    disabled    : disabled,
+    label       : label,
+    eventHandler: eventHandler,
+} only %}
+{% endif %}

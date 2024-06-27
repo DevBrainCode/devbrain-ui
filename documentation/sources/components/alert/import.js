@@ -1,0 +1,1 @@
+import AlertComponent from 'vendor/devbraincode/devbrain-ui/scripts/components/AlertComponent';

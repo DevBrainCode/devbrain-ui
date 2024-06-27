@@ -1,301 +1,348 @@
 {
-    "name": "Button",
-    "description": "Documentation et exemples pour le composant d'accordéon",
     "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "button/main.twig",
-        "examples": [
-            {
-                "name": "Palette",
-                "description": "",
-                "file": "button/pallet.twig"
-            },
-            {
-                "name": "Button",
-                "description": "",
-                "file": "button/button.twig"
-            },
-            {
-                "name": "Submit",
-                "description": "",
-                "file": "button/submit.twig"
-            },
-            {
-                "name": "Reset",
-                "description": "",
-                "file": "button/reset.twig"
-            },
-            {
-                "name": "Link",
-                "description": "",
-                "file": "button/link.twig"
-            },
-            {
-                "name": "Event Handler",
-                "description": "",
-                "file": "button/eventHandler.twig"
-            },
-            {
-                "name": "Disabled",
-                "description": "",
-                "file": "button/disabled.twig"
-            },
-            {
-                "name": "Block",
-                "description": "",
-                "file": "button/block.twig"
-            },
-            {
-                "name": "Border",
-                "description": "",
-                "file": "button/border.twig"
-            },
-            {
-                "name": "Contrast",
-                "description": "",
-                "file": "button/contrast.twig"
-            },
-            {
-                "name": "Sizes",
-                "description": "",
-                "file": "button/sizes.twig"
-            },
-            {
-                "name": "Effects",
-                "description": "",
-                "file": "button/effects.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "label",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte du bouton"
-            },
-            {
-                "name": "type",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Definit le type de bouton: <code>button</code> (default), <code>submit</code>, <code>reset</code>, <code>link</code>"
-            },
-            {
-                "name": "disabled",
-                "type": "boolean",
-                "required": false,
-                "default": "",
-                "description": "Si <code>yes</code>, le bouton n'est pas cliquable"
-            },
-            {
-                "name": "eventHandler",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Trigger de l'évènement javaScript"
-            },
-            {
-                "name": "dataset",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Liste des attributs data"
-            },
-            {
-                "name": "role",
-                "type": "string",
-                "required": false,
-                "default": "button",
-                "description": "<small><code>link</code></small> Attribut role du lien"
-            },
-            {
-                "name": "url",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "<small><code>link</code></small> Attribut href du lien"
-            },
-            {
-                "name": "target",
-                "type": "string",
-                "required": false,
-                "default": "_self",
-                "description": "<small><code>link</code></small> Attribut target du lien"
-            }
-        ]
-    },
-    "sass": {
-        "import": "button",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "_theme": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": "ButtonComponent",
-        "required": false,
-        "source": "button/script.twig",
-        "methods": [
-            {
-                "name": "onClick",
-                "description": "S'execute lorsque le bouton est cliqué",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": "",
-                "source": "button/script-onClick.twig"
-            },
-            {
-                "name": "onBeforeClick",
-                "description": "S'execute juste avant que le bouton ne soit cliqué",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": "",
-                "source": "button/script-onBeforeClick.twig"
-            },
-            {
-                "name": "onAfterClick",
-                "description": "S'execute juste après le clique sur le bouton",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": "",
-                "source": "button/script-onAfterClick.twig"
-            },
+    "status": "⚠️",
+    "_status": "✅",
+    
+    "name": "Button",
+    "description": "Documentation et exemples pour le composant Button",
 
-            {
-                "name": "onMousedown",
-                "description": "S'execute lorsque le bouton de la souris est pressé sur le composant",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": ""
-            },
-            {
-                "name": "onBeforeMousedown",
-                "description": "S'execute juste avant onMousedown",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": ""
-            },
-            {
-                "name": "onAfterMousedown",
-                "description": "S'execute juste après onMousedown",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": ""
-            },
-
-            {
-                "name": "onMouseup",
-                "description": "S'execute lorsque le bouton de la souris est relaché sur le composant",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": ""
-            },
-            {
-                "name": "onBeforeMouseup",
-                "description": "S'execute juste avant onMouseup",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": ""
-            },
-            {
-                "name": "onAfterMouseup",
-                "description": "S'execute juste après onMouseup",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": ""
-            }
-        ]
-    }
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/button/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/button/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Type",
+                            "description": "",
+                            "source": "components/button/example-type.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Custom class",
+                            "description": "",
+                            "source": "components/button/example-class.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Palette",
+                            "description": "",
+                            "source": "components/button/example-pallet.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Disabled",
+                            "description": "",
+                            "source": "components/button/example-disabled.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Sizes",
+                            "description": "",
+                            "source": "components/button/example-sizes.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Block",
+                            "description": "",
+                            "source": "components/button/example-block.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Event Handler",
+                            "description": "",
+                            "blocks": [
+                                {
+                                    "description": "Composant Twig",
+                                    "source": "components/button/example-event.twig",
+                                    "render_preview": true,
+                                    "render_source": true
+                                },
+                                {
+                                    "description": "Trigger JavaScript",
+                                    "source": "components/button/example-onClick.js",
+                                    "render_preview": false,
+                                    "render_source": true
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Effects",
+                            "description": "",
+                            "source": "components/button/example-effects.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte du bouton"
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Definit le type de bouton: <code>button</code> (default), <code>submit</code>, <code>reset</code>, <code>link</code>"
+                        },
+                        {
+                            "name": "disabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "description": "Si <code>yes</code>, le bouton n'est pas cliquable"
+                        },
+                        {
+                            "name": "eventHandler",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Trigger de l'évènement javaScript"
+                        },
+                        {
+                            "name": "dataset",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Liste des attributs data"
+                        },
+                        {
+                            "name": "role",
+                            "type": "string",
+                            "required": false,
+                            "default": "button",
+                            "description": "<small><code>link</code></small> Attribut role du lien"
+                        },
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "<small><code>link</code></small> Attribut href du lien"
+                        },
+                        {
+                            "name": "target",
+                            "type": "string",
+                            "required": false,
+                            "default": "_self",
+                            "description": "<small><code>link</code></small> Attribut target du lien"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/button/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/button/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- METHODES JAVASCRIPT ---",
+                    "title": "Méthodes JavaScript",
+                    "description": "Ajouter vos propres methode JavaScript sur les evenement suivant",
+                    "source": "components/button/example-onClick.js",
+                    "render_preview": false,
+                    "render_source": true,
+                    "params_js": [
+                        {
+                            "name": "onClick",
+                            "description": "S'execute lorsque le bouton est cliqué",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "source": "components/button/example-onClick.js"
+                        },
+                        {
+                            "name": "onBeforeClick",
+                            "description": "S'execute juste avant que le bouton ne soit cliqué",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "source": "components/button/example-onBeforeClick.js"
+                        },
+                        {
+                            "name": "onAfterClick",
+                            "description": "S'execute juste après le clique sur le bouton",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "source": "components/button/example-onAfterClick.js"
+                        },
+            
+                        {
+                            "name": "onMousedown",
+                            "description": "S'execute lorsque le bouton de la souris est pressé sur le composant",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": ""
+                        },
+                        {
+                            "name": "onBeforeMousedown",
+                            "description": "S'execute juste avant onMousedown",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": ""
+                        },
+                        {
+                            "name": "onAfterMousedown",
+                            "description": "S'execute juste après onMousedown",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": ""
+                        },
+            
+                        {
+                            "name": "onMouseup",
+                            "description": "S'execute lorsque le bouton de la souris est relaché sur le composant",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": ""
+                        },
+                        {
+                            "name": "onBeforeMouseup",
+                            "description": "S'execute juste avant onMouseup",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": ""
+                        },
+                        {
+                            "name": "onAfterMouseup",
+                            "description": "S'execute juste après onMouseup",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

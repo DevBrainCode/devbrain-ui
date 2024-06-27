@@ -1,96 +1,153 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    
     "name": "Cookie-box",
     "description": "Documentation et exemples pour le composant de consentement des cookies / RGPD",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "cookie-box/main.twig",
-        "examples": [
-            {
-                "name": "Test si Cookie Box est deja initialisée",
-                "description": "Retourne <code>true</code> si l'utilisateur à déjà interagie avec CookieBox (vider les caches navigateur)",
-                "file": "cookie-box/is-init.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "type",
-                "type": "string",
-                "required": false,
-                "default": "banner",
-                "description": "Type de bannière <code>banner</code>, <code>modal</code>, <code>overlay</code>"
-            },
-            {
-                "name": "customize",
-                "type": "boolean",
-                "required": false,
-                "default": "no",
-                "description": "Ajoute la possibilité à l'utilisateur de choisir les cookies"
-            },
-            {
-                "name": "header",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte de l'entête du composant"
-            },
-            {
-                "name": "header_template",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Template de l'entête du composant. prend le dessus sur <code>header</code>"
-            },
-            {
-                "name": "header_options",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Paramètres de l'entête du composant"
-            },
-            {
-                "name": "content",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte du contenu du composant"
-            },
-            {
-                "name": "content_template",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Template du contenu du composant. prend le dessus sur <code>header</code>"
-            },
-            {
-                "name": "content_options",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Paramètres du contenu du composant"
-            }
-        ]
-    },
-    "sass": {
-        "import": "cookie-box",
-        "required": true,
-        "variables": [
-            {
-                "name": "cookie-box--backdrop",
-                "default": "true",
-                "description": ""
-            }
-        ],
-        "theme": [
-            {
-                "name": "default--cookie-consent--background-color",
-                "default": "$white",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": "CookieBoxComponent",
-        "required": true
-    }
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/cookie-box/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/cookie-box/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Test si Cookie Box est deja initialisée",
+                            "description": "Retourne <code>true</code> si l'utilisateur à déjà interagie avec CookieBox (vider les caches navigateur)",
+                            "source": "components/cookie-box/is-init.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "banner",
+                            "description": "Type de bannière <code>banner</code>, <code>modal</code>, <code>overlay</code>"
+                        },
+                        {
+                            "name": "customize",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "no",
+                            "description": "Ajoute la possibilité à l'utilisateur de choisir les cookies"
+                        },
+                        {
+                            "name": "header",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte de l'entête du composant"
+                        },
+                        {
+                            "name": "header_template",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Template de l'entête du composant. prend le dessus sur <code>header</code>"
+                        },
+                        {
+                            "name": "header_options",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Paramètres de l'entête du composant"
+                        },
+                        {
+                            "name": "content",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte du contenu du composant"
+                        },
+                        {
+                            "name": "content_template",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Template du contenu du composant. prend le dessus sur <code>header</code>"
+                        },
+                        {
+                            "name": "content_options",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Paramètres du contenu du composant"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/cookie-box/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "cookie-box--backdrop",
+                            "default": "true",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "default--cookie-consent--background-color",
+                            "default": "$white",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/cookie-box/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
 }

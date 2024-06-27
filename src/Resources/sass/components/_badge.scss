@@ -1,0 +1,70 @@
+// ******************************* DevBrain UI ****************************** //
+// *
+// *    Components: Badge
+// *
+// ************************************************************************** //
+
+@use './../abstracts/mixins/corner';
+@use './../abstracts/mixins/spaces';
+@use './../abstracts/mixins/banner';
+@use './../abstracts/functions/color';
+
+@include banner.header('Component Badge');
+
+
+/// Badge variables
+/// =============================================
+
+// No variable
+
+
+/// Badge component
+/// =============================================
+
+/// Badge component
+/// -------------------------
+.badge {
+    @include corner.rounded($spacer);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    color: var(--white);
+    font-weight: 700;
+
+
+    /// Badge sizes
+    /// -------------------------
+    & {
+        @include spaces.padding( $spacer * .4, $spacer * .6, $spacer * .4, $spacer * .6 );
+        font-size: $spacer * .8;
+        line-height: .8;
+    }
+    &-small {
+        @include spaces.padding( $spacer * .3, $spacer * .4, $spacer * .3, $spacer * .4 );
+        font-size: $spacer * .7;
+        line-height: .6;
+    }
+    &-large {
+        @include spaces.padding( $spacer * .6, $spacer * .8, $spacer * .6, $spacer * .8 );
+        font-size: $spacer * 1;
+        line-height: 1;
+    }
+
+
+    /// Badge Pallet
+    /// -------------------------
+    @each $_key, $_color in $pallet {
+    
+        $_shade       : color.shade($_color, 30%);
+        $_tint        : color.tint($_color, 60%);
+        $_contrastText: color.contrastText($_shade);
+    
+        &-#{$_key} {
+            background-color: var(--#{$_key});
+            border-color: var(--#{$_key});
+        }
+    }
+}
+

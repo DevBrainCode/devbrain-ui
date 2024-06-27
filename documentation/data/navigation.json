@@ -1,110 +1,167 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    
     "name": "Navigation",
     "description": "Documentation et exemples pour le composant Navigation",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "navigation/main.twig",
-        "examples": [
-            {
-                "name": "Template",
-                "description": "",
-                "file": "navigation/template.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "id",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Definit la valeur de l'attribut <code>id</code>, Si l'id est null, une valeur sera générée automatiquement"
-            },
-            {
-                "name": "container",
-                "type": "enum",
-                "required": false,
-                "default": "container",
-                "description": "Definit le type de container <code>fluid</code>, <code>phone</code>, <code>tablet</code>, <code>laptop</code>, <code>desktop</code>, <code>wide</code>, <code>ultra</code>"
-            },
-            {
-                "name": "expandAt",
-                "type": "enum",
-                "required": false,
-                "default": "laptop",
-                "description": "Definit le breakpoint auquel le menu s'affiche <code>phone</code>, <code>tablet</code>, <code>laptop</code>, <code>desktop</code>, <code>wide</code>, <code>ultra</code>"
-            },
-            {
-                "name": "type",
-                "type": "enum",
-                "required": false,
-                "default": "",
-                "description": "Type de d'affichage responsive  <code>left</code>, <code>right</code>, <code>collapse</code>"
-            },
-            {
-                "name": "brand",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Objet representant le composant Brand. Voir le composant Brand"
-            },
-            {
-                "name": "schema",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Schema d'objet composant la navigation"
-            },
-            {
-                "name": "schema.type",
-                "type": "enum",
-                "required": false,
-                "default": "",
-                "description": "Definit le type de composant <code>menu</code>, <code>searchbar</code>"
-            },
-            {
-                "name": "schema.template",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Emplacement du template du composant à intégrer"
-            },
-            {
-                "name": "schema.options",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Definit les options du composant"
-            }
-        ]
-    },
-    "sass": {
-        "import": "navigation",
-        "required": true,
-        "variables": [
-            {
-                "name": "navigation--side-panel-width",
-                "default": "280px",
-                "description": ""
-            }
-        ],
-        "theme": [
-            {
-                "name": "default--navigation--background-color",
-                "default": "$white",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": "NavigationComponent",
-        "required": true
-    }
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/navigation/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/navigation/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Template",
+                            "description": "",
+                            "source": "components/navigation/template.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Definit la valeur de l'attribut <code>id</code>, Si l'id est null, une valeur sera générée automatiquement"
+                        },
+                        {
+                            "name": "container",
+                            "type": "enum",
+                            "required": false,
+                            "default": "container",
+                            "description": "Definit le type de container <code>fluid</code>, <code>phone</code>, <code>tablet</code>, <code>laptop</code>, <code>desktop</code>, <code>wide</code>, <code>ultra</code>"
+                        },
+                        {
+                            "name": "expandAt",
+                            "type": "enum",
+                            "required": false,
+                            "default": "laptop",
+                            "description": "Definit le breakpoint auquel le menu s'affiche <code>phone</code>, <code>tablet</code>, <code>laptop</code>, <code>desktop</code>, <code>wide</code>, <code>ultra</code>"
+                        },
+                        {
+                            "name": "type",
+                            "type": "enum",
+                            "required": false,
+                            "default": "",
+                            "description": "Type de d'affichage responsive  <code>left</code>, <code>right</code>, <code>collapse</code>"
+                        },
+                        {
+                            "name": "brand",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Objet representant le composant Brand. Voir le composant Brand"
+                        },
+                        {
+                            "name": "schema",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Schema d'objet composant la navigation"
+                        },
+                        {
+                            "name": "schema.type",
+                            "type": "enum",
+                            "required": false,
+                            "default": "",
+                            "description": "Definit le type de composant <code>menu</code>, <code>searchbar</code>"
+                        },
+                        {
+                            "name": "schema.template",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Emplacement du template du composant à intégrer"
+                        },
+                        {
+                            "name": "schema.options",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Definit les options du composant"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/navigation/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "navigation--side-panel-width",
+                            "default": "280px",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "default--navigation--background-color",
+                            "default": "$white",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/navigation/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
 }

@@ -9,7 +9,7 @@ class ComponentTokenParser extends AbstractTokenParser
 {
     public function getTag()
     {
-        return 'component';
+        return 'db_component';
     }
 
     public function parse(Token $token)

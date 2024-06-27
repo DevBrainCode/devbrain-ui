@@ -1,162 +1,217 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+
     "name": "Back-to-top",
     "description": "Documentation et exemples pour le composant Back to Top",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "back-to-top/main.twig",
-        "_examples": [
-            {
-                "name": "",
-                "description": "",
-                "file": ""
-            }
-        ],
-        "variables": [
-            {
-                "name": "title",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte pour l'accessibilité"
-            },
-            {
-                "name": "topAt",
-                "type": "integer",
-                "required": false,
-                "default": "0",
-                "description": "Coordonnées de la position du top"
-            },
-            {
-                "name": "toggleAt",
-                "type": "integer",
-                "required": false,
-                "default": "200",
-                "description": "Position à partir de laquelle le bouton \"to top\" s'affiche"
-            }
-        ]
-    },
-    "sass": {
-        "import": "back-to-top",
-        "required": true,
-        "variables": [
-            {
-                "name": "button-to-top--size",
-                "default": "40px",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--position",
-                "default": "right",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--offset-x",
-                "default": "1rem",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--offset-y",
-                "default": "1rem",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--symbol",
-                "default": "\"\\23F6\"",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--font-size",
-                "default": "2",
-                "description": ""
-            }
-        ],
-        "theme": [
-            {
-                "name": "button-to-top--background-color",
-                "default": "$teal",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--border-color",
-                "default": "$teal",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--text-color",
-                "default": "$white",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--background-hover-color",
-                "default": "$green",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--border-hover-color",
-                "default": "$green",
-                "description": ""
-            },
-            {
-                "name": "button-to-top--text-hover-color",
-                "default": "$white",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": "ButtonToTopComponent",
-        "required": true,
-        "source": "back-to-top/script.twig",
-        "methods": [
-            {
-                "name": "onClick",
-                "description": "S'execute lorsque lors du clique",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": "",
-                "source": "back-to-top/script-onClick.twig"
-            },
-            {
-                "name": "onBeforeClick",
-                "description": "S'execute juste avant le clique",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": "",
-                "_source": "back-to-top/script-onBeforeClick.twig"
-            },
-            {
-                "name": "onAfterClick",
-                "description": "S'execute juste après le clique",
-                "parameters": [
-                    {
-                        "name": "event",
-                        "description": "L'évènement déclencheur."
-                    },
-                    {
-                        "name": "element",
-                        "description": "L'élément HTML déclencheur de l'évènement."
-                    }
-                ],
-                "return": "",
-                "_source": "back-to-top/script-onAfterClick.twig"
-            }
-        ]
-    }
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/back-to-top/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/back-to-top/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte pour l'accessibilité"
+                        },
+                        {
+                            "name": "topAt",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0px",
+                            "description": "Coordonnées de la position du top"
+                        },
+                        {
+                            "name": "toggleAt",
+                            "type": "integer",
+                            "required": false,
+                            "default": "200",
+                            "description": "Position à partir de laquelle le bouton \"to top\" s'affiche"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/back-to-top/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "button-to-top--size",
+                            "default": "40px",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--position",
+                            "default": "right",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--offset-x",
+                            "default": "1rem",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--offset-y",
+                            "default": "1rem",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--symbol",
+                            "default": "\"\\23F6\"",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--font-size",
+                            "default": "2",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--zindex",
+                            "default": "1040",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "button-to-top--background-color",
+                            "default": "$teal",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--border-color",
+                            "default": "$teal",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--text-color",
+                            "default": "$white",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--background-hover-color",
+                            "default": "$green",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--border-hover-color",
+                            "default": "$green",
+                            "description": ""
+                        },
+                        {
+                            "name": "button-to-top--text-hover-color",
+                            "default": "$white",
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/back-to-top/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- METHODES JAVASCRIPT ---",
+                    "title": "Méthodes JavaScript",
+                    "description": "Ajouter vos propres methode JavaScript sur les evenement suivant",
+                    "source": "components/back-to-top/example-onClick.js",
+                    "render_preview": false,
+                    "render_source": true,
+                    "params_js": [
+                        {
+                            "name": "onClick",
+                            "description": "S'execute lorsque lors du clique",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "_source": "components/back-to-top/script-onClick.twig"
+                        },
+                        {
+                            "name": "onBeforeClick",
+                            "description": "S'execute juste avant le clique",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "_source": "back-to-top/script-onBeforeClick.twig"
+                        },
+                        {
+                            "name": "onAfterClick",
+                            "description": "S'execute juste après le clique",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "description": "L'évènement déclencheur."
+                                },
+                                {
+                                    "name": "element",
+                                    "description": "L'élément HTML déclencheur de l'évènement."
+                                }
+                            ],
+                            "return": "",
+                            "_source": "back-to-top/script-onAfterClick.twig"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

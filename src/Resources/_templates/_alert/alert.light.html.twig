@@ -1,0 +1,26 @@
+{# ------------------ DevBrain Component : Alert - Settings ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _type    = "light" %}
+
+{# Public properties #}
+{% set _class           = class|default('') %}
+{% set _message         = message|default('') %}
+{% set _isDismissible   = dismissible|default('no') %}
+
+
+
+{# ------------------- DevBrain Component : Alert - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+
+{# ------------------ DevBrain Component : Alert - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+{% db_component 'alert' part 'root' with {
+    class      : _class,
+    type       : _type,
+    dismissible: _isDismissible,
+    message    : _message,
+} %}

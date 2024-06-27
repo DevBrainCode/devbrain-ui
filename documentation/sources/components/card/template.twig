@@ -1,0 +1,19 @@
+{% db_component 'card' with {
+    title: "My card title",
+    subtitle: "My card subtitle",
+
+    header_template: '@DevbrainUiDoc/sources/card/template-header.html.twig',
+    header_options: {
+        content: "My card header additional content"
+    },
+
+    body_template: "@DevbrainUiDoc/sources/card/template-body.html.twig",
+    body_options: {
+        content: "My card content"
+    },
+
+    footer_template: "@DevbrainUiDoc/sources/card/template-footer.html.twig",
+    footer_options: {
+        data: "Data for footer template"
+    }
+} %}

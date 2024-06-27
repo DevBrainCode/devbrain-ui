@@ -41,7 +41,7 @@
 {# ------------------- DevBrain Component : Menu - Content ------------------ #}
 {# -------------------------------------------------------------------------- #}
 <nav {{ _get_attributes(_attr) }}>
-{% component 'menu' part 'items' with {
+{% db_component 'menu' part 'items' with {
     items: _items
 } %}
 </nav>

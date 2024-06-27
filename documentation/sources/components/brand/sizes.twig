@@ -1,0 +1,35 @@
+<div class="grid">
+    <div class="column">
+
+        {% db_component 'brand' with {
+            logo   : asset('build/images/logo.png'),
+            name   : 'DevBrain',
+            url    : url('app_homepage'),
+            tagline: 'Brand tagline',
+            size   : 'small',
+        } %}
+
+    </div>
+    <div class="column">
+
+        {% db_component 'brand' with {
+            logo   : asset('build/images/logo.png'),
+            name   : 'DevBrain',
+            url    : url('app_homepage'),
+            tagline: 'Brand tagline',
+            size   : 'medium',
+        } %}
+
+    </div>
+    <div class="column">
+
+        {% db_component 'brand' with {
+            logo   : asset('build/images/logo.png'),
+            name   : 'DevBrain',
+            url    : url('app_homepage'),
+            tagline: 'Brand tagline',
+            size   : 'large',
+        } %}
+
+    </div>
+</div>

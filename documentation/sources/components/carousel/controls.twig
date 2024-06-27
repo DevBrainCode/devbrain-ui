@@ -1,0 +1,27 @@
+{% db_component 'carousel.control' with {
+    control: "prev",
+    class  : "my-custom-carousel",
+    id     : "my-carousel",
+    label  : "Previous",
+} %}
+{% db_component 'carousel.prev' with {
+    class  : "my-custom-carousel",
+    id     : "my-carousel",
+    label  : "Previous",
+} %}
+<button data-controls="prev" data-target="my-carousel">prev</button>
+
+<br>
+
+{% db_component 'carousel.control' with {
+    control: "next",
+    class  : "my-custom-carousel",
+    id     : "my-carousel",
+    label  : "Next",
+} %}
+{% db_component 'carousel.next' with {
+    class  : "my-custom-carousel",
+    id     : "my-carousel",
+    label  : "Next",
+} %}
+<button data-controls="next" data-target="my-carousel">next</button>

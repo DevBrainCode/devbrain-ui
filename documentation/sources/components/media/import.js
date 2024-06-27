@@ -1,0 +1,1 @@
+import MediaComponent from 'vendor/devbraincode/devbrain-ui/scripts/components/MediaComponent';

@@ -1,0 +1,103 @@
+{# --------------- DevBrain Component : Navigation - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr        = attr|default({}) %}
+{% set _attr        = _attr|merge({class: ''}) %}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' navigation') %}
+
+{# Public properties #}
+{% set _id          = id|default('') %}
+{% set _class       = class|default('') %}
+{% set _container   = container|default('') %}
+{% set _type        = type|default('left') %}
+{% set _expandAt    = expandAt|default('laptop') %}
+{% set _brand       = brand|default({}) %}
+{% set _schema      = schema|default({}) %}
+
+
+
+{# ----------------- DevBrain Component : Navigation - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Id #}
+{% if _id is empty %}
+{% set rand = [] %}
+{% for i in 1..10 %}
+    {% set chars = random('abcdefghijklmnopqrstuvwxyz0123456789') %}
+    {% set rand = rand|merge([chars]) %}
+{% endfor %}
+{% set _id = rand|join %}
+{% endif %}
+
+{% set _attr = _add_attribute(_attr, 'id', _id) %}
+
+
+{# Container #}
+{% set _container = _container is empty ? 'container' : 'container-' ~ _container %}
+
+{# Responsive display #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' expand-at-'~ _expandAt) %}
+
+{# navigation collapse type #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' navigation-'~ _type) %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~ ' '~ _class) %}
+
+
+{# ---------------- DevBrain Component : Navigation - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+<nav {{ _get_attributes(_attr) }}>
+    <div class="{{ _container }}">
+
+        {% if _brand is not empty %}
+            {% db_component 'brand' with _brand %}
+        {% endif %}
+
+        {% db_component 'button' with {
+            label       : "Expand",
+            class       : 'navigation-toggler',
+            dataset     : {
+                action: 'toggle',
+                target: _id,
+            }
+        } %}
+
+        <div class="navigation-content">
+
+            {% db_component 'button' with {
+                label       : "Close",
+                class       : 'navigation-close',
+                dataset     : {
+                    action: 'hide',
+                    target: _id,
+                }
+            } %}
+
+            {% for _node in _schema %}
+
+                {% if _node.template is defined and _node.template is not empty %}
+                    
+                    {% include _node.template with _node.options|default({}) %}
+
+                {% else %}
+
+                    {% if _node.type == 'menu' %}
+                        {% db_component 'menu' with {
+                            _class: '',
+                            _label: 'Secondary',
+                            _orientation: 'vertical',
+                            items: _node.options
+                        } %}
+                    {% elseif _node.type == 'searchbar' %}
+                        {% db_component 'searchbar' with _node.options %}
+                    {% endif %}
+
+                {% endif %}
+
+            {% endfor %}
+        </div>
+
+    </div>
+</nav>

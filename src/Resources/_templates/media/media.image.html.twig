@@ -1,0 +1,80 @@
+{# ----------------- DevBrain Component : Media - Settings ------------------ #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr                = attr|default({}) %}
+{% set _attr                = _attr|merge({class: ''}) %}
+{% set _attr                = _add_attribute(_attr, 'class', _attr.class ~' media media-image') %}
+
+{# Public properties #}
+{% set _class               = class|default('') %}
+{% set _type                = type|default('image') %}
+{% set _legend              = legend|default('') %}
+{% set _source              = source|default([]) %}
+{% set _sizes               = sizes|default([]) %}
+{% set _inline              = inline|default("no") %}
+
+{% set _alt                 = alt|default('') %}
+{% set _referrerpolicy      = referrerpolicy|default('') %}
+{% set _lazy                = lazy|default('yes') %}
+
+
+{# ------------------- DevBrain Component : Media - Attr -------------------- #}
+{# -------------------------------------------------------------------------- #}
+
+
+{# _source - string to object #}
+{% if _source is not iterable %}
+{% set _source = {default: _source} %}
+{% endif %}
+
+{# _source - default entry #}
+{% if _source.default is not defined and _source is not empty %}
+{% set _first_key = _source | keys | first %}
+{% set _source = {'default': _source[_first_key]}|merge(_source) %}
+{% endif %}
+
+
+{% set _src = _source.default|default('') %}
+
+{# Src Set #}
+{% set _srcset = [] %}
+{% for _key, _url in _source %}
+{% if _key != 'default' %}
+{% set _srcset = _srcset|merge([_url ~ ' ' ~ _key]) %}
+{% endif %}
+{% endfor %}
+{% set _srcset = _srcset|join(',') %}
+
+{# Breakpoint Sizes #}
+{% set _sizes = _sizes|join(', ') %}
+
+{# Inline media #}
+{% if _inline == "yes" %}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' media-inline') %}
+{% endif %}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+{# ------------------ DevBrain Component : Media - Content ------------------ #}
+{# -------------------------------------------------------------------------- #}
+<figure {{ _get_attributes(_attr) }}>
+
+    {% db_component 'media' part 'img' with {
+        src           : _src,
+        srcset        : _srcset,
+        sizes         : _sizes,
+        alt           : _alt,
+        lazy          : _lazy,
+        referrerpolicy: _referrerpolicy,
+    } %}
+
+    {% if _legend is not empty %}
+    {% db_component 'media' part 'caption' with {
+        legend: _legend
+    } %}
+    {% endif %}
+
+</figure>

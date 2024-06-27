@@ -1,48 +1,84 @@
 {
-    "name": "Calendar",
-    "description": "Documentation et exemples pour le composant d'accordéon",
     "type": "component",
     "status": "⚠️",
     "_status": "✅",
-    "twig": {
-        "_source": "calendar.twig",
-        "_examples": [
-            {
-                "name": "",
-                "description": "",
-                "file": ""
-            }
-        ],
-        "_variables": [
-            {
-                "name": "xxx",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "sass": {
-        "import": "calendar",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "_theme": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+
+    "name": "Calendar",
+    "description": "Documentation et exemples pour le composant Calendar",
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/xxxxx/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/xxxxx/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/xxxxx/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                    ]
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- JAVASCRIPT DOCUMENTATION BLOCK ---",
+            "title": "Configuration JavaScript",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT JAVASCRIPT ---",
+                    "title": "Import JavaScript",
+                    "source": "components/xxxxx/import.js",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- METHODES JAVASCRIPT ---",
+                    "title": "Méthodes JavaScript",
+                    "description": "Ajouter vos propres methode JavaScript sur les evenement suivant",
+                    "source": "components/xxxxx/example-onClick.js",
+                    "render_preview": false,
+                    "render_source": true,
+                    "params_js": [
+                    ]
+                }
+            ]
+        }
+    ]
 }

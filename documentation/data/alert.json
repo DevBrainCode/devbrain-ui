@@ -1,48 +1,115 @@
 {
-    "name": "Alert",
-    "description": "Documentation et exemples pour le composant d'accordéon",
     "type": "component",
     "status": "⚠️",
     "_status": "✅",
-    "twig": {
-        "_source": "alert.twig",
-        "_examples": [
-            {
-                "name": "",
-                "description": "",
-                "file": ""
-            }
-        ],
-        "_variables": [
-            {
-                "name": "xxx",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "sass": {
-        "import": "alert",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "_theme": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+
+    "name": "Alerts",
+    "description": "Documentation et exemples pour le composant d'accordéon",
+    
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/alert/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/alert/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Palette",
+                            "description": "",
+                            "source": "components/alert/example-pallet.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Dismissible",
+                            "description": "",
+                            "source": "components/alert/example-dismissible.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "Custom class",
+                            "description": "",
+                            "source": "components/alert/example-class.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "success",
+                            "description": "Type de l'alert <code>success</code>, <code>warning</code>, <code>danger</code>, <code>info</code>, <code>primary</code>, <code>secondary</code>, <code>light</code>, <code>dark</code>, <code>muted</code>"
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Classes personnalisées."
+                        },
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "description": "Message de l'alert"
+                        },
+                        {
+                            "name": "dismissible",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "description": "Ajoute le bouton de fermeture de l'alert"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/alert/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS VARIABLES ---",
+                    "title": "Liste des variables SASS",
+                    "params_sass": [
+                        {
+                            "name": "alert--margin-y",
+                            "default": "1rem",
+                            "description": "Margin top et margin bottom"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

@@ -1,138 +1,171 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    
     "name": "Menu",
     "description": "Documentation et exemples pour le composant Menu",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "menu/main.twig",
-        "examples": [
-            {
-                "name": "Menu vertical",
-                "description": "",
-                "file": "menu/vertical.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "orientation",
-                "type": "enum",
-                "required": false,
-                "default": "horizontal",
-                "description": "Definit l'orientation du menu <code>horizontal</code> ou <code>vertical</code>"
-            },
-            {
-                "name": "justify",
-                "type": "enum",
-                "required": false,
-                "default": "start",
-                "description": "Definit la position des elements du menu horizontal <code>start</code>, <code>center</code>, <code>end</code>, <code>fill</code>"
-            },
-            {
-                "name": "label",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Texte de l'attribut <code>aria-label</code>"
-            },
-            {
-                "name": "items",
-                "type": "array",
-                "required": false,
-                "default": "[]",
-                "description": "Liste des items du menu"
-            },
-            {
-                "name": "xxx",
-                "type": "string",
-                "required": false,
-                "default": "start",
-                "description": "xxxx"
-            },
-            {
-                "name": "xxx",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "xxxx"
-            },
-            {
-                "name": "xxx",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "xxxx"
-            },
-            {
-                "name": "xxx",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "xxxx"
-            }
-        ]
-    },
-    "sass": {
-        "import": "menu",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "theme": [
-            {
-                "name": "default--menu--background-color",
-                "default": "$white"
-            },
-            {
-                "name": "default--submenu--background-color",
-                "default": "$white"
-            },
-            {
-                "name": "default--menu-link--text-color",
-                "default": "$black"
-            },
-            {
-                "name": "default--menu-link--background-color",
-                "default": "transparent"
-            },
-            {
-                "name": "default--menu-link--hover-text-color",
-                "default": "$black"
-            },
-            {
-                "name": "default--menu-link--hover-background-color",
-                "default": "$gray-200"
-            },
-            {
-                "name": "default--menu-link--active-text-color",
-                "default": "$black"
-            },
-            {
-                "name": "default--menu-link--active-background-color",
-                "default": "$gray-300"
-            },
-            {
-                "name": "default--menu-link--disabled-text-color",
-                "default": "$gray-500"
-            },
-            {
-                "name": "default--menu-link--disabled-background-color",
-                "default": "transparent"
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/menu/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/menu/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Menu vertical",
+                            "description": "",
+                            "source": "components/menu/vertical.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "orientation",
+                            "type": "enum",
+                            "required": false,
+                            "default": "horizontal",
+                            "description": "Definit l'orientation du menu <code>horizontal</code> ou <code>vertical</code>"
+                        },
+                        {
+                            "name": "justify",
+                            "type": "enum",
+                            "required": false,
+                            "default": "start",
+                            "description": "Definit la position des elements du menu horizontal <code>start</code>, <code>center</code>, <code>end</code>, <code>fill</code>"
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Texte de l'attribut <code>aria-label</code>"
+                        },
+                        {
+                            "name": "items",
+                            "type": "array",
+                            "required": false,
+                            "default": "[]",
+                            "description": "Liste des items du menu"
+                        },
+                        {
+                            "name": "xxx",
+                            "type": "string",
+                            "required": false,
+                            "default": "start",
+                            "description": "xxxx"
+                        },
+                        {
+                            "name": "xxx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "xxxx"
+                        },
+                        {
+                            "name": "xxx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "xxxx"
+                        },
+                        {
+                            "name": "xxx",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "xxxx"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/menu/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- SASS THEMES VARIABLES ---",
+                    "title": "Liste des variables de Theme",
+                    "params_sass": [
+                        {
+                            "name": "default--menu--background-color",
+                            "default": "$white"
+                        },
+                        {
+                            "name": "default--submenu--background-color",
+                            "default": "$white"
+                        },
+                        {
+                            "name": "default--menu-link--text-color",
+                            "default": "$black"
+                        },
+                        {
+                            "name": "default--menu-link--background-color",
+                            "default": "transparent"
+                        },
+                        {
+                            "name": "default--menu-link--hover-text-color",
+                            "default": "$black"
+                        },
+                        {
+                            "name": "default--menu-link--hover-background-color",
+                            "default": "$gray-200"
+                        },
+                        {
+                            "name": "default--menu-link--active-text-color",
+                            "default": "$black"
+                        },
+                        {
+                            "name": "default--menu-link--active-background-color",
+                            "default": "$gray-300"
+                        },
+                        {
+                            "name": "default--menu-link--disabled-text-color",
+                            "default": "$gray-500"
+                        },
+                        {
+                            "name": "default--menu-link--disabled-background-color",
+                            "default": "transparent"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

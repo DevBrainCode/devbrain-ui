@@ -1,0 +1,33 @@
+{# --------------- DevBrain Component : Breadcrumb - Settings --------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Private properties #}
+{% set _attr        = attr|default({}) %}
+{% set _attr        = _attr|merge({class: ''}) %}
+{% set _attr        = _add_attribute(_attr, 'class', _attr.class ~' breadcrumb') %}
+
+{# Public properties #}
+{% set _class       = class|default('') %}
+{% set _label       = label|default('') %}
+{% set _items       = items|default([]) %}
+
+
+
+{# ----------------- DevBrain Component : Breadcrumb - Attr ----------------- #}
+{# -------------------------------------------------------------------------- #}
+
+{# Add custom class #}
+{% set _attr = _add_attribute(_attr, 'class', _attr.class ~' ' ~ _class) %}
+
+
+
+{# ---------------- DevBrain Component : Breadcrumb - Content --------------- #}
+{# -------------------------------------------------------------------------- #}
+<ul {{ _get_attributes(_attr) }}>
+{% for _link in _items %}
+{% db_component 'breadcrumb' part 'item' with {
+    link  : _link,
+    active: loop.last ? "yes" : "no"
+} %}
+{% endfor %}
+</ul>

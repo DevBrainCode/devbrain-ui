@@ -1,73 +1,97 @@
 {
+    "type": "component",
+    "status": "⚠️",
+    "_status": "✅",
+    
     "name": "Map",
     "description": "Documentation et exemples pour le composant Map",
-    "type": "component",
-    "status": "✅",
-    "twig": {
-        "source": "map/main.twig",
-        "examples": [
-            {
-                "name": "Google Map",
-                "description": "",
-                "file": "map/google.twig"
-            },
-            {
-                "name": "LeafLet",
-                "description": "",
-                "file": "map/leaflet.twig"
-            }
-        ],
-        "variables": [
-            {
-                "name": "class",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "Liste des classes personnalisée"
-            },
-            {
-                "name": "provider",
-                "type": "enum",
-                "required": false,
-                "default": "google",
-                "description": "Type du fournisseur de service de cartographie: <code>google</code>, <code>leaflet</code>"
-            },
-            {
-                "name": "reference",
-                "type": "string",
-                "required": false,
-                "default": "",
-                "description": "URL ou Référence de la carte"
-            },
-            {
-                "name": "dataset",
-                "type": "array",
-                "required": false,
-                "default": "{}",
-                "description": "Liste d'attribut data"
-            }
-        ]
-    },
-    "sass": {
-        "import": "map",
-        "required": true,
-        "_variables": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ],
-        "_theme": [
-            {
-                "name": "",
-                "default": "",
-                "description": ""
-            }
-        ]
-    },
-    "javascript": {
-        "import": null,
-        "required": false
-    }
+
+    "blocks": [
+        {
+            "_BLOCK": "--- RENDERING PREVIEW ---",
+            "source": "components/map/preview.twig",
+            "render_preview": true,
+            "render_source": false
+        },
+        {
+            "_BLOCK": "--- TWIG DOCUMENTATION BLOCK ---",
+            "title": "Composant Twig",
+            "blocks": [
+                {
+                    "_BLOCK": "--- TWIG SOURCE ---",
+                    "title": "Intégration du composant Twig",
+                    "source": "components/map/preview.twig",
+                    "render_preview": false,
+                    "render_source": true
+                },
+                {
+                    "_BLOCK": "--- TWIG ADDITIONAL EXAMPLES ---",
+                    "title": "Exemples supplémentaires",
+                    "blocks": [
+                        {
+                            "title": "Google Map",
+                            "description": "",
+                            "source": "components/map/google.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        },
+                        {
+                            "title": "LeafLet",
+                            "description": "",
+                            "source": "components/map/leaflet.twig",
+                            "render_preview": true,
+                            "render_source": true
+                        }
+                    ]
+                },
+                {
+                    "_BLOCK": "--- TWIG PARAMS ---",
+                    "title": "Parametres du composant",
+                    "params_twig": [
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "Liste des classes personnalisée"
+                        },
+                        {
+                            "name": "provider",
+                            "type": "enum",
+                            "required": false,
+                            "default": "google",
+                            "description": "Type du fournisseur de service de cartographie: <code>google</code>, <code>leaflet</code>"
+                        },
+                        {
+                            "name": "reference",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "URL ou Référence de la carte"
+                        },
+                        {
+                            "name": "dataset",
+                            "type": "array",
+                            "required": false,
+                            "default": "{}",
+                            "description": "Liste d'attribut data"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_BLOCK": "--- SASS DOCUMENTATION BLOCK ---",
+            "title": "Configuration SASS",
+            "blocks": [
+                {
+                    "_BLOCK": "--- IMPORT SASS ---",
+                    "title": "Import du composant SASS",
+                    "source": "components/map/import.scss",
+                    "render_preview": false,
+                    "render_source": true
+                }
+            ]
+        }
+    ]
 }
